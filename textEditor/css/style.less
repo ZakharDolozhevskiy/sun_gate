@@ -1,0 +1,157 @@
+@btnColor: #4682B4;
+
+//helpers start
+
+#helpers{
+
+  .clearfix{
+    &:after {
+      content: " ";
+      display: block;
+      height: 0;
+      clear: both;
+      visibility: hidden;
+    }
+  }
+  .user_select{
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+}
+
+//helpers end
+
+body, html{
+  height: 100%;
+  background-image: url(http://subtlepatterns.com/patterns/grey_wash_wall.png);
+}
+
+#main_wrap{
+  box-sizing: border-box;
+  height: 100%;
+  width: 60%;
+  padding: 30px;
+  margin: 0 auto;
+  background: #fff;
+
+  .logo{
+    color: #4682B4;
+    font: 27px 'Dosis', 'Tahoma', sans-serif;
+    margin-bottom: 20px;
+  }
+
+  .intro{
+    font: 18px/1.5 'Dosis', 'Tahoma', sans-serif;
+    margin-bottom: 20px;
+  }
+
+  .preview{
+    float: right;
+    height: 50px;
+    width: 100px;
+    margin-right: 50px;
+    border: 1px solid @btnColor;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: lighten(hsl(hue(@btnColor), 0.45, 0.75), 20%);
+
+    #helpers > .user_select;
+  }
+  .preview:hover{
+    background-color: darken(hsl(hue(@btnColor), 0.45, 0.75), 20%);
+  }
+}
+#editor{
+  width: 80%;
+  margin: 0 auto 20px;
+  padding: 10px;
+  border: 1px dashed lightslategrey;
+  border-radius: 5px;
+
+  #legend{
+    height: 100px;
+    margin-bottom: 5px;
+    border-bottom: 1px slategrey solid;
+    text-align: center;
+
+    .fontStyle{
+
+      #helpers > .clearfix;
+      #helpers > .user_select;
+
+      li{
+        float: left;
+        width: 25px;
+        height: 25px;
+        margin: 10px;
+        cursor: pointer;
+        font: 16px/1.5 'Dosis', 'Tahoma', sans-serif;
+        background-color: lighten(hsl(hue(@btnColor), 45%, 75%), 10%);
+        border-radius: 10%;
+        box-shadow: 0 0 5px #778899;
+      }
+      li:hover{
+        background-color: hsl(hue(@btnColor), 45%, 75%);
+      }
+      .italic{
+        font-style: italic;
+      }
+      .bold{
+        font-weight: bold;
+      }
+      .u_line{
+        text-decoration: underline;
+      }
+      // highlighter
+      .highlighter{
+        background-color: darken(hsl(hue(@btnColor), 45%, 75%), 30%);
+      }
+      .highlighter:hover{
+        background-color: darken(hsl(hue(@btnColor), 45%, 75%), 30%);
+      }
+    }
+  }
+
+  iframe{
+    display: block;
+    height: 200px;
+    width: 100%;
+    border: 1px slategrey solid;
+    margin: 0 auto;
+  }
+}
+
+
+
+#modal{
+    width: 600px;
+    padding: 30px;
+    display: none;
+    background: #FFF;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    box-shadow: 0px 0px 4px rgba(0,0,0,0.7);
+    -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.7);
+    -moz-box-shadow: 0 0px 4px rgba(0,0,0,0.7);
+}
+#lean_overlay {
+    position: fixed;
+    z-index: 10000;
+    top: 0px;
+    left: 0px;
+    height: 100%;
+    width: 100%;
+    background: #000;
+    display: none;
+}
+
+
+
+
+
+
+
+
