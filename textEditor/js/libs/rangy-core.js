@@ -3231,9 +3231,6 @@ var rangyCreate = function(global){
 
         var dom = api.dom;
 
-        debugger;
-
-
         var defaultTagName = "span";
 
         function trim(str) {
