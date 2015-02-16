@@ -4,7 +4,14 @@
      * @param container jQuery object
      * @constructor
      */
-    var Editor = function(container){
+    global.Editor = function(container){
+        /**
+         * Check that container is the created dom element at the user's page
+         */
+        if( !container.length ){
+            throw Error('Argument isn\'t a DOM element. Please check the passed argument' );
+        }
+
         Editor.prototype.init(container);
     };
 
@@ -16,11 +23,13 @@
 
             this.legend_items = {
                 'items':[
-                    {'className': 'set_bold', 'title': 'B', 'handler': this.setBold},
+                    {'className': 'set_bold', 'title': 'B', 'tag': 'b', 'handler': this.setBold},
 
-                    {'className': 'set_underline', 'title': 'U', 'handler': this.setUnderline},
+                    {'className': 'set_underline', 'title': 'U', 'tag': 'em', 'handler': this.setUnderline},
 
-                    {'className': 'set_cursive', 'title': 'I', 'handler': this.setItalic}
+                    {'className': 'set_cursive', 'title': 'I', 'tag': 's', 'handler': this.setItalic},
+
+                    {'className': 'all_select', 'title': 'Select All', 'handler': this.selectAll}
                 ]
             };
 
@@ -54,7 +63,7 @@
         },
 
         render: function(container){
-            var $iframe = $('<iframe/>').addClass('content'),
+            var $iframe = $('<iframe/>').addClass('holder'),
                 $content = $('<div/>').addClass('content')
                     .attr('contenteditable','true')
                     .attr('ondragstart','return false')
@@ -127,7 +136,7 @@
             this.controls.italic.toggleSelection();
         },
 
-        setUnderline: function () {
+        setUnderline: function() {
             this.controls.underLine.toggleSelection();
         },
 
@@ -137,11 +146,17 @@
                 content= $(this.iDoc.body).html();
 
             $(newWin.document.body).html( content );
-        }
+        },
 
+        selectAll: function(){
+            var range = this.rangy.createRange();
+                range.selectNodeContents($(this.iDoc).find('.content')[0]);
+            // added selection
+            this.rangy.getSelection().setSingleRange(range);
+        }
     });
 
-    new Editor($('#editor'));
+    new Editor($("#editor"));
 
 })(this);
 
