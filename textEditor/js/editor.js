@@ -126,6 +126,16 @@
             }.bind(this));
         },
 
+        cleaner: function(content) {
+            /**
+             * This function is delete all auxiliary classes that help with tag's wrapping
+             * Without this classes user won't add nested tags group
+             */
+
+            return content.replace(/class[\s]?=[\s]?("|').+?\1/gi,'');
+
+        },
+
         // ---------- functions - controls block --------------
 
         setBold: function() {
@@ -143,9 +153,11 @@
         showPreview: function(){
             var newWin = open("", "Preview", "height=600,width=800"),
             // content that have been added in the editable iframe's window
-                content= $(this.iDoc.body).html();
+                content= $(this.iDoc.body).find(".content").html();
+            // delete additional classes
+                content = this.cleaner(content);
 
-            $(newWin.document.body).html( content );
+            $(newWin.document.body).text( content );
         },
 
         selectAll: function(){

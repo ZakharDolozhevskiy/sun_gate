@@ -62,7 +62,7 @@ body, html{
     background-color: darken(hsl(hue(@btnColor), 0.45, 0.75), 20%);
   }
 }
-#editor{
+#editor {
   width: 80%;
   margin: 0 auto 20px;
   padding: 10px;
@@ -71,58 +71,56 @@ body, html{
 
   #helpers > .clearfix;
 
-//  #legend{
-//    height: 100px;
-//    margin-bottom: 5px;
-//    border-bottom: 1px slategrey solid;
-//    text-align: center;
-//
-//    .fontStyle{
-//
-//      #helpers > .clearfix;
-//      #helpers > .user_select;
-//
-//      li{
-//        float: left;
-//        width: 25px;
-//        height: 25px;
-//        margin: 10px;
-//        cursor: pointer;
-//        font: 16px/1.5 'Dosis', 'Tahoma', sans-serif;
-//        background-color: lighten(hsl(hue(@btnColor), 45%, 75%), 10%);
-//        border-radius: 10%;
-//        box-shadow: 0 0 5px #778899;
-//      }
-//      li:hover{
-//        background-color: hsl(hue(@btnColor), 45%, 75%);
-//      }
-//      .italic{
-//        font-style: italic;
-//      }
-//      .bold{
-//        font-weight: bold;
-//      }
-//      .u_line{
-//        text-decoration: underline;
-//      }
-//      // highlighter
-//      .highlighter{
-//        background-color: darken(hsl(hue(@btnColor), 45%, 75%), 30%);
-//      }
-//      .highlighter:hover{
-//        background-color: darken(hsl(hue(@btnColor), 45%, 75%), 30%);
-//      }
-//    }
+  .legend {
+
+      text-align: center;
+
+      #helpers > .clearfix;
+      #helpers > .user_select;
+
+      span {
+        float: left;
+        width: 25px;
+        height: 25px;
+        margin: 10px;
+        cursor: pointer;
+        font: 16px/1.5 'Dosis', 'Tahoma', sans-serif;
+        background-color: lighten(hsl(hue(@btnColor), 45%, 75%), 10%);
+        border-radius: 10%;
+        box-shadow: 0 0 5px #778899;
+      }
+      span:hover {
+        background-color: hsl(hue(@btnColor), 45%, 75%);
+      }
+      .set_cursive {
+        font-style: italic;
+      }
+      .set_bold {
+        font-weight: bold;
+      }
+      .set_underline {
+        text-decoration: underline;
+      }
+      .all_select{
+        width: auto;
+      }
+      // highlighter
+      .highlighter {
+        background-color: darken(hsl(hue(@btnColor), 45%, 75%), 30%);
+      }
+      .highlighter:hover {
+        background-color: darken(hsl(hue(@btnColor), 45%, 75%), 30%);
+      }
   }
 
-  iframe{
+  iframe {
     display: block;
     height: 200px;
     width: 100%;
     border: 1px slategrey solid;
     margin: 0 auto 10px;
   }
-
+}
 
 
 
