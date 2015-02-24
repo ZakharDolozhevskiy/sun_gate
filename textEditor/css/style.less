@@ -1,4 +1,5 @@
 @btnColor: #4682B4;
+@savebtn: #32CD32;
 
 //helpers start
 
@@ -104,6 +105,13 @@ body, html{
       .all_select{
         width: auto;
       }
+      .show_speller{
+        width: auto;
+        a {
+          color: inherit;
+          text-decoration: none;
+        }
+      }
       // highlighter
       .highlighter {
         background-color: darken(hsl(hue(@btnColor), 45%, 75%), 30%);
@@ -122,6 +130,59 @@ body, html{
   }
 }
 
+// modal window rules
+
+#lean_overlay {
+  position: fixed;
+  z-index:100;
+  top: 0px;
+  left: 0px;
+  height:100%;
+  width:100%;
+  background: #000;
+  display: none;
+}
+
+#modal{
+  width: 600px;
+  padding: 30px;
+  display: none;
+  background: #FFF;
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  box-shadow: 0px 0px 4px rgba(0,0,0,0.7);
+  -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.7);
+  -moz-box-shadow: 0 0px 4px rgba(0,0,0,0.7);
+
+  textarea {
+    resize: none;
+    width: 100%;
+    height: 200px;
+    margin-bottom: 20px;
+  }
+
+  button{
+    margin-right: 20px;
+    cursor: pointer;
+    font: 16px/1.5 'Dosis', 'Tahoma', sans-serif;
+    background-color: lighten(hsl(hue(@btnColor), 45%, 75%), 10%);
+    border-radius: 10%;
+    box-shadow: 0 0 5px #778899;
+  }
+
+  button:hover {
+    background-color: hsl(hue(@btnColor), 45%, 75%);
+  }
+
+  .saveSpellChanges{
+    background-color: @savebtn;
+  }
+
+  .saveSpellChanges:hover {
+    background-color: hsl(hue(@savebtn), 45%, 75%);
+  }
+}
 
 
 

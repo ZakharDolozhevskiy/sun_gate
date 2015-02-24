@@ -55,7 +55,7 @@
                     ignoreWhiteSpace: true
                 }),
                 underLine: this.rangy.createCssClassApplier("_u", {
-                    elementTagName: "s",
+                    elementTagName: "u",
                     ignoreWhiteSpace: true
                 })
             };
@@ -68,7 +68,7 @@
                     .attr('contenteditable','true')
                     .attr('ondragstart','return false')
                     .css('min-height','100%')
-                    .text('test string');
+                    .text('Текстовай редактар анлайн имеит росширенные вазможности');
 
             $(container).append($iframe);
 
@@ -150,7 +150,7 @@
             this.controls.underLine.toggleSelection();
         },
 
-        showPreview: function(){
+        showPreview: function() {
             var newWin = open("", "Preview", "height=600,width=800"),
             // content that have been added in the editable iframe's window
                 content= $(this.iDoc.body).find(".content").html();
@@ -160,15 +160,94 @@
             $(newWin.document.body).text( content );
         },
 
-        selectAll: function(){
+        selectAll: function() {
             var range = this.rangy.createRange();
                 range.selectNodeContents($(this.iDoc).find('.content')[0]);
             // added selection
             this.rangy.getSelection().setSingleRange(range);
+        },
+
+        // ----------------- spellchecker block start ----------------------
+        /**
+         * This object with parameters contain settings for Yandex speller constructor
+         * most important of that:
+         * - lang: en , ru , uk
+         * - url path to spell.js
+         * - option additional configuration
+         * find more: https://tech.yandex.ru/speller/doc/dg/reference/speller-js-docpage/
+         * @param param Object
+         */
+        initSpeller: function(param) {
+            var $span = $('<span/>').addClass('show_speller'),
+                $btn = $('<a/>').text('Spellcheck'),
+                $modal, $spellField, $saveBtn, $spellConf, $spellRun;
+
+            // speller core
+
+            global.speller = new Speller(param);
+            global.spellCheck = function() {
+                speller.check([ $('#spellField')[0]] );
+            };
+
+            $btn.attr('href','#modal')
+                .attr('name','modal')
+                .attr('rel','leanModal')
+                .leanModal()
+                .on('click', $.proxy( this.addToSpeller, this ) );
+
+            $('.legend').append( $span.append($btn) );
+
+            // add modal window with spellchecker's components
+
+            $modal = $('<div/>').attr('id','modal').hide();
+
+            $spellField = $('<textarea/>').attr('id','spellField');
+
+            $spellRun = $('<button/>').addClass('spellCheck')
+                .on('click', $.proxy( spellCheck, global))
+                .text('Check it!');
+
+            $spellConf = $('<button/>').addClass('spellConfig')
+                .on('click', $.proxy( global.speller.optionsDialog, global.speller))
+                .text('Configuration');
+            $saveBtn = $('<button/>').addClass('saveSpellChanges')
+                .on('click', $.proxy(this.getSpellText, this))
+                .text('Save changes');
+
+            $modal.append($spellField)
+                  .append($spellRun)
+                  .append($spellConf)
+                  .append($saveBtn);
+
+            $('body').append($modal);
+
+        },
+
+        addToSpeller: function() {
+            var $spellField = $('#spellField'),
+                content= $(this.iDoc.body).find(".content").text();
+
+            $spellField.text(content);
+        },
+
+        getSpellText: function() {
+            var $editableBox = $(this.iDoc.body).find(".content"),
+                spellResult = $('#spellField').val();
+
+            $editableBox.text(spellResult);
+
+            $('#modal').hide();
+            $('#lean_overlay').hide();
         }
+
+        // ----------------- spellchecker block end ----------------------
+
     });
 
     new Editor($("#editor"));
+
+    global.Editor.prototype.initSpeller({ url:"js/speller", lang:"ru",
+        options: Speller.IGNORE_URLS, spellDlg: { width: 500, height: 320 } });
 
 })(this);
 
