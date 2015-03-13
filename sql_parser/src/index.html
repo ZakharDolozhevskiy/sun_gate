@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="css/bootstrap.css"/>
+    <link rel="stylesheet" href="css/bootstrap-theme.css"/>
+    <link rel="stylesheet" href="css/main.css"/>
+    <title>Simply SQL</title>
+</head>
+<body>
+        <nav class="navbar navbar-inverse">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">Simply SQL</a>
+                </div>
+            </div>
+        </nav>
+        <div class="container">
+            <div class="jumbotron">
+                <h2>Simply SQL</h2>
+                <p>Start typing simply sql query in the input filed below</p>
+                <div class="input-group">
+                    <span class="input-group-addon" id="basic-addon1">SELECT</span>
+                    <input type="text" class="form-control" placeholder="..." aria-describedby="basic-addon1">
+                    <span class="input-group-btn">
+                        <button class="btn btn-primary init_btn" type="button">Go!</button>
+                    </span>
+                </div>
+                <div class="row">
+                    <div class="col-md-1">
+                        <button class="btn lable" type="button">
+                            Messages <span class="badge">4</span>
+                        </button>
+                    </div>
+                    <div class="col-md-1">
+                        <button class="btn lable" type="button">
+                            Messages <span class="badge">4</span>
+                        </button>
+                    </div>
+                    <div class="col-md-1">
+                        <button class="btn lable" type="button">
+                            Messages <span class="badge">4</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <table class="table table-bordered">
+                <thead>
+                <tr>
+                    <th>#</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Username</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <th scope="row">1</th>
+                    <td>Mark</td>
+                    <td>Otto</td>
+                    <td>@mdo</td>
+                </tr>
+                <tr>
+                    <th scope="row">2</th>
+                    <td>Jacob</td>
+                    <td>Thornton</td>
+                    <td>@fat</td>
+                </tr>
+                <tr>
+                    <th scope="row">3</th>
+                    <td>Larry</td>
+                    <td>the Bird</td>
+                    <td>@twitter</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+</body>
+<script data-main="./main" src="../node_modules/requirejs/require.js"></script>
+</html>
