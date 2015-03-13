@@ -1,7 +1,6 @@
 {
   "name": "CDP",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "directories": {
     "test": "test"
@@ -13,10 +12,17 @@
   "license": "ISC",
   "devDependencies": {
     "jasmine-core": "^2.2.0",
+    "karma": "^0.12.31",
     "karma-chrome-launcher": "^0.1.7",
     "karma-coffee-preprocessor": "^0.2.1",
     "karma-jasmine": "^0.3.5",
     "karma-requirejs": "^0.2.2",
     "requirejs": "^2.1.16"
+  },
+  "dependencies": {
+    "jasmine-core": "^2.2.0",
+    "karma-chrome-launcher": "^0.1.7",
+    "karma-jasmine": "^0.3.5",
+    "karma": "^0.12.31"
   }
 }

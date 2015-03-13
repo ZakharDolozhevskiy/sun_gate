@@ -1,5 +1,5 @@
 // Karma configuration
-// Generated on Wed Feb 25 2015 22:13:41 GMT+0200 (Финляндия (зима))
+// Generated on Fri Mar 13 2015 11:04:24 GMT+0200 (FLE Standard Time)
 
 module.exports = function(config) {
   config.set({
@@ -17,8 +17,7 @@ module.exports = function(config) {
     files: [
       'test-main.js',
       {pattern: 'src/**/*.js', included: false},
-      {pattern: 'src/*.js', included: false},
-      {pattern: 'test/**/*test.coffee', included: false}
+      {pattern: 'test/**/*.coffee', included: false}
     ],
 
 
@@ -32,18 +31,7 @@ module.exports = function(config) {
     preprocessors: {
       '**/*.coffee': ['coffee']
     },
-    coffeePreprocessor: {
-      // options passed to the coffee compiler
-      options: {
-        bare: true,
-        sourceMap: true
-      },
 
-      // transforming the filenames
-      transformPath: function(path) {
-        return path.replace(/\.coffee$/, '.js');
-      }
-    },
 
     // test results reporter to use
     // possible values: 'dots', 'progress'

@@ -10,7 +10,7 @@ define (require) ->
   seq = patterns.seq
   rep = patterns.rep.bind patterns
 
-  describe 'Methods should parse given string', ->
+  describe 'Parser Core', ->
 
     it 'should parse string with digits pattern', ->
 
@@ -47,7 +47,7 @@ define (require) ->
 
       expect( any(rgx(/[\D]/), digit()).exec "2", 0 ).toEqual res: 2, end: 1
 
-      expect( any(text("ABC"), text("abc")).exec "abc", 0 ).toEqual res: "abc", end: 3
+      expect( any(rgx(/[\W]/), text("abc")).exec "abc", 0 ).toEqual res: "abc", end: 3
 
       expect( any(rgx(/[\W]/), text("ABC")).exec "abc", 0 ).toBeUndefined()
 

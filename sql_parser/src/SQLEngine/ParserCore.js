@@ -1,7 +1,7 @@
 define(function (require) {
     "use strict";
 
-    var Pattern = require('./Pattern');
+    var Parser = require('./Parser');
 
     return {
         /**
@@ -9,7 +9,7 @@ define(function (require) {
          * @returns {Pattern}
          */
         digit: function () {
-            return new Pattern(function (str, pos) {
+            return new Parser(function (str, pos) {
                 var char = str.charAt(pos);
 
                 if (char >= "0" && char <= "9") {
@@ -23,7 +23,7 @@ define(function (require) {
          * @returns {Pattern}
          */
         text: function (text) {
-            return new Pattern(function (str, pos) {
+            return new Parser(function (str, pos) {
 
                 if (str.substr(pos, text.length) == text) {
                     return {res: text, end: pos + text.length};
@@ -36,7 +36,7 @@ define(function (require) {
          * @returns {Pattern}
          */
         rgx: function (regexp) {
-            return new Pattern(function (str, pos) {
+            return new Parser(function (str, pos) {
                 var exp = regexp.exec(str.slice(pos));
 
                 if (exp && exp.index === 0) {
@@ -51,7 +51,7 @@ define(function (require) {
          * @returns {Pattern}
          */
         opt: function (pattern) {
-            return new Pattern(function (str, pos) {
+            return new Parser(function (str, pos) {
                 return pattern.exec(str, pos) || {res: '', end: pos};
             });
         },
@@ -62,7 +62,7 @@ define(function (require) {
          * @returns {Pattern}
          */
         exc: function(pattern, except) {
-            return new Pattern(function(str, pos) {
+            return new Parser(function(str, pos) {
                 return !except.exec(str, pos) && pattern.exec(str, pos);
             });
         },
@@ -74,15 +74,10 @@ define(function (require) {
         any: function() {
             var patterns = [].slice.call(arguments);
 
-            return new Pattern(function(str, pos) {
-                var i, ln = patterns.length, res;
-
-                for (i = 0; i < ln; i++) {
-
-                    if( res = patterns[i].exec(str, pos) ){
-                        return res;
-                    }
-                }
+            return new Parser(function (str, pos) {
+                for (var r, i = 0; i < patterns.length; i++)
+                    if (r = patterns[i].exec(str, pos))
+                        return r;
             });
         },
         /**
@@ -93,7 +88,7 @@ define(function (require) {
         seq: function() {
             var patterns = [].slice.call(arguments);
 
-            return new Pattern(function(str, pos){
+            return new Parser(function(str, pos){
                 var i, r, end = pos, ln = patterns.length, res = [];
 
                 for (i = 0; i < ln; i++) {
@@ -116,7 +111,7 @@ define(function (require) {
             var separated = !separator ? pattern :
                 this.seq(separator, pattern).then( function(r){ return r[1]; } );
 
-            return new Pattern(function(str, pos){
+            return new Parser(function(str, pos){
                 var res = [], end = pos, r = pattern.exec(str, end);
 
                 while (r && r.end > end) {
