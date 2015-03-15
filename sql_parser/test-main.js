@@ -16,6 +16,12 @@ require.config({
   // Karma serves files under /base, which is the basePath from your config file
   baseUrl: '/base',
 
+  paths: {
+    "text": 'bower_components/requirejs-plugins/lib/text',
+    "json": 'bower_components/requirejs-plugins/src/json',
+    "_": 'bower_components/lodash/lodash.min'
+  },
+
   // dynamically load all test files
   deps: allTestFiles,
 

@@ -17,7 +17,9 @@ module.exports = function(config) {
     files: [
       'test-main.js',
       {pattern: 'src/**/*.js', included: false},
-      {pattern: 'test/**/*.coffee', included: false}
+      {pattern: 'test/**/*.coffee', included: false},
+      {pattern: 'bower_components/**/*.js', included: false},
+      {pattern: '*.json', included: false}
     ],
 
 

@@ -17,9 +17,9 @@ define(['./Parser', './ParserCore'],
         var WHERE = txt('WHERE');
 
         var bool = rgx(/[true|flase]/);
-        var num = rgx(/[1-9]+/);
+        var num = rgx(/[0-9]+/);
         var nul = rgx(/null/i);
-        var str = rgx(/\w+/);
+        var str = rgx(/[\S+\s]+/);
         var ws = rgx(/\s+/);
         var wso = opt(ws);
         var table = rgx(/[a-z][a-z1-9_]+/i);
@@ -96,7 +96,6 @@ define(['./Parser', './ParserCore'],
                 txt('LIKE'),
                 txt('>='),
                 txt('<='),
-                txt('!='),
                 txt('<>'),
                 txt('<'),
                 txt('>'),
@@ -108,7 +107,7 @@ define(['./Parser', './ParserCore'],
                left: res[0],
                right: res[4],
                comparator: res[2]
-           }
+           };
         });
 
         // WHERE section

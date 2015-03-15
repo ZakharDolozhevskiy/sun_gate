@@ -115,14 +115,14 @@ define (require) ->
                 comparator: comparator
 
         it 'should be able to parse WHERE operator with number', ->
-            res = pars.parse "WHERE movies.id >= 5"
+            res = pars.parse "WHERE movies.id >= 50"
 
             expect(res).toEqual
               where:
                 left:
                   table: 'movies'
                   column: 'id'
-                right: '5'
+                right: '50'
                 comparator: '>='
 
         it 'should be able to parse WHERE operator with boolean', ->
@@ -137,7 +137,7 @@ define (require) ->
               comparator: '='
 
         it 'should be able to parse WHERE operator with null', ->
-          res = pars.parse "WHERE NULL != movies.id"
+          res = pars.parse "WHERE NULL <> movies.id"
 
           expect(res).toEqual
             where:
@@ -145,10 +145,10 @@ define (require) ->
               right:
                 table: 'movies'
                 column: 'id'
-              comparator: '!='
+              comparator: '<>'
 
         it 'should be able to parse WHERE operator with single string', ->
-          res = pars.parse "WHERE movies.title != Terminator"
+          res = pars.parse "WHERE movies.title <> Terminator"
 
           expect(res).toEqual
             where:
@@ -156,7 +156,7 @@ define (require) ->
                 table: 'movies'
                 column: 'title'
               right: 'Terminator'
-              comparator: '!='
+              comparator: '<>'
 
       describe 'complex query', ->
         it 'should be able to parse complex query', ->
