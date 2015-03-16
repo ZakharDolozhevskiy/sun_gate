@@ -8,3 +8,11 @@
 .lable{
     background-color: #fff;
 }
+.form-control{
+    border-radius: 0 4px 4px 0 !important;
+}
+
+.lable_box{
+    margin-top: 20px;
+    font-size: 20px;
+}

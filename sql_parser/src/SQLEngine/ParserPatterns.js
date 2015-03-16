@@ -150,7 +150,7 @@ define(['./Parser', './ParserCore'],
 
             var result = fullQuery.exec(str, 0);
 
-            return (result) ? result.res : 'Incorrect query\'s string, check and try again';
+            return (result.end != 0) ? result.res : false;
         };
 
         return SQL_parser;

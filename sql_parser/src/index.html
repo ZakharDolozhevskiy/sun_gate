@@ -26,33 +26,50 @@
             <div class="jumbotron">
                 <h2>Simply SQL</h2>
                 <p>Start typing simply sql query in the input filed below</p>
-                <div class="input-group">
-                    <span class="input-group-addon" id="basic-addon1">SELECT</span>
-                    <input type="text" class="form-control" aria-describedby="basic-addon1">
-                    <span class="input-group-btn">
-                        <button class="btn btn-primary init_btn" type="button">Go!</button>
-                    </span>
+                <form class="query_form" action="#">
+                    <div class="input-group">
+                        <span class="input-group-addon" id="basic-addon1">SELECT</span>
+                        <input type="text" class="form-control" aria-describedby="basic-addon1">
+                        <span class="input-group-btn">
+                            <button class="btn btn-primary init_btn" type="submit">Go!</button>
+                        </span>
+                    </div>
+                </form>
+                <div class="lable_box">
                 </div>
             </div>
             <table class="table table-bordered">
-                <thead>
-                <tr>
-                    <th>#</th>
-                    <th>First Name</th>
-                    <th>Last Name</th>
-                    <th>Username</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                </tr>
-                </tbody>
             </table>
         </div>
+        <!-- BEGIN: Underscore Template Definition. -->
+        <script type="text/template" class="template">
+            <thead>
+                <tr>
+                    <% _.each( rc[0].col_name, function( h ){ %>
+                        <th> <%- h %></th>
+                    <% }); %>
+                </tr>
+            </thead>
+            <tbody>
+                <% _.each( rc, function( obj ){ %>
+                    <% if ( !obj.col_name ){ %>
+                        <tr>
+                            <% _.each( rc[0].col_name, function( key ){ %>
+                            <td>
+                                <%- obj[key] %>
+                            </td>
+                            <% }); %>
+                        </tr>
+                    <% } %>
+                <% }); %>
+            </tbody>
+        </script>
+        <script type="text/template" class="t_lable">
+            <% _.each( rc, function( h ){ %>
+                <span class="label label-success"><%- h %></span>
+            <% }); %>
+        </script>
+        <!-- END: Underscore Template Definition. -->
 </body>
 <script data-main="./main" src="../node_modules/requirejs/require.js"></script>
 </html>

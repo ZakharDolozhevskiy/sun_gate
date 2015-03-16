@@ -10,7 +10,9 @@ define(['./ParserPatterns','../../bower_components/lodash/lodash.min'],function 
      * Get query string and return structured data from DB
      */
     Engine.prototype.execute = function(str) {
-        return this.selectData( parser.parse(str) );
+        var parserRes = parser.parse(str);
+
+        return (parserRes) ? this.selectData(parserRes) : false;
     };
     /**
      * Comporators for matching with query's string

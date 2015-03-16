@@ -1,29 +1,29 @@
 define (require) ->
 
   Core = require('src/SQLEngine/Engine')
+  DB = require('json!db.json')
   Parser = require('src/SQLEngine/ParserPatterns')
   _ = require('bower_components/lodash/lodash.min')
 
   describe 'Application Core', ->
     parser = new Parser
-    engine = new Core.Engine
-    sql_db = new Core.SQL_DB
-    testData = Core.DB
+    engine = Core.Engine
+    sql_db = Core.SQL_DB
 
     it 'Engine constructor should be define', -> expect( engine ).toBeDefined()
 
     it 'Engine constructor should be define', -> expect( sql_db ).toBeDefined()
 
     describe 'Database section', ->
-      sql_db.setDB(testData)
+      sql_db.setDB(DB)
 
       it 'Should add initialize database with data from JSON', ->
 
-        expect(sql_db.getDB()).toEqual(testData)
-
+        expect(sql_db.getDB()).toEqual(DB)
+        debugger
       it 'Should return selected table from database', ->
 
-        expect(sql_db.getTable('actor')).toEqual(testData.actor)
+        expect(sql_db.getTable('actor')).toEqual(DB.actor)
 
       it 'Should throw exception if table is not exist', ->
 
@@ -41,14 +41,14 @@ define (require) ->
 
     describe 'using SELECT operator', ->
       selectedData = null;
-      resultStub = _.map(testData.actor, (n) ->
+      resultStub = _.map(DB.actor, (n) ->
         'name': n.name
         'id': n.id
       )
 
       it 'Should select ALL columns from table actors', ->
         selectedData = engine.execute('SELECT * FROM actor')
-        expect(selectedData).toEqual(testData.actor)
+        expect(selectedData).toEqual(DB.actor)
 
       it 'Should select name and id column from table actors', ->
         selectedData = engine.execute('SELECT actor.name, actor.id FROM actor')
@@ -62,8 +62,8 @@ define (require) ->
           'SELECT movie.title, director.name FROM movie JOIN director ON movie.directorID = director.id'
         )
 
-        _.forEach(testData.movie, (n) ->
-          _.forEach(testData.director, (o) ->
+        _.forEach(DB.movie, (n) ->
+          _.forEach(DB.director, (o) ->
             if n.directorID is o.id
               resultStub.push (
                 'title': n.title
@@ -84,11 +84,11 @@ define (require) ->
           '''
         )
 
-        _.forEach(testData.movie, (n) ->
-          _.forEach(testData.actor_to_movie, (o) ->
+        _.forEach(DB.movie, (n) ->
+          _.forEach(DB.actor_to_movie, (o) ->
 
             if n.id is o.movieID
-              _.forEach(testData.actor, (p) ->
+              _.forEach(DB.actor, (p) ->
 
                 if o.actorID is p.id
                   resultStub.push
@@ -110,11 +110,11 @@ define (require) ->
           '''
         )
 
-        _.forEach(testData.movie, (n) ->
-          _.forEach(testData.actor_to_movie, (o) ->
+        _.forEach(DB.movie, (n) ->
+          _.forEach(DB.actor_to_movie, (o) ->
 
             if n.id is o.movieID
-              _.forEach(testData.actor, (p) ->
+              _.forEach(DB.actor, (p) ->
 
                 if o.actorID is p.id
                   resultStub.push
@@ -139,8 +139,8 @@ define (require) ->
           '''
         )
 
-        _.forEach(testData.movie, (n) ->
-          _.forEach(testData.director, (o) ->
+        _.forEach(DB.movie, (n) ->
+          _.forEach(DB.director, (o) ->
             if n.directorID is o.id and n.year isnt null
               resultStub.push (
                 'title': n.title
@@ -158,18 +158,18 @@ define (require) ->
         resultStub = []
         selectedData = engine.execute(
           '''
-          SELECT movie.title, actor.name FROM movie
+          SELECT actor.name, movie.title FROM movie
           JOIN actor_to_movie ON movie.id = actor_to_movie.movieID
           JOIN actor ON actor_to_movie.actorID = actor.id
           WHERE actor.name <> Quinton 'Rampage' Jackson
           '''
         )
 
-        _.forEach(testData.movie, (n) ->
-          _.forEach(testData.actor_to_movie, (o) ->
+        _.forEach(DB.movie, (n) ->
+          _.forEach(DB.actor_to_movie, (o) ->
 
             if n.id is o.movieID
-              _.forEach(testData.actor, (p) ->
+              _.forEach(DB.actor, (p) ->
 
                 if o.actorID is p.id and p.name isnt "Quinton 'Rampage' Jackson"
                   resultStub.push
