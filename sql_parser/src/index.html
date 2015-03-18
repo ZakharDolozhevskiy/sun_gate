@@ -63,8 +63,14 @@
             </tbody>
         </script>
         <script type="text/template" class="t_lable">
-            <% _.each( rc, function( h ){ %>
-                <span class="label label-success"><%- h %></span>
+            <%  keys = Object.keys(rc)%>
+            <% _.each( keys , function( key ){ %>
+            <div class="schema_box">
+                <span class="label label-success"><%- key %></span>
+                <% _.each( Object.keys(rc[key][0]) , function( i ){ %>
+                <span class="label schema_item"><%- i %></span>
+                <% }); %>
+            </div>
             <% }); %>
         </script>
         <!-- END: Underscore Template Definition. -->

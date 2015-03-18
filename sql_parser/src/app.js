@@ -54,7 +54,7 @@ define(['./SQLEngine/Engine', '_'], function (modules, _) {
             url: "../db.json"
         }).done(function (data) {
             this.sql_db.setDB(data);
-            this.printTableSchema(Object.keys(data));
+            this.printTableSchema(data);
         }.bind(this));
     };
 

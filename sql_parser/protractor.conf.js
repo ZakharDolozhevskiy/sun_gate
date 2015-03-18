@@ -5,5 +5,5 @@ exports.config = {
             browser.ignoreSynchronization = !flag;
         };
     },
-    specs: ['test/e2e/appSpec.js']
-}
+    specs: ['test/e2e/*.js']
+};
