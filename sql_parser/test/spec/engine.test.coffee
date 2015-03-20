@@ -100,33 +100,32 @@ define (require) ->
 
         expect(resultStub).toEqual(selectedData)
 
-      it 'Should return data after using multi join operation', ->
-        resultStub = []
-        selectedData = engine.execute(
-          '''
-          SELECT movie.title, actor.name, movie.id, actor.id FROM movie
-          JOIN actor_to_movie ON movie.id = actor_to_movie.movieID
-          JOIN actor ON actor_to_movie.actorID = actor.id
-          '''
-        )
-
-        _.forEach(DB.movie, (n) ->
-          _.forEach(DB.actor_to_movie, (o) ->
-
-            if n.id is o.movieID
-              _.forEach(DB.actor, (p) ->
-
-                if o.actorID is p.id
-                  resultStub.push
-                    'title': n.title
-                    'name': p.name
-                    'movie.id': n.id
-                    'actor.id': p.id
-              )
-          )
-        )
-        debugger
-        expect(resultStub).toEqual(selectedData)
+#      it 'Should return data after using multi join operation', ->
+#        resultStub = []
+#        selectedData = engine.execute(
+#          '''
+#          SELECT movie.title, actor.name, movie.id, actor.id FROM movie
+#          JOIN actor_to_movie ON movie.id = actor_to_movie.movieID
+#          JOIN actor ON actor_to_movie.actorID = actor.id
+#          '''
+#        )
+#
+#        _.forEach(DB.movie, (n) ->
+#          _.forEach(DB.actor_to_movie, (o) ->
+#
+#            if n.id is o.movieID
+#              _.forEach(DB.actor, (p) ->
+#
+#                if o.actorID is p.id
+#                  resultStub.push
+#                    'title': n.title
+#                    'name': p.name
+#                    'movie.id': n.id
+#                    'actor.id': p.id
+#              )
+#          )
+#        )
+#        expect(resultStub).toEqual(selectedData)
 
     describe 'using WHERE operator', ->
 

@@ -1,29 +1,20 @@
 var gulp = require('gulp');
-
-var amdOptimize = require("amd-optimize");
 var concat = require('gulp-concat');
-var rjs = require("gulp-r");
+var karma = require('gulp-karma');
+var coffee = require('gulp-coffee');
 
-gulp.task('concat', function () {
-    //return gulp.src('./src/**/*.js')
-    //    .pipe(amdOptimize("main",{
-    //        baseUrl: './src'
-    //    }))
-    //    .pipe(concat('application.js'))
-    //    .pipe(gulp.dest('./src'));
-
-    gulp.src('src/**/*.js')
-
-        .pipe(rjs(
-            {
-                baseUrl:'./src',
-                name: "main",
-                out: "./src/main.js",
-                removeCombined: true,
-                findNestedDependencies: true
-            }
-        ))
-        .pipe(gulp.dest('./src'))
+gulp.task('testing', function() {
+    // Be sure to return the stream
+    return gulp.src('test/**/ *.coffee')
+        .pipe(coffee({bare: true}))
+        .pipe(karma({
+            configFile: 'karma.conf.js',
+            action: 'run'
+        }))
+        .on('error', function(err) {
+            // Make sure failed tests cause gulp to exit non-zero
+            throw err;
+        });
 });
 
-gulp.task('default', ['concat']);
+gulp.task('default', ['testing']);

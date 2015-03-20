@@ -6,3 +6,4 @@ jshintrc
 karma.conf.js
 package.json
 test-main.js
+build.js

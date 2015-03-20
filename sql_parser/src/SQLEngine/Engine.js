@@ -1,4 +1,4 @@
-define(['./ParserPatterns','../../bower_components/lodash/lodash.min'],function (SQL_Parser, _) {
+define(['./ParserPatterns','_'],function (SQL_Parser, _) {
     "use strict";
     var parser = new SQL_Parser();
     /**
