@@ -77,7 +77,7 @@ define(['./ParserPatterns','../../bower_components/lodash/lodash.min'],function 
      * @param toJoin    array with join options
      */
     Engine.prototype.join = function(initTable, toJoin) {
-        var result_t, r_table, l_predict, r_predict, tmp;
+        var result_t, r_table, l_predict, r_predict, tmp, self = this;
 
         _.forEach(toJoin, function(opt) {
             result_t = (result_t) ? result_t : sql_db.getTable(initTable);
@@ -88,10 +88,17 @@ define(['./ParserPatterns','../../bower_components/lodash/lodash.min'],function 
 
             _.forEach(result_t, function(tLeft) {
                 _.forEach(r_table, function(tRight) {
-                    if(tLeft[l_predict] !== tRight[r_predict] ) return;
-                    tmp.push( _.merge({}, tLeft, tRight) );
+                    if( tLeft[l_predict] === tRight[r_predict] ) {
+                        /**
+                         * add column's prefix (table name) if column name not unique value
+                         */
+                        tRight = self.prefixAdder( tLeft, tRight, opt.table);
+
+                        tmp.push( _.merge({}, tLeft, tRight) );
+                    }
                 });
             });
+
             result_t = tmp;
         });
 
@@ -122,17 +129,36 @@ define(['./ParserPatterns','../../bower_components/lodash/lodash.min'],function 
      * @returns {*}
      */
     Engine.prototype.select = function(table, columns) {
-        var ALL = "*", t;
+        var ALL = "*", t, prefixName;
 
         if(columns === ALL) return table;
 
         return _.map(table, function(n) {
             t = {};
             _.forEach(columns, function(o) {
-                t[o.column] = n[o.column];
+                /**
+                 * Adding column value by column name with or without prefix
+                 * @type {string}
+                 */
+                prefixName = o.table + '.' + o.column;
+                (n[prefixName]) ? t[prefixName] = n[prefixName] : t[o.column] = n[o.column];
             });
+
             return t;
         });
+    };
+    /**
+     * Add prefix (table name) if column name isn't unique and already exist in result table
+     */
+    Engine.prototype.prefixAdder = function(result_t, new_table, t_name) {
+        var tmp = {};
+
+        _.forIn(new_table, function(val, key) {
+
+            ( _.has(result_t, key) ) ? tmp[t_name + '.' + key] = val : tmp[key] = val;
+        });
+
+        return tmp;
     };
 
     /**

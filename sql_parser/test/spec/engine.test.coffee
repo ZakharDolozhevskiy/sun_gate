@@ -20,7 +20,7 @@ define (require) ->
       it 'Should add initialize database with data from JSON', ->
 
         expect(sql_db.getDB()).toEqual(DB)
-        debugger
+
       it 'Should return selected table from database', ->
 
         expect(sql_db.getTable('actor')).toEqual(DB.actor)
@@ -64,6 +64,7 @@ define (require) ->
 
         _.forEach(DB.movie, (n) ->
           _.forEach(DB.director, (o) ->
+            debugger
             if n.directorID is o.id
               resultStub.push (
                 'title': n.title
@@ -100,7 +101,7 @@ define (require) ->
 
         expect(resultStub).toEqual(selectedData)
 
-      it 'Should return data after using multi join operation', ->
+      it 'Should add prefix to column name if column name is duplicate', ->
         resultStub = []
         selectedData = engine.execute(
           '''
@@ -120,12 +121,12 @@ define (require) ->
                   resultStub.push
                     'title': n.title
                     'name': p.name
-                    'movie.id': n.id
+                    'id': n.id
                     'actor.id': p.id
               )
           )
         )
-        debugger
+
         expect(resultStub).toEqual(selectedData)
 
     describe 'using WHERE operator', ->
