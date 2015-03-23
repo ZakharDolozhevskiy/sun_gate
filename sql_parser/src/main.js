@@ -4,12 +4,12 @@ require.config({
     paths: {
         "text": '../bower_components/requirejs-plugins/lib/text',
         "json": '../bower_components/requirejs-plugins/src/json',
-        "jQuery": '../bower_components/jquery/dist/jquery',
-        "_": '../bower_components/lodash/lodash.min'
+        "_": '../bower_components/lodash/lodash.min',
+        "$": '../bower_components/jquery/dist/jquery'
     }
 });
 
-define(['jQuery','./App'], function(jQuery, App) {
+define(['$','./App'], function(jQuery, App) {
     "use strict";
     new App(
         $('.table'),

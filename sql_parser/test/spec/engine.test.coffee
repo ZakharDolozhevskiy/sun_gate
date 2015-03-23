@@ -20,7 +20,7 @@ define (require) ->
       it 'Should add initialize database with data from JSON', ->
 
         expect(sql_db.getDB()).toEqual(DB)
-        debugger
+
       it 'Should return selected table from database', ->
 
         expect(sql_db.getTable('actor')).toEqual(DB.actor)
@@ -64,6 +64,7 @@ define (require) ->
 
         _.forEach(DB.movie, (n) ->
           _.forEach(DB.director, (o) ->
+            debugger
             if n.directorID is o.id
               resultStub.push (
                 'title': n.title
@@ -100,32 +101,60 @@ define (require) ->
 
         expect(resultStub).toEqual(selectedData)
 
-#      it 'Should return data after using multi join operation', ->
-#        resultStub = []
-#        selectedData = engine.execute(
-#          '''
-#          SELECT movie.title, actor.name, movie.id, actor.id FROM movie
-#          JOIN actor_to_movie ON movie.id = actor_to_movie.movieID
-#          JOIN actor ON actor_to_movie.actorID = actor.id
-#          '''
-#        )
-#
-#        _.forEach(DB.movie, (n) ->
-#          _.forEach(DB.actor_to_movie, (o) ->
-#
-#            if n.id is o.movieID
-#              _.forEach(DB.actor, (p) ->
-#
-#                if o.actorID is p.id
-#                  resultStub.push
-#                    'title': n.title
-#                    'name': p.name
-#                    'movie.id': n.id
-#                    'actor.id': p.id
-#              )
-#          )
-#        )
-#        expect(resultStub).toEqual(selectedData)
+      it 'Should return data after using multi join operation', ->
+        resultStub = []
+        selectedData = engine.execute(
+          '''
+          SELECT movie.title, actor.name, movie.id, actor.id FROM movie
+          JOIN actor_to_movie ON movie.id = actor_to_movie.movieID
+          JOIN actor ON actor_to_movie.actorID = actor.id
+          '''
+        )
+
+        _.forEach(DB.movie, (n) ->
+          _.forEach(DB.actor_to_movie, (o) ->
+
+            if n.id is o.movieID
+              _.forEach(DB.actor, (p) ->
+
+                if o.actorID is p.id
+                  resultStub.push
+                    'title': n.title
+                    'name': p.name
+                    'movie.id': n.id
+                    'actor.id': p.id
+              )
+          )
+        )
+        expect(resultStub).toEqual(selectedData)
+
+      it 'Should add prefix to column name if column name is duplicate', ->
+        resultStub = []
+        selectedData = engine.execute(
+          '''
+          SELECT movie.title, actor.name, movie.id, actor.id FROM movie
+          JOIN actor_to_movie ON movie.id = actor_to_movie.movieID
+          JOIN actor ON actor_to_movie.actorID = actor.id
+          '''
+        )
+
+        _.forEach(DB.movie, (n) ->
+          _.forEach(DB.actor_to_movie, (o) ->
+
+            if n.id is o.movieID
+              _.forEach(DB.actor, (p) ->
+
+                if o.actorID is p.id
+                  resultStub.push
+                    'title': n.title
+                    'name': p.name
+                    'id': n.id
+                    'actor.id': p.id
+              )
+          )
+        )
+
+        expect(resultStub).toEqual(selectedData)
 
     describe 'using WHERE operator', ->
 
