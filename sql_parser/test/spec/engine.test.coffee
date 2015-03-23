@@ -3,7 +3,7 @@ define (require) ->
   Core = require('src/SQLEngine/Engine')
   DB = require('json!db.json')
   Parser = require('src/SQLEngine/ParserPatterns')
-  _ = require('bower_components/lodash/lodash.min')
+  _ = require('bower_components/lodash/lodash')
 
   describe 'Application Core', ->
     parser = new Parser
@@ -121,7 +121,7 @@ define (require) ->
                   resultStub.push
                     'title': n.title
                     'name': p.name
-                    'movie.id': n.id
+                    'id': n.id
                     'actor.id': p.id
               )
           )

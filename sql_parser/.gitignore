@@ -1,9 +1,5 @@
 .idea
 bower_components
 node_modules
-bower.json
 jshintrc
-karma.conf.js
-package.json
-test-main.js
 build.js
