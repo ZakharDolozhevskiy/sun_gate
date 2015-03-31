@@ -1,0 +1,57 @@
+@import url(http://fonts.googleapis.com/css?family=Roboto+Condensed);
+.border-radius {
+  border-radius: 5px;
+}
+body {
+  padding: 0;
+  margin: 0;
+}
+header {
+  height: 75px;
+  margin-bottom: 75px;
+  background: #f5f5f5;
+  border-bottom: 2px solid #dcdcdc;
+}
+#searchBox {
+  width: 60%;
+  margin: 0 auto 75px;
+  padding: 20px 25px 0 20px;
+  border: 1px solid #dcdcdc;
+  background-color: #f5f5f5;
+  border-radius: 5px;
+}
+#searchBox div {
+  margin: 0 auto 25px;
+}
+#searchBox .input-group input,
+#searchBox .input-group button {
+  box-sizing: border-box;
+  height: 30px;
+  width: 100%;
+  padding: 0 10px;
+  font: 14px 'Roboto Condensed', sans-serif;
+  border: 1px solid #dcdcdc;
+  border-radius: 5px;
+}
+#searchBox .input-group button {
+  background: #f0483d;
+  cursor: pointer;
+  color: white;
+  outline: none;
+}
+#searchBox .input-group button:hover {
+  background: #f25e55;
+}
+#searchResult ul {
+  margin: 0 auto 20px;
+  width: 90%;
+}
+#searchResult ul li {
+  font: 16px 'Roboto Condensed', sans-serif;
+  border: 1px solid #dcdcdc;
+  border-bottom: 0;
+  padding: 10px 20px;
+}
+#searchResult ul li:last-child {
+  border-bottom: 1px solid #dcdcdc;
+}
