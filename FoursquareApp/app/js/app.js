@@ -1,7 +1,7 @@
 (function() {
     "use strict";
 
-    var app = angular.module('foursquareApp',['ngResource']);
+    var app = angular.module('foursquareApp',['ngResource','ngAnimate']);
 
         app.constant('appConfig', {
             api: {

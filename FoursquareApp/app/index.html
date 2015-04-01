@@ -23,7 +23,7 @@
     </section>
     <section id="searchResult">
         <ul>
-            <li ng-repeat="place in places">{{place.name}}</li>
+            <li class="animate-repeat" ng-repeat="place in places">{{place.name}}</li>
         </ul>
     </section>
     <footer></footer>
@@ -31,7 +31,7 @@
     <script src="../bower_components/angular/angular.js"></script>
     <script src="../bower_components/angular-resource/angular-resource.js"></script>
     <script src="../bower_components/angular-sanitize/angular-sanitize.js"></script>
-    <!--<script src="../bower_components/angular-mocks/angular-mocks.js"></script>-->
+    <script src="../bower_components/angular-animate/angular-animate.js"></script>
     <script src="js/app.js"></script>
     <script src="js/modules/main/main.controller.js"></script>
     <script src="js/common/services/foursquareApi.service.js"></script>

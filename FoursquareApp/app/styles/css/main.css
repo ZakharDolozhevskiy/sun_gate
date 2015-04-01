@@ -38,6 +38,7 @@ header {
   cursor: pointer;
   color: white;
   outline: none;
+  transition: all linear 0.2s;
 }
 #searchBox .input-group button:hover {
   background: #f25e55;
@@ -54,4 +55,13 @@ header {
 }
 #searchResult ul li:last-child {
   border-bottom: 1px solid #dcdcdc;
+}
+.animate-repeat.ng-move,
+.animate-repeat.ng-enter {
+  transition: all linear 1s;
+  opacity: 0;
+}
+.animate-repeat.ng-enter.ng-enter-active,
+.animate-repeat.ng-move.ng-move-active {
+  opacity: 1;
 }

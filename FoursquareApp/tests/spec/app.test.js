@@ -42,9 +42,7 @@ describe('app', function () {
             $scope.catQuery = 'bar';
 
 
-            $httpBackend.whenJSONP(appConfig.api.baseUrl + '?callback=JSON_CALLBACK' + '&client_id=' + appConfig.api.clientId +
-                '&client_secret=' + appConfig.api.clientSecret + '&near=kiev&query=bar' +
-                '&v=' + appConfig.api.version).respond(fakeResponse, 'success');
+            $httpBackend.whenJSONP(/https:\/\/api.foursquare.com\/v2\/venues\/search/).respond(fakeResponse, 'success');
 
             $scope.search();
 

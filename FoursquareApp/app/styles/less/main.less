@@ -45,6 +45,8 @@ header{
     cursor: pointer;
     color: white;
     outline: none;
+    transition:all linear 0.2s;
+
     &:hover{
       background: lighten(@btnColor, 5%);
     }
@@ -66,3 +68,17 @@ header{
     }
   }
 }
+
+// animation block
+
+.animate-repeat.ng-move,
+.animate-repeat.ng-enter{
+  transition:all linear 1s;
+  opacity:0;
+}
+
+.animate-repeat.ng-enter.ng-enter-active,
+.animate-repeat.ng-move.ng-move-active{
+  opacity:1;
+}
+

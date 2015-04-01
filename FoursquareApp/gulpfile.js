@@ -9,7 +9,7 @@ gulp.task('watchers', function () {
 });
 
 gulp.task('less', function () {
-    return gulp.src('app/styles/less/*.less')
+    gulp.src('app/styles/less/*.less')
                .pipe(less({
                     plugins: [autoprefixPlugin]
                 }))
