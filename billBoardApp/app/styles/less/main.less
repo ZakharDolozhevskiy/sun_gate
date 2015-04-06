@@ -1,13 +1,14 @@
+// basic
 .navbar-collapse {
   line-height: 50px;
 }
-
-.addNew-box {
-  width: 700px;
-  margin: 0 auto;
+.alert-success {
+  display: none;
 }
+// Dashboard page styles
 .dashboard {
   padding: 50px;
+  font-family: 'Arimo', sans-serif;
 
   .alert{
     float: left;
@@ -17,9 +18,38 @@
   }
 }
 
+// Page with adding new note styles
 .addNew-box {
+  width: 700px;
+  margin: 0 auto;
+  font-family: 'Arimo', sans-serif;
 
-  .control-label{
+
+  .form-control{
+    font: 15px 'Arimo', sans-serif;
+  }
+  .control-label {
     margin-bottom: 20px;
   }
+
+  .related-tags {
+    display: inline-block;
+    width: 420px;
+  }
+
+  .add-tag {
+    float: right;
+  }
+
+  .tag-list{
+    padding: 0;
+
+    li{
+      float: left;
+      margin-right: 20px;
+      font-size: 15px;
+      list-style: none;
+    }
+  }
 }
+

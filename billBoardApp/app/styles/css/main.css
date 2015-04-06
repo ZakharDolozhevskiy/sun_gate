@@ -1,12 +1,12 @@
 .navbar-collapse {
   line-height: 50px;
 }
-.addNew-box {
-  width: 700px;
-  margin: 0 auto;
+.alert-success {
+  display: none;
 }
 .dashboard {
   padding: 50px;
+  font-family: 'Arimo', sans-serif;
 }
 .dashboard .alert {
   float: left;
@@ -14,6 +14,30 @@
   width: 200px;
   margin: 20px;
 }
+.addNew-box {
+  width: 700px;
+  margin: 0 auto;
+  font-family: 'Arimo', sans-serif;
+}
+.addNew-box .form-control {
+  font: 15px 'Arimo', sans-serif;
+}
 .addNew-box .control-label {
   margin-bottom: 20px;
+}
+.addNew-box .related-tags {
+  display: inline-block;
+  width: 420px;
+}
+.addNew-box .add-tag {
+  float: right;
+}
+.addNew-box .tag-list {
+  padding: 0;
+}
+.addNew-box .tag-list li {
+  float: left;
+  margin-right: 20px;
+  font-size: 15px;
+  list-style: none;
 }
