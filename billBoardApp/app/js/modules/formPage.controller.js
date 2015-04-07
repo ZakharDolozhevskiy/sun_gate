@@ -44,7 +44,7 @@
             $scope.close = function() {
                 $scope.showPopUp = false;
             };
-            //////////////////////////////////////////////////////////////
+            /////////////////////////////////////////////////////////////////////////
             $scope.log = function() {
                 dataBaseApi.getFiles().then(function(val) { console.log(val); });
             };

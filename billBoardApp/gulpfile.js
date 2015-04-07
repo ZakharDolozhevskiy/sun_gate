@@ -1,6 +1,7 @@
 var gulp = require('gulp'),
     less = require('gulp-less'),
     concat = require('gulp-concat'),
+    karma = require('gulp-karma'),
     browserSync = require('browser-sync'),
     LessPluginAutoPrefix = require('less-plugin-autoprefix'),
     autoprefixPlugin = new LessPluginAutoPrefix({browsers: ["last 50 versions"]});
@@ -15,6 +16,18 @@ gulp.task('compileLess', function() {
             plugins: [autoprefixPlugin]
         }))
         .pipe(gulp.dest('app/styles/css'));
+});
+
+gulp.task('karma-test', function() {
+    return gulp.src(['bower_components/angular/angular.js',
+        'bower_components/angular-mocks/angular-mocks.js',
+        'bower_components/angular-route/angular-route.js',
+        'app/js/**/*.js',
+        'tests/spec/*.spec.js'])
+        .pipe(karma({
+            configFile: 'karma.conf.js',
+            action: 'run'
+        }))
 });
 
 gulp.task('server', function () {
@@ -35,4 +48,4 @@ gulp.task('server', function () {
     });
 });
 
-gulp.task('default',['server','watchers','compileLess']);
+gulp.task('default',['server','watchers','compileLess','karma-test']);

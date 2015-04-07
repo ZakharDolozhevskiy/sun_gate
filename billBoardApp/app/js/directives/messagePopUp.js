@@ -6,8 +6,8 @@
               scope: {
                 isShown: '=openFlag'
               },
-              link: function(scope, elem) {
-                  scope.$watch('isShown', function(newVal, oldVal){
+              link: function(scope) {
+                  scope.$watch('isShown', function(newVal){
                       if (newVal) {
                           $('.alert-success').show(200);
                       } else {
