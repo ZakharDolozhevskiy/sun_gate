@@ -1,12 +1,11 @@
 (function() {
     "use strict";
     angular.module('AddFormCtrl', []).
-        controller('AddFormCtrl', function ($scope, $rootScope, dataBaseApi) {
+        controller('AddFormCtrl', function ($scope, $rootScope, dataBaseApi, relatedTags, categories) {
             $rootScope.title = 'Add new note';
             $scope.showPopUp = false;
-            $scope.catOptions = [{value:'CAT1'},{value:'CAT2'},{value:'CAT3'},
-                                 {value:'CAT4'},{value:'CAT5'},{value:'CAT6'}];
-            $scope.reletedTags = ['st1','2222','test3','newTag','myTag','nnsq'];
+            $scope.catOptions = categories.get();
+            $scope.reletedTags = relatedTags.get();
             $scope.thisNoteTags = [];
             var addTagInput = angular.element('.related-tags'),
                 newNote = {};
@@ -18,7 +17,10 @@
                 var val = addTagInput.val();
                 // check that add tag isn't duplicate
                 if( $scope.thisNoteTags.indexOf(val) === -1 ) $scope.thisNoteTags.push(val);
-                if( $scope.reletedTags.indexOf(val) === -1 ) $scope.reletedTags.push(val);
+                if( $scope.reletedTags.indexOf(val) === -1 ) {
+                    $scope.reletedTags.push(val);
+                    relatedTags.add(val);
+                }
                 // clear input field
                 addTagInput.val('');
             };
