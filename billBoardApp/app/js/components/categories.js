@@ -1,10 +1,10 @@
 (function() {
     "use strict";
     angular.module('app')
-        .factory('categories', function() {
-            var dataHolder = null,
+        .factory('categories', function(firebaseApi) {
+            var dataHolder = [],
                 getter = function() {
-                    return dataHolder;
+                    return firebaseApi.getCategories();
                 },
                 adder = function(x) {
                     dataHolder.push(x);

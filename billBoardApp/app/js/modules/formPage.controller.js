@@ -1,45 +1,42 @@
 (function() {
     "use strict";
     angular.module('AddFormCtrl', []).
-        controller('AddFormCtrl', function ($scope, $rootScope, dataBaseApi, relatedTags, categories) {
+        controller('AddFormCtrl', function ($scope, $rootScope, dataBaseApi, relatedTags, categories, firebaseApi) {
+            var tag;
             $rootScope.title = 'Add new note';
             $scope.showPopUp = false;
             $scope.catOptions = categories.get();
-            $scope.reletedTags = relatedTags.get();
+            $scope.reletedTags = [];
             $scope.thisNoteTags = [];
-            var addTagInput = angular.element('.related-tags'),
-                newNote = {};
+            // waiting for loading and then filter data
+            relatedTags.get().$loaded().then(function(res) {
+              res.map(function(i) {
+                  $scope.reletedTags.push(i.$value);
+              })
+            });
             /**
              * Add new tag to creating note
              */
             $scope.addTag = function() {
                 // find input and read users tag
-                var val = addTagInput.val();
+                tag = $scope.note.tags;
                 // check that add tag isn't duplicate
-                if( $scope.thisNoteTags.indexOf(val) === -1 ) $scope.thisNoteTags.push(val);
-                if( $scope.reletedTags.indexOf(val) === -1 ) {
-                    $scope.reletedTags.push(val);
-                    relatedTags.add(val);
-                }
+                if( $scope.thisNoteTags.indexOf(tag) === -1 ) $scope.thisNoteTags.push(tag);
+                if( $scope.reletedTags.indexOf(tag) === -1 ) relatedTags.add(tag);
                 // clear input field
-                addTagInput.val('');
+                $scope.note.tags = '';
             };
             /**
              * Complete new note adding
              */
             $scope.addNewNote = function() {
                 /**
-                 * add data form data to object that describe new note
-                 */
-                newNote.title = $scope.noteTitle;
-                newNote.category = $scope.selectCat;
-                newNote.email = $scope.email;
-                newNote.tags = $scope.thisNoteTags;
-                newNote.description = $scope.description;
-                /**
                  * Call DB Api and add new note object on it
                  */
-                dataBaseApi.addFiles([newNote]);
+                firebaseApi.addNote($scope.note);
+                //dataBaseApi.addFiles([$scope.note]);
+                $scope.note = {};  $scope.thisNoteTags = [];
+                $scope.form.$setUntouched();
                 $scope.showPopUp = true;
             };
 

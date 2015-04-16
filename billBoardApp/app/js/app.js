@@ -1,6 +1,6 @@
 (function() {
     "use strict";
-    var app = angular.module('app',['ngRoute', 'DashboardCtrl', 'AddFormCtrl']);
+    var app = angular.module('app',['ngRoute', 'DashboardCtrl', 'AddFormCtrl', 'firebase']);
 
     app.config(function ($routeProvider) {
         $routeProvider.

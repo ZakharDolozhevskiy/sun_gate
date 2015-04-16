@@ -1,13 +1,13 @@
 (function() {
     "use strict";
     angular.module('app')
-        .factory('relatedTags', function() {
-            var dataHolder = null,
+        .factory('relatedTags', function(firebaseApi) {
+            var dataHolder = [],
                 getter = function() {
-                    return dataHolder;
+                    return firebaseApi.getTags();
                 },
                 adder = function(x) {
-                    dataHolder.push(x);
+                    firebaseApi.addTag(x);
                 },
                 setter = function(z) {
                     dataHolder = z;
