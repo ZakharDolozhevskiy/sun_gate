@@ -1,13 +1,15 @@
 (function() {
     "use strict";
     angular.module('AddFormCtrl', []).
-        controller('AddFormCtrl', function ($scope, $rootScope, dataBaseApi, relatedTags, categories, firebaseApi) {
+        controller('AddFormCtrl', function ($scope, $rootScope, $window, dataBaseApi, relatedTags, options, firebaseApi) {
             var tag;
             $rootScope.title = 'Add new note';
+            $rootScope.isSearchActive = false;
             $scope.showPopUp = false;
-            $scope.catOptions = categories.get();
-            $scope.reletedTags = [];
-            $scope.thisNoteTags = [];
+            $scope.catOptions = options;
+            $scope.reletedTags = [''];
+            $scope.note = {};
+            $scope.note.tags = [];
             // waiting for loading and then filter data
             relatedTags.get().$loaded().then(function(res) {
               res.map(function(i) {
@@ -19,12 +21,12 @@
              */
             $scope.addTag = function() {
                 // find input and read users tag
-                tag = $scope.note.tags;
+                tag = $scope.tag;
                 // check that add tag isn't duplicate
-                if( $scope.thisNoteTags.indexOf(tag) === -1 ) $scope.thisNoteTags.push(tag);
+                if( $scope.note.tags.indexOf(tag) === -1 ) $scope.note.tags.push(tag);
                 if( $scope.reletedTags.indexOf(tag) === -1 ) relatedTags.add(tag);
                 // clear input field
-                $scope.note.tags = '';
+                $scope.tag = '';
             };
             /**
              * Complete new note adding
@@ -34,8 +36,11 @@
                  * Call DB Api and add new note object on it
                  */
                 firebaseApi.addNote($scope.note);
-                //dataBaseApi.addFiles([$scope.note]);
-                $scope.note = {};  $scope.thisNoteTags = [];
+                // if user is offline add new note to local DB
+                if(!$window.navigator.onLine){
+                    dataBaseApi.addFiles([$scope.note]);
+                }
+                $scope.note = {};  $scope.note.tags = [];
                 $scope.form.$setUntouched();
                 $scope.showPopUp = true;
             };

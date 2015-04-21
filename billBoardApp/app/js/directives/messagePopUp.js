@@ -4,7 +4,7 @@
         .directive('message.popup', function() {
           return {
               scope: {
-                isShown: '=openFlag'
+                isShown: '=flag'
               },
               link: function(scope) {
                   scope.$watch('isShown', function(newVal){

@@ -27,6 +27,7 @@
 
                     for (var i = 0; i < files.length; i++) { request.add(files[i]); }
                 });
+                return this;
             };
 
             controls.dropFiles = function() {
@@ -34,6 +35,7 @@
                     var request = db.transaction([storeName], "readwrite").objectStore(storeName);
                         request.clear();
                 });
+                return this;
             };
 
             controls.getFiles = function() {

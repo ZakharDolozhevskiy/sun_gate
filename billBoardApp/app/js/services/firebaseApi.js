@@ -18,12 +18,12 @@
 
                 addTag = function(tag) {
                     instanceTags = instanceTags ? instanceTags : $firebaseArray(refTags);
-                    instanceTags.$add(tag);
+                    return instanceTags.$add(tag);
                 },
 
                 addNote = function(data) {
                     instanceNote = instanceNote ? instanceNote : $firebaseArray(refNote);
-                    instanceNote.$add(data);
+                    return instanceNote.$add(data);
                 };
 
             refNote = refNote || new Firebase("https://billboardapp.firebaseio.com/notes");

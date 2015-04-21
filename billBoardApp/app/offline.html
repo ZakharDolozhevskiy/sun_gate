@@ -9,26 +9,9 @@
     <link rel="stylesheet" href="styles/css/bootstrap.css"/>
     <link rel="stylesheet" href="styles/css/main.css"/>
     <link rel="icon" href="http://faviconka.ru/ico/faviconka_ru_1630.ico">
-    <title ng-bind="title"></title>
 </head>
 <body>
-    <nav class="navbar navbar-inverse">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <a class="navbar-brand">{{title}}</a>
-            </div>
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <button type="submit" class="btn btn-success" ><a href="/#/new">Add new note</a></button>
-                <button type="submit" class="btn btn-success" ><a href="/#/">Show dashboard</a></button>
-                <div ng-show="isSearchActive" class="search-wrap" search-block></div>
-                <div class="sort-btn-box">
-                    <button id="rw" type="button" class="btn btn-default" note-like-rows><i class="fa fa-align-justify"></i></button>
-                    <button id="th" type="button" class="btn btn-default" note-like-cells><i class="fa fa-th"></i></button>
-                </div>
-            </div>
-        </div>
-    </nav>
-    <div id="container" ng-view></div>
+Loading is failure...
 <script src="../bower_components/jquery/dist/jquery.js"></script>
 <script src="../bower_components/jquery-ui/jquery-ui.min.js"></script>
 <script src="../bower_components/angular/angular.js"></script>

@@ -1,6 +1,6 @@
 describe('application routing', function() {
     "use strict";
-    var $route, $location, $rootScope, $httpBackend;
+    var $route, $location, $rootScope, $httpBackend, $firebaseApi;
 
     beforeEach(module('app'));
     beforeEach(inject(function($injector) {

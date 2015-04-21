@@ -4,21 +4,94 @@
 .alert-success {
   display: none;
 }
-.ng-invalid.ng-touched {
-  border-color: #ee5f5b;
+.search-wrap {
+  display: inline-block;
 }
-.ng-valid.ng-touched {
-  border-color: #62c462;
+.sort-btn-box {
+  float: right;
+  color: #fff;
+  font-size: 30px !important;
+}
+.sort-btn-box i {
+  cursor: pointer;
+}
+#inputSearch {
+  display: inline-block;
+  width: 360px;
+  height: 37px;
+  margin: 0 5px 0 15px;
 }
 .dashboard {
-  padding: 50px;
+  padding: 50px 0 50px 20px;
   font-family: 'Arimo', sans-serif;
+  overflow: hidden;
 }
-.dashboard .alert {
+.dashboard h3 {
+  margin-top: 0;
+}
+.dashboard h5 {
+  font-size: 16px;
+}
+.dashboard .note-wrapper.fullWidth {
+  width: 96%;
+}
+.dashboard .note-wrapper {
   float: left;
-  min-height: 120px;
-  width: 200px;
+  padding: 8px 12px;
+  font-size: 14px;
+  line-height: 1.42857143;
+  color: #272b30;
+  background-color: #F5F5F5;
+  border: 1px solid #cccccc;
+  -webkit-border-radius: 4px;
+     -moz-border-radius: 4px;
+          border-radius: 4px;
+  width: 30%;
+  min-width: 200px;
+  min-height: 220px;
   margin: 20px;
+}
+.dashboard .note-wrapper ul {
+  padding: 0;
+  margin-bottom: 20px;
+}
+.dashboard .note-wrapper span {
+  display: inline-block;
+  width: 100px;
+  font-size: 14px;
+  font-weight: 500;
+  margin: 0 15px 10px 0;
+}
+.dashboard .note-wrapper p {
+  font-size: 16px;
+}
+.dashboard .note-wrapper .tags li {
+  display: inline-block;
+  margin-right: 10px;
+  padding: 3px 8px 4px;
+  color: #fff;
+  line-height: 1;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  -webkit-border-radius: .25em;
+     -moz-border-radius: .25em;
+          border-radius: .25em;
+  background-color: #f89406;
+  cursor: pointer;
+  -webkit-transition: all 0.25s;
+     -moz-transition: all 0.25s;
+       -o-transition: all 0.25s;
+          transition: all 0.25s;
+}
+.dashboard .note-wrapper .tags li:hover {
+  background-color: #c67605;
+}
+.dashboard .note-wrapper .category::first-letter,
+.dashboard .note-wrapper .tags li::first-letter,
+.dashboard .note-wrapper p::first-letter,
+.dashboard .note-wrapper h3::first-letter {
+  text-transform: capitalize;
 }
 .addNew-box {
   width: 700px;
@@ -46,4 +119,10 @@
   margin-right: 20px;
   font-size: 15px;
   list-style: none;
+}
+.addNew-box .ng-invalid.ng-touched {
+  border-color: #ee5f5b;
+}
+.addNew-box .ng-valid.ng-touched {
+  border-color: #62c462;
 }

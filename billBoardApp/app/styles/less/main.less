@@ -1,26 +1,106 @@
+@tagsColor: #f89406;
 // basic
 .navbar-collapse {
   line-height: 50px;
 }
+
 .alert-success {
   display: none;
 }
-.ng-invalid.ng-touched {
-  border-color: #ee5f5b;
+
+.search-wrap {
+  display: inline-block;
 }
-.ng-valid.ng-touched {
-  border-color: #62c462;
+
+.sort-btn-box{
+  float: right;
+  color: #fff;
+  font-size: 30px !important;
+}
+
+.sort-btn-box i {
+  cursor: pointer;
+}
+
+#inputSearch {
+  display: inline-block;
+  width: 360px;
+  height: 37px;
+  margin: 0 5px 0 15px;
 }
 // Dashboard page styles
 .dashboard {
-  padding: 50px;
+  padding: 50px 0 50px 20px;
   font-family: 'Arimo', sans-serif;
+  overflow: hidden;
 
-  .alert{
+  h3{
+    margin-top: 0;
+  }
+
+  h5{
+    font-size: 16px;
+  }
+  .note-wrapper.fullWidth{
+    width: 96%;
+  }
+
+  .note-wrapper{
     float: left;
-    min-height: 120px;
-    width: 200px;
+    padding: 8px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #272b30;
+    background-color:#F5F5F5;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    width: 30%;
+    min-width: 200px;
+    min-height: 220px;
     margin: 20px;
+
+    ul{
+      padding: 0;
+      margin-bottom: 20px;
+    }
+
+    span {
+      display: inline-block;
+      width: 100px;
+      font-size: 14px;
+      font-weight: 500;
+      margin: 0 15px 10px 0;
+    }
+
+    p {
+      font-size: 16px;
+    }
+
+    .tags li{
+      display: inline-block;
+      margin-right: 10px;
+      padding: 3px 8px 4px;
+      color: #fff;
+      line-height: 1;
+      text-align: center;
+      white-space: nowrap;
+      vertical-align: baseline;
+      border-radius: .25em;
+      background-color: @tagsColor;
+      cursor: pointer;
+      transition: all 0.25s;
+    }
+
+    .tags li:hover{
+      background-color: darken(@tagsColor, 10%);
+    }
+
+    .category::first-letter,
+    .tags li::first-letter,
+    p::first-letter,
+    h3::first-letter{
+      text-transform: capitalize;
+    }
   }
 }
 
@@ -56,6 +136,13 @@
       font-size: 15px;
       list-style: none;
     }
+  }
+
+  .ng-invalid.ng-touched {
+    border-color: #ee5f5b;
+  }
+  .ng-valid.ng-touched {
+    border-color: #62c462;
   }
 }
 
