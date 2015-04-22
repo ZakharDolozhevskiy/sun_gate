@@ -8,33 +8,26 @@
     <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
     <title>FoursquareApp</title>
 </head>
-<body ng-controller="mainCtrl">
-    <header></header>
-    <section id="searchBox">
-        <div class="input-group">
-            <input type="text" placeholder="Place" ng-model="placeQuery"/>
-        </div>
-        <div class="input-group">
-            <input type="text" placeholder="Category" ng-model="catQuery"/>
-        </div>
-        <div class="input-group">
-            <button ng-click="search()">Search</button>
-        </div>
-    </section>
-    <section id="searchResult">
-        <ul>
-            <li class="animate-repeat" ng-repeat="place in places">{{place.name}}</li>
-        </ul>
-    </section>
+<body>
+    <header>
+        <app-navigation></app-navigation>
+    </header>
+    <section ui-view></section>
     <footer></footer>
     <script src="../bower_components/jquery/dist/jquery.js"></script>
     <script src="../bower_components/angular/angular.js"></script>
     <script src="../bower_components/angular-resource/angular-resource.js"></script>
     <script src="../bower_components/angular-sanitize/angular-sanitize.js"></script>
     <script src="../bower_components/angular-animate/angular-animate.js"></script>
+    <script src="../bower_components/angular-ui-router/release/angular-ui-router.js"></script>
     <script src="js/app.js"></script>
-    <script src="js/modules/main/main.controller.js"></script>
+    <script src="js/config.js"></script>
+    <script src="js/modules/search/search.controller.js"></script>
     <script src="js/common/services/foursquareApi.service.js"></script>
+    <script src="js/common/directives/places/places.directive.js"></script>
+    <script src="js/common/directives/place/place.directive.js"></script>
+    <script src="js/common/directives/place.search/placeSearch.directive.js"></script>
+    <script src="js/common/directives/app.navigation/appNavigation.js"></script>
 </body>
 
 </html>
