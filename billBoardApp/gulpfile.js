@@ -19,11 +19,14 @@ gulp.task('compileLess', function() {
 });
 
 gulp.task('karma-test', function() {
-    return gulp.src(['bower_components/angular/angular.js',
+    return gulp.src([
+        'bower_components/angular/angular.js',
         'bower_components/angular-mocks/angular-mocks.js',
-        'bower_components/angular-route/angular-route.js',
+        'bower_components/angularfire/dist/angularfire.js',
+        'bower_components/angular-ui-router/release/angular-ui-router.js',
         'app/js/**/*.js',
-        'tests/spec/*.spec.js'])
+        'tests/spec/*.spec.js'
+        ])
         .pipe(karma({
             configFile: 'karma.conf.js',
             action: 'run'

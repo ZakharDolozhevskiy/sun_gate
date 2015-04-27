@@ -1,0 +1,16 @@
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand">{{title}}</a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <button type="submit" class="btn btn-success" ><a ui-sref='newNote'>Add new note</a></button>
+            <button type="submit" class="btn btn-success" ><a ui-sref='dashboard'>Show dashboard</a></button>
+            <div ng-show="isDashboard" class="search-wrap" search-block></div>
+            <div ng-show="isDashboard" class="sort-btn-box">
+                <button id="rw" type="button" class="btn btn-default" note-like-rows><i class="fa fa-align-justify"></i></button>
+                <button id="th" type="button" class="btn btn-default" note-like-cells><i class="fa fa-th"></i></button>
+            </div>
+        </div>
+    </div>
+</nav>

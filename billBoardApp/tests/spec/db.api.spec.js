@@ -1,4 +1,4 @@
-describe('Data base api servoce', function() {
+describe('Data base api service', function() {
     "use strict";
 
     var DB_Api;

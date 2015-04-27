@@ -9,42 +9,31 @@
     <link rel="stylesheet" href="styles/css/bootstrap.css"/>
     <link rel="stylesheet" href="styles/css/main.css"/>
     <link rel="icon" href="http://faviconka.ru/ico/faviconka_ru_1630.ico">
-    <title ng-bind="title"></title>
+    <title data-ng-bind="title"></title>
 </head>
 <body>
-    <nav class="navbar navbar-inverse">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <a class="navbar-brand">{{title}}</a>
-            </div>
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <button type="submit" class="btn btn-success" ><a href="/#/new">Add new note</a></button>
-                <button type="submit" class="btn btn-success" ><a href="/#/">Show dashboard</a></button>
-                <div ng-show="isSearchActive" class="search-wrap" search-block></div>
-                <div class="sort-btn-box">
-                    <button id="rw" type="button" class="btn btn-default" note-like-rows><i class="fa fa-align-justify"></i></button>
-                    <button id="th" type="button" class="btn btn-default" note-like-cells><i class="fa fa-th"></i></button>
-                </div>
-            </div>
-        </div>
-    </nav>
-    <div id="container" ng-view></div>
-<script src="../bower_components/jquery/dist/jquery.js"></script>
-<script src="../bower_components/jquery-ui/jquery-ui.min.js"></script>
-<script src="../bower_components/angular/angular.js"></script>
-<script src="../bower_components/angular-route/angular-route.js"></script>
-<script src="../bower_components/firebase/firebase.js"></script>
-<script src="../bower_components/angularfire/dist/angularfire.min.js"></script>
-<script src="js/modules/dashboard.controller.js"></script>
-<script src="js/modules/formPage.controller.js"></script>
-<script src="js/app.js"></script>
-<script src="js/directives/messagePopUp.js"></script>
-<script src="js/directives/search.js"></script>
-<script src="js/directives/autocomplite.js"></script>
-<script src="js/directives/notelistToggle.js"></script>
-<script src="js/services/dataBaseApi.js"></script>
-<script src="js/services/firebaseApi.js"></script>
-<script src="js/components/categories.js"></script>
-<script src="js/components/relatedTags.js"></script>
+    <div class="app-navigation"></div>
+    <div id="container" data-ui-view></div>
+    <script src="../bower_components/jquery/dist/jquery.js"></script>
+    <script src="../bower_components/jquery-ui/jquery-ui.min.js"></script>
+    <script src="../bower_components/angular/angular.js"></script>
+    <script src="../bower_components/angular-route/angular-route.js"></script>
+    <script src="../bower_components/firebase/firebase.js"></script>
+    <script src="../bower_components/angularfire/dist/angularfire.min.js"></script>
+    <script src="../bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/config.js"></script>
+    <script src="js/offlineMode.js"></script>
+    <script src="js/directives/messagePopUp.js"></script>
+    <script src="js/directives/pageNavigation/navigation.js"></script>
+    <script src="js/modules/dashboard/dashboard.controller.js"></script>
+    <script src="js/modules/addNote/formPage.controller.js"></script>
+    <script src="js/directives/search.js"></script>
+    <script src="js/directives/autocomplite.js"></script>
+    <script src="js/directives/notelistToggle.js"></script>
+    <script src="js/services/dataBaseApi.js"></script>
+    <script src="js/services/firebaseApi.js"></script>
+    <script src="js/components/categories.js"></script>
+    <script src="js/components/relatedTags.js"></script>
 </body>
 </html>

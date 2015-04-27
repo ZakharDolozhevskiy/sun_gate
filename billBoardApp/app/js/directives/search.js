@@ -4,14 +4,11 @@
 
     directives.searchBlock = function() {
         return {
-            template: '<input class="form-control" type="text" id="inputSearch" ng-model="search">\n' +
+            template: '<input class="form-control" type="text" id="inputSearch" ng-model="searchQuery">\n' +
             '          <button id="search" type="button" class="btn btn-default">\n' +
-            '          <i class="fa fa-search"></i>\n</button>',
+            '          <i class="fa fa-search"></i> Search</button>',
             link: function(scope, element, attrs) {
                 var finalQuery = '';
-
-                scope.isSearchActive = false;
-
                 scope.$watch('searchQuery', function(newVal) {
                     finalQuery = newVal;
                 });

@@ -1,15 +1,19 @@
 CACHE MANIFEST
-# 1212111
+# 011121099.121
 CACHE:
 ../bower_components/jquery/dist/jquery.js
 ../bower_components/jquery-ui/jquery-ui.min.js
 ../bower_components/angular/angular.js
 ../bower_components/angular-route/angular-route.js
+../bower_components/angular-ui-router/release/angular-ui-router.js
 ../bower_components/firebase/firebase.js
 ../bower_components/angularfire/dist/angularfire.min.js
-js/modules/dashboard.controller.js
-js/modules/formPage.controller.js
+js/modules/dashboard/dashboard.controller.js
+js/modules/addNote/formPage.controller.js
 js/app.js
+js/config.js
+js/offlineMode.js
+js/directives/pageNavigation/navigation.js
 js/directives/messagePopUp.js
 js/directives/search.js
 js/directives/autocomplite.js
@@ -21,8 +25,9 @@ js/components/relatedTags.js
 styles/css/bootstrap.css
 styles/css/bootstrap.css
 styles/css/main.css
-templates/dashboard.template.html
-templates/addNewForm.template.html
+js/directives/pageNavigation/navigationBar.tmpl.html
+js/modules/dashboard/dashboard.template.html
+js/modules/addNote/addNewForm.template.html
 http://fonts.googleapis.com/css?family=Arimo:400,700
 http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css
 http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css
