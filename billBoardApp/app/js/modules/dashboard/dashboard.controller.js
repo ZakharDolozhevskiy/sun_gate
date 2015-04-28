@@ -15,7 +15,7 @@
                 });
 
             // Check that application isn't load data base form server and swap data from IndexedDB
-            _timer = $timeout(function(){
+            _timer = $timeout(function() {
                 if(!$window.navigator.onLine) {
                     dataBaseApi.getFiles().then(function(result) {
                         $scope.dataList = result;

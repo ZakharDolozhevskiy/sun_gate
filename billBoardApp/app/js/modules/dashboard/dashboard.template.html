@@ -1,6 +1,6 @@
 <div class="dashboard" ui-view>
     <div class="note-wrapper" ng-repeat="item in dataList | filter: search">
-        <h3>{{item.title}}<a ng-href="#/dashboard/{{$index}}" class="fa fa-eye expand"></a></h3>
+        <h3>{{item.title}}<a ng-href="#/dashboard/{{item.$id}}" class="fa fa-eye expand"></a></h3>
         <span class="category label label-success">{{item.category}}</span>
         <span class="email label label-info">{{item.email}}</span>
         <h5>Releated tegs:</h5>
