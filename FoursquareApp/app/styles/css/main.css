@@ -1,4 +1,14 @@
 @import url(http://fonts.googleapis.com/css?family=Roboto+Condensed);
+body {
+  padding: 0;
+  margin: 0;
+}
+header {
+  height: 75px;
+  margin-bottom: 75px;
+  background: #f5f5f5;
+  border-bottom: 2px solid #dcdcdc;
+}
 .border-radius {
   border-radius: 5px;
 }
@@ -9,15 +19,24 @@
   border-bottom: 0;
   padding: 10px 20px;
 }
-body {
-  padding: 0;
-  margin: 0;
-}
-header {
+.nav.navbar-nav li {
+  float: left;
   height: 75px;
-  margin-bottom: 75px;
-  background: #f5f5f5;
-  border-bottom: 2px solid #dcdcdc;
+  line-height: 75px;
+  width: 75px;
+  border-right: 1px solid #dcdcdc;
+  text-align: center;
+}
+.nav.navbar-nav li a {
+  color: #f58b84;
+  font: bold 14px 'Roboto Condensed', sans-serif;
+  text-decoration: none;
+}
+.nav.navbar-nav li.active-tab {
+  background-color: #ededed;
+}
+.nav.navbar-nav li.active-tab a {
+  color: #f0483d;
 }
 #searchBox {
   width: 60%;

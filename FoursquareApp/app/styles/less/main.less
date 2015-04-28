@@ -5,16 +5,6 @@
 
 @import url(http://fonts.googleapis.com/css?family=Roboto+Condensed);
 
-.border-radius { border-radius: 5px; }
-
-.item {
-  font: 16px 'Roboto Condensed', sans-serif;
-  border: 1px solid darken(@mainColor, 10%);
-  background-color: @placesBg;
-  border-bottom: 0;
-  padding: 10px 20px;
-}
-
 body{
   padding: 0;
   margin: 0;
@@ -25,6 +15,36 @@ header{
   margin-bottom: 75px;
   background: @mainColor;
   border-bottom: 2px solid darken(@mainColor, 10%);
+}
+
+.border-radius { border-radius: 5px; }
+
+.item {
+  font: 16px 'Roboto Condensed', sans-serif;
+  border: 1px solid darken(@mainColor, 10%);
+  background-color: @placesBg;
+  border-bottom: 0;
+  padding: 10px 20px;
+}
+
+.nav.navbar-nav li{
+  float: left;
+  height: 75px;
+  line-height: 75px;
+  width: 75px;
+  border-right: 1px solid darken(@mainColor, 10%);
+  text-align: center;
+  a{
+    color: lighten(@btnColor, 15%);
+    font: bold 14px 'Roboto Condensed', sans-serif;
+    text-decoration: none;
+  }
+  &.active-tab {
+    background-color:darken(@placesBg, 7%);
+    a{
+      color: @btnColor;
+    }
+  }
 }
 
 #searchBox{
