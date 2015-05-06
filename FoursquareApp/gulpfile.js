@@ -1,11 +1,18 @@
-var gulp = require('gulp');
-var less = require('gulp-less');
-var LessPluginAutoPrefix = require('less-plugin-autoprefix'),
-    autoprefixPlugin = new LessPluginAutoPrefix({browsers: ["last 2 versions"]});
-var browserSync = require('browser-sync');
+var gulp = require('gulp'),
+    less = require('gulp-less'),
+    LessPluginAutoPrefix = require('less-plugin-autoprefix'),
+    autoprefixPlugin = new LessPluginAutoPrefix({browsers: ["last 2 versions"]}),
+    browserSync = require('browser-sync'),
+    concat = require('gulp-concat');
 
 gulp.task('watchers', function () {
-    gulp.watch('app/styles/less/*.less', ['less']);
+    gulp.watch('app/styles/less/*.less', ['concatLess', 'less']);
+});
+
+gulp.task('concatLess', function () {
+    gulp.src('app/styles/less/*.less')
+        .pipe(concat('main.less'))
+        .pipe(gulp.dest('app/styles/less/'));
 });
 
 gulp.task('less', function () {

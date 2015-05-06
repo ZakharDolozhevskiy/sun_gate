@@ -1,0 +1,28 @@
+[ui-view].ng-enter, [ui-view].ng-leave {
+  position:absolute;
+  left:0;
+  right: 0;
+
+  -webkit-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
+  transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
+}
+
+[ui-view].ng-enter {
+  opacity: 0;
+  transform: scale3d(0.5, 0.5, 0.5);
+}
+
+[ui-view].ng-enter.ng-enter-active {
+  opacity: 1;
+  transform: scale3d(1, 1, 1);
+}
+
+[ui-view].ng-leave {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+[ui-view].ng-leave.ng-leave-active {
+  opacity: 0;
+  transform: translate3d(600px, 300px, 0);
+}

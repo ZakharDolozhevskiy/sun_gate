@@ -24,7 +24,7 @@ describe('app', function () {
 
         beforeEach(function(){
             $scope = {};
-            controller = $controller('mainCtrl', { $scope: $scope, foursquareApi:foursquareApi});
+            controller = $controller('searchCtrl', { $scope: $scope, foursquareApi:foursquareApi});
         });
 
         it('should add place param into placeQuery variable', function() {
