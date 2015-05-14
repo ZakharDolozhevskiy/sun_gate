@@ -2,7 +2,7 @@
     "use strict";
 
     angular.module('foursquareApp')
-        .service('tokenService', function (appConfig) {
+        .service('tokenService', function (appConfig, $injector) {
             var token = null;
 
             return {
@@ -13,8 +13,9 @@
                     return config;
                 },
                 getToken: function () {
-                    return $http
-                        .get(appConfig.tokenUrl)
+                    return $injector
+                        .get('$http')
+                        .get(appConfig.getTokenURL())
                         .success(function (response) {
                             return token = response['access_token'];
                         });

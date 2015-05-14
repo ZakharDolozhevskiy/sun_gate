@@ -35,9 +35,9 @@ gulp.task('serve', function () {
             baseDir: './app',
             routes: {
                 "/bower_components": "bower_components"
-            }
+            },
+            https: true
         }
-
     });
 });
 
