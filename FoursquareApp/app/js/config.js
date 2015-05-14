@@ -20,11 +20,6 @@
                 .state('home', {
                     url: '/home',
                     templateUrl: 'js/modules/home/homePage.tmpl.html',
-                    resolve: {
-                        token: function (tokenService) {
-                            return tokenService.getToken();
-                        }
-                    },
                     controller: 'homePageCtrl'
                 });
 
