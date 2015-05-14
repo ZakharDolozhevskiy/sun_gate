@@ -20,7 +20,6 @@ module.exports = function(config) {
       'bower_components/angularfire/dist/angularfire.js',
       'bower_components/angular-ui-router/release/angular-ui-router.js',
       'app/js/**/*.js',
-      'app/*.js',
       'tests/spec/*.spec.js'
     ],
 
