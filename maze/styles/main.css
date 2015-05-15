@@ -1,0 +1,15 @@
+html,body{
+    position: relative;
+    margin: 0;
+    background: url("../imgs/hCrSRTN.png");
+}
+
+main{
+    width: 1024px;
+    margin: auto 0;
+}
+
+#maze{
+    margin: 330px 0 30px 330px;
+    transform: scale(2,2); /* Standard syntax */
+}
