@@ -1,36 +1,35 @@
 (function () {
   "use strict";
-  var http, fs, db, id, temp;
+  var http, fs, db, id, temp, writeResponse;
 
   http = require('http');
   fs = require('fs');
   db = require('./fake-db');
 
+// Methods helpers
+  writeResponse = function (path, res) {
+    var file = fs.createReadStream(path);
+
+    file.pipe(res);
+
+    file.on('error', function (err) {
+      res.setHeader = 500;
+      console.warn(err);
+    });
+
+    res.on('close', function () {
+      file.destroy();
+    });
+  };
+
   new http.Server(function (req, res) {
 // Get entry point html file
     if (req.url === '/') {
-      fs.readFile('views/index.html', function (err, data) {
-
-        if (err) {
-          console.log('Entry point file getting error: ' + err);
-          res.statusCode = 500;
-        } else {
-          res.writeHeader(200, {"Content-Type": "text/html"});
-          res.end(data);
-        }
-      });
+      writeResponse('views/index.html', res);
     }
 // Get other static content files
     if (/public/.test(req.url)) {
-      fs.readFile(__dirname + req.url, function (err, data) {
-
-        if (err) {
-          console.log('Static content getting error: ' + err);
-          res.statusCode = 500;
-        } else {
-          res.end(data);
-        }
-      });
+      writeResponse(__dirname + req.url, res);
     }
 // Processing requests for new record add and records collection getting
     if(req.url === '/api/users') {
@@ -118,7 +117,9 @@
         });
       }
     }
-  }).listen(3000);
+  }).listen(3001, function () {
+      console.log('server start at port 3001');
+    });
 }());
 
 
