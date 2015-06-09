@@ -1,0 +1,5 @@
+.idea
+server
+node_modules
+app/view/..html
+app/vendor
