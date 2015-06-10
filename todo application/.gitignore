@@ -1,5 +1,5 @@
 .idea
 server
 node_modules
-app/view/..html
-app/vendor
+app/js/view/..html
+app/js/vendor
