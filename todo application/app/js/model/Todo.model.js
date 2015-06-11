@@ -7,9 +7,9 @@ define([
     defaults: {
       "createDate":  new Date,
       "description": '',
-      "status":      'new'
+      "done":        false
     },
     idAttribute: '_id'
-  })
+  });
 
 });

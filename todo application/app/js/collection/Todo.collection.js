@@ -4,12 +4,12 @@ define([
 ], function(Backbone, Model) {
   "use strict";
 
-  return Backbone.Collection.extend({
+  var Collection = Backbone.Collection.extend({
     model: Model,
     comparator: "createDate",
 
     removeCompleteItem: function() {
-      this.reset( this.where( {status: 'new'} ));
+      this.reset( this.where( {done: false} ));
     },
 
     returnOnlyCompleted: function() {
@@ -20,4 +20,6 @@ define([
       return this.where({status: 'new'});
     }
   });
+
+  return new Collection;
 });
