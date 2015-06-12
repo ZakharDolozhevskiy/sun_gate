@@ -10,8 +10,9 @@ require.config({
 
 require([
   'js/views/structure/Todo.view.js',
-  'jquery', 'js/router/Todo.router.js'], function(ToDo, $) {
-
+  'jquery',
+  'js/router/Todo.router.js'
+], function(ToDo, $) {
   new ToDo({el: $('.application')});
 });
 

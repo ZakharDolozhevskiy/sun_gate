@@ -9,6 +9,7 @@ define([
   return Backbone.View.extend({
     template: _.template(tmpl),
     itemsViews: [],
+    state: 'default',
     events: {
       'submit form': "addItem",
       'click .hide-done-item-btn': "hideDoneItem"
@@ -22,27 +23,48 @@ define([
       this.$input = this.$('.newTodo-filed');
       // Attach listeners
       this.listenTo(Collection, "add", this.renderOne);
-      //this.listenTo(Collection, "update", this.renderAll);
+      this.listenTo(Backbone.Events, "stateChange", this.renderAll);
       this.listenTo(Collection, "reset", this.renderAll);
+      // Notify Router that app is ready to use
+      Backbone.Events.trigger('AppReady');
     },
 
-    renderAll: function() {
-      var View;
+    renderAll: function(state) {
       this.clear();
 
-      this.itemsViews = Collection.map(function (each) {
-        View = new ItemView({"model": each});
+      this.state = state || this.state;
 
-        this.$itemsList.append(View.render());
+      switch(state) {
+        case 'done':
+          this.$itemsList.text('You colndn\t add saw added items in that state');
+          (Collection.returnOnlyCompleted()).forEach(function(model) {
+            this.renderOne(model, 'multi_adding');
+          }.bind(this));
+          break;
 
-        return View;
-      }.bind(this));
+        case 'actual':
+          (Collection.returnOnlyInProgress()).forEach(function(model) {
+            this.renderOne(model, 'multi_adding');
+          }.bind(this));
+          break;
+
+        default:
+          (Collection).forEach(function(model) {
+            this.renderOne(model, 'multi_adding');
+          }.bind(this));
+          break;
+      }
 
       return this;
     },
+    // This method launch in single and multi adding mode
+    renderOne: function(model, mode) {
+      var View = new ItemView({"model": model});
+      this.itemsViews.push(View);
+      // don't render new item when 'only done' state is active
+      if(this.state === 'done' &&  mode !== 'multi_adding') return false;
 
-    renderOne: function (model) {
-      this.$itemsList.append(new ItemView({"model": model}).render());
+      this.$itemsList.append(View.render());
     },
 
     addItem: function(e) {

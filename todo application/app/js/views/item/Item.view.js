@@ -17,9 +17,7 @@ define([
         initialize: function() {
             this.$el.addClass('item');
             this.$el.append(this.template({'item': this.model.toJSON()}));
-
             this.desc = this.$('.todo-description');
-
         },
 
         render: function() {
@@ -36,7 +34,7 @@ define([
         },
 
         changeStatus: function() {
-            this.model.set(this.model.set('done'), !this.model.set('done'));
+            this.model.set('done', !this.model.get('done'));
 
             this.desc.toggleClass('complete-item');
             this.desc.hasClass('complete-item') ?

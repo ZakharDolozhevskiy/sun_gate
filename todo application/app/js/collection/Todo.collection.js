@@ -13,11 +13,11 @@ define([
     },
 
     returnOnlyCompleted: function() {
-      return this.where({status: 'done'});
+      return this.where({done: true});
     },
 
     returnOnlyInProgress: function() {
-      return this.where({status: 'new'});
+      return this.where({done: false});
     }
   });
 
