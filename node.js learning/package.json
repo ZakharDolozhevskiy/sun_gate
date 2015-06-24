@@ -1,0 +1,19 @@
+{
+  "name": "Node.JS_Task",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app(native).js",
+  "dependencies": {
+    "body-parser": "^1.12.4",
+    "ejs": "^2.3.1",
+    "express": "^4.12.4",
+    "mongodb": "^2.0.35",
+    "mongoose": "^4.0.6"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}

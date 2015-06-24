@@ -7,8 +7,9 @@ define([
         model: UsersModel,
         url: '/api/users',
 
-        initialize: function(){
-
+        parse: function(resp){
+            this.total = resp.total;
+            return resp.collection;
         }
     });
 });
