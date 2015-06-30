@@ -4,13 +4,46 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Awesome-Flat-Ui-Kit</title>
-    <link rel="stylesheet" href="styles/reset.css"/>
-    <link rel="stylesheet" href="styles/main.css"/>
+    <link rel="stylesheet" href="build/styles/reset.css"/>
+    <link rel="stylesheet" href="build/styles/main.css"/>
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,700' rel='stylesheet' type='text/css'>
 </head>
 <body>
     <div id="wrap">
+        <nav class="nav-bar">
+            <div class="nav-bar_btn-holder">
+                <img class="nav-bar_tomb" src="images/nb-tomb-icon.png" alt="..."/>
+            </div>
+            <ul class="nav-bar_items-box">
+                <li class="nav-bar_item">
+                    <p class="nb_item-title">home</p>
+                    <ul class="nb_item-list">
+                        <li class="second-level-item">About me</li>
+                        <li class="second-level-item">Hire me</li>
+                    </ul>
+                </li>
+                <li class="nav-bar_item">
+                    <p class="nb_item-title">about</p>
+                </li>
+                <li class="nav-bar_item">
+                    <p class="nb_item-title">service</p>
+                <li class="nav-bar_item">
+                    <p class="nb_item-title">contact</p>
+                </li>
+            </ul>
+            <!-- form-close - The class name of hodden search form-->
+            <form class="nav-bar_search-box">
+                <label>
+                    <span class="search-icon"></span>
+                    <input class="nb_search-field" type="text" placeholder="Search"/>
+                </label>
+                <ul class="nb_search-submenu dropdown">
+                    <li class="second-level-item">Contact Us</li>
+                    <li class="second-level-item">Service</li>
+                </ul>
+            </form>
+        </nav>
         <div class="gallery-holder">
             <div class="gallery">
                 <a class="prev fa fa-angle-left" href="#"></a>
@@ -41,11 +74,583 @@
             <ul class="paging">
                 <li class="active"><a href="#" class="fa fa-circle-thin"></a></li>
                 <li><a href="#" class="fa fa-circle-thin"></a></li>
-                <li><a href="#" class="fa fa-circle-thin"></a></li>
-                <li><a href="#" class="fa fa-circle-thin"></a></li>
             </ul>
         </div>
+        <div class="container">
+            <div class="components-1">
+                <div class="login-form-holder">
+                    <div class="lf-head">
+                        <span>Login Here</span>
+                    </div>
+                    <img src="images/login-icon.png" class='lf-icon' alt="login form icon"/>
+                    <form class="login-form">
+                        <input type="text" placeholder="Username"/>
+                        <input type="password" placeholder="Password"/>
+                        <button type="submit">submit</button>
+                        <input id="remember-me" type="checkbox" value="remember" hidden="hidden" checked/>
+                        <label class="checkbox-section" for="remember-me"><span>remember</span></label>
+                    </form>
+                </div>
+                <div class="business-card">
+                    <div class="bc-head">
+                        <span class="bc-title">Ionut Bondoc</span>
+                    </div>
+                    <button class="bc-btn" type="button"><a href="#">Follow</a></button>
+                    <img src="images/contact-icon.png" class='bc-icon' alt="login form icon"/>
+                    <div class="bc-content"><h3>Visual Designer</h3></div>
+                    <ul class="bc-social-links">
+                        <li class="twitter"><a href="#">989</a></li>
+                        <li class="facebook"><a href="#">1000</a></li>
+                        <li class="email"><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="post-card">
+                    <div class="post-head">
+                        <span class="post-title">Title of the blog post</span>
+                    </div>
+                    <div class="post-content">
+                        <h3>The subtitle of the blog post</h3>
+                        <div class="date">12.12.2013</div>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam deserunt dolore modi odio saepe sint, tenetur. Dolorem iusto mollitia provident sequi. Doloribus est expedita facilis fuga illum libero recusandae voluptate?</p>
+                    </div>
+                    <ul class="post-links">
+                        <li class="comments"><a href="#"><span>2015</span>Comments</a></li>
+                        <li class="read-more"><a href="#">Read More</a></li>
+                    </ul>
+                </div>
+                <div class="tabs-holder">
+                    <ul class="tabset">
+                        <li class="active"><a href="#">Tab 1</a></li>
+                        <li><a href="#">Tab 2</a></li>
+                        <li><a href="#">Tab 3</a></li>
+                    </ul>
+                    <div class="tab active tab-1">
+                        <h3 class="tab-title">The tab title goes here</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A <a href="#">assumenda</a>  culpa doloremque, eos eum eveniet excepturi ipsa maxime nemo numquam reprehenderit similique soluta voluptas voluptatem voluptates? Error praesentium similique tenetur!</p>
+                    </div>
+                    <div class="tab tab-2">
+                        <h3 class="tab-title">The tab title goes here</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A culpa doloremque, eos eum eveniet excepturi ipsa maxime nemo numquam reprehenderit similique soluta voluptas voluptatem voluptates? Error praesentium similique tenetur!</p>
 
+                    </div>
+                    <div class="tab tab-3">
+                        <h3 class="tab-title"> The tab title goes here</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A assumenda culpa doloremque, eos eum eveniet excepturi ipsa maxime nemo numquam reprehenderit similique soluta voluptas voluptatem voluptates? Error praesentium similique tenetur!</p>
+                    </div>
+                </div>
+            </div>
+            <div class="search-fields"><div class="search-box">
+                <h2 class="search-title">SEARCH FIELD</h2>
+                <button class="search-btn"></button>
+                <form class="search" action="">
+                    <label>
+                        <input class="input-field" type="text" placeholder="Search"/>
+                        <ul class="search-submenu dropdown">
+                            <li class="second-level-item">Contact Us</li>
+                            <li class="second-level-item">Service</li>
+                        </ul>
+                    </label>
+                </form>
+            </div>
+            <div class="search-box black-theme">
+                <h2 class="search-title">SEARCH FIELD</h2>
+                <button class="search-btn"></button>
+                <form class="search" action="">
+                    <label>
+                        <input class="input-field" type="text" placeholder="Search"/>
+                        <ul class="search-submenu dropdown">
+                            <li class="second-level-item">Contact Us</li>
+                            <li class="second-level-item">Service</li>
+                        </ul>
+                    </label>
+                </form>
+            </div>
+            <div class="search-box medium">
+                <h2 class="search-title">SEARCH FIELD</h2>
+                <button class="search-btn red"></button>
+                <form class="search red" action="">
+                    <label>
+                        <input class="input-field input-md" type="text"/>
+                    </label>
+                </form>
+                <button class="search-btn default"></button>
+                <form class="search default" action="">
+                    <label>
+                        <input class="input-field input-md" type="text" placeholder="Search"/>
+                        <ul class="search-submenu dropdown">
+                            <li class="second-level-item">Contact Us</li>
+                            <li class="second-level-item">Service</li>
+                        </ul>
+                    </label>
+                </form>
+            </div></div>
+            <div class="form-fields">
+                <form action="#" class="input-group black-theme">
+                    <!-- Simple input field section-->
+                    <input class="input-field" type="text" placeholder="Form Simple"/>
+                    <label class="icon-i-label">
+                        <input class="input-field icon-input" type="text" placeholder="Icon Form"/>
+                    </label>
+                    <label class="psw-i-label">
+                        <input class="input-field" type="password" value="***********"/>
+                    </label>
+                    <label class="alert-i-label">
+                        <input class="input-field input-alert" type="text" placeholder="Form Error Alert"/>
+                    </label>
+                    <label class="done-i-label">
+                        <input class="input-field input-done" type="text" placeholder="Done Form"/>
+                    </label>
+                    <label class="alert-i-label-small">
+                        <input class="input-field input-md input-alert-small" type="text" placeholder="Small Form Error Alert"/>
+                    </label>
+                    <label class="done-i-label-small">
+                        <input class="input-field input-md input-done-small" type="text" placeholder="Small Form"/>
+                    </label>
+                    <input class="input-field input-md" type="text" placeholder="Small Form"/>
+                    <label class="icon-i-label-small">
+                        <input class="input-field input-md icon-input-small" type="text" placeholder="Icon Form"/>
+                    </label>
+                    <!-- Input with number type section-->
+                    <div class="number-field black-theme">
+                        <input class="input-field" placeholder="Search" value="1986"/>
+                        <div class="toggle-btn">
+                            <span class="plus">+</span>
+                            <span class="minus">-</span>
+                        </div>
+                        <ul class="dropdown number-list">
+                            <li class="scroll-bar"><span class="toggle"></span></li>
+                            <li class="second-level-item">1985</li>
+                            <li class="second-level-item">1986</li>
+                            <li class="second-level-item">1987</li>
+                        </ul>
+                    </div>
+                    <div class="number-field small black-theme">
+                        <input class="input-field" placeholder="Search" value="Small Form"/>
+                        <div class="toggle-btn">
+                            <span class="plus">+</span>
+                            <span class="minus">-</span>
+                        </div>
+                        <ul class="dropdown number-list">
+                            <li class="scroll-bar"><span class="toggle"></span></li>
+                            <li class="second-level-item">1985</li>
+                            <li class="second-level-item">1986</li>
+                            <li class="second-level-item">1987</li>
+                        </ul>
+                    </div>
+                </form>
+            </div>
+            <div class="progress-bars">
+                <div class="p-bar-holder">
+                    <span class="p-bar-loader"></span>
+                    <span class="toggle"></span>
+                </div>
+                <div class="p-bar-holder">
+                    <span class="p-bar-loader"></span>
+                </div>
+                <!-- Medium progress bars with tooltip -->
+                <div class="p-bar-holder medium">
+                    <span class="p-bar-loader">
+                        <span class="p-bar-tooltip">50%</span>
+                    </span>
+                </div>
+                <div class="p-bar-holder medium">
+                    <span class="p-bar-loader"></span>
+                </div>
+                <div class="p-bar-holder medium">
+                    <span class="p-bar-loader"></span>
+                </div>
+                <!-- Medium progress bars with toggle -->
+                <div class="p-bar-holder medium">
+                    <span class="p-bar-loader">
+                        <span class="toggle"></span>
+                    </span>
+                </div>
+                <div class="p-bar-holder medium">
+                    <span class="p-bar-loader">
+                        <span class="toggle"></span>
+                    </span>
+                </div>
+                <div class="p-bar-holder medium">
+                    <span class="p-bar-loader">
+                        <span class="toggle"></span>
+                    </span>
+                </div>
+                <!-- Medium progress bars with range toggle -->
+                <div class="p-bar-holder medium tg-range">
+                    <span class="p-bar-loader"></span>
+                    <span class="toggle default tg-left">1</span>
+                    <span class="toggle default tg-middle">2</span>
+                    <span class="toggle default tg-right">3</span>
+                </div>
+                <div class="p-bar-holder medium tg-range">
+                    <span class="toggle marked tg-left">1</span>
+                    <span class="toggle marked tg-middle">2</span>
+                    <span class="toggle default tg-right">3</span>
+                    <span class="p-bar-loader">
+                    </span>
+                </div>
+                <div class="p-bar-holder medium tg-range">
+                    <span class="p-bar-loader"></span>
+                    <span class="toggle marked tg-left">1</span>
+                    <span class="toggle marked tg-middle">2</span>
+                    <span class="toggle marked tg-right">3</span>
+                </div>
+                <div class="p-bar-holder medium tg-range">
+                    <span class="p-bar-loader"></span>
+                    <span class="toggle marked tg-first"></span>
+                    <span class="toggle marked tg-second"></span>
+                </div>
+            </div>
+            <div class="buttons">
+                <div class="btn-group">
+                    <button class="small">small</button>
+                    <button class="big">big button</button>
+                    <button class="huge">huge button</button>
+                </div>
+                <div class="btn-group social">
+                    <button class="small">small</button>
+                    <button class="big">icon button</button>
+                    <button class="huge">icon huge button</button>
+                </div>
+                <div class="btn-group arrow-left">
+                    <button class="small">small</button>
+                    <button class="big">big button</button>
+                    <button class="huge">huge button</button>
+                </div>
+                <div class="btn-group arrow-right">
+                    <button class="small">small</button>
+                    <button class="big">big button</button>
+                    <button class="huge">huge button</button>
+                </div>
+            </div>
+            <div class="drop-downs">
+                <div class="drop-down-group black-theme arrow-right small">
+                    <button class="small">small</button>
+                    <ul class="dropdown">
+                        <li class="second-level-item">Contact Us</li>
+                        <li class="second-level-item">Service</li>
+                    </ul>
+                </div>
+                <div class="drop-down-group black-theme arrow-right big">
+                    <button class="big">dropdown</button>
+                    <ul class="dropdown">
+                        <li class="second-level-item">Contact Us</li>
+                        <li class="second-level-item">Service</li>
+                    </ul>
+                </div>
+                <div class="drop-down-group black-theme arrow-right huge">
+                    <button class="huge">dropdown</button>
+                    <ul class="dropdown">
+                        <li class="second-level-item">Contact Us</li>
+                        <li class="second-level-item">Service</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="drop-downs-scrolled">
+                <div class="drop-down-group black-theme arrow-right small scrolled list-hide">
+                    <button class="small">small</button>
+                </div>
+                <div class="drop-down-group black-theme arrow-right big scrolled list-hide">
+                    <button class="big">dropdown</button>
+                </div>
+                <div class="drop-down-group black-theme arrow-right huge scrolled list-hide">
+                    <button class="huge">dropdown</button>
+                </div>
+                <div class="drop-down-group black-theme arrow-right huge scrolled list-show">
+                    <button class="huge">dropdown</button>
+                    <ul class="dropdown">
+                        <li class="scroll-bar"><span class="toggle"></span></li>
+                        <li class="second-level-item">Contact Us</li>
+                        <li class="second-level-item">Service</li>
+                        <li class="second-level-item">Contact Us</li>
+                        <li class="second-level-item">Service</li>
+                        <li class="second-level-item">Contact Us</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="toggles">
+                <div class="toggle-group simple">
+                    <span class="toggle"></span>
+                    <span class="toggle"></span>
+                    <span class="toggle"></span>
+                    <span class="toggle"></span>
+                    <span class="toggle"></span>
+                    <span class="toggle"></span>
+                    <span class="toggle"></span>
+                    <span class="toggle"></span>
+                    <span class="toggle"></span>
+                    <span class="toggle"></span>
+                    <span class="toggle bg-red"></span>
+                    <span class="toggle bg-red"></span>
+                    <span class="toggle bg-red"></span>
+                    <span class="toggle bg-red"></span>
+                    <span class="toggle bg-red"></span>
+                </div>
+                <div class="toggle-group checkbox">
+                    <div class="checkbox-sticky">
+                        <input id="id1" type="checkbox" hidden="hidden"/>
+                        <label class="tgl-sticky" for="id1">Checked</label>
+
+                        <input id="id2" type="checkbox" hidden="hidden"/>
+                        <label class="tgl-sticky" for="id2">Unchecked</label>
+                    </div>
+                    <div class="checkbox-medium">
+                        <input id="id3" type="checkbox" hidden="hidden"/>
+                        <label class="tgl-medium-default off" for="id3">
+                            <span class="toggle"></span>
+                        </label>
+
+                        <input id="id4" type="checkbox" hidden="hidden"/>
+                        <label class="tgl-medium-text off" for="id4">
+                            <span class="status">
+                                <span class="on">on</span>
+                                <span class="off">off</span>
+                            </span>
+                            <span class="toggle"></span>
+                        </label>
+
+                        <input id="id5" type="checkbox" hidden="hidden"/>
+                        <label class="tgl-medium-marker off" for="id5">
+                            <span class="status">
+                                <span class="on"></span>
+                                <span class="off"></span>
+                            </span>
+                            <span class="toggle"></span>
+                        </label>
+
+                        <input id="id6" type="checkbox" hidden="hidden"/>
+                        <label class="tgl-medium-default on" for="id6">
+                            <span class="toggle"></span>
+                        </label>
+
+                        <input id="id7" type="checkbox" hidden="hidden"/>
+                        <label class="tgl-medium-text on" for="id7">
+                            <span class="status">
+                                <span class="on">on</span>
+                                <span class="off">off</span>
+                            </span>
+                            <span class="toggle"></span>
+                        </label>
+
+                        <input id="id8" type="checkbox" hidden="hidden"/>
+                        <label class="tgl-medium-marker on" for="id8">
+                             <span class="status">
+                                <span class="on"></span>
+                                <span class="off"></span>
+                             </span>
+                             <span class="toggle"></span>
+                        </label>
+
+                        <input id="id10" type="checkbox" hidden="hidden"/>
+                        <label class="tgl-medium-text-marker off" for="id10">
+                             <span class="status">
+                                <span class="off">off</span>
+                            </span>
+                            <span class="toggle"></span>
+                        </label>
+
+                        <input id="id9" type="checkbox" hidden="hidden"/>
+                        <label class="tgl-medium-text-marker on" for="id9">
+                            <span class="status">
+                                <span class="on">on</span>
+                            </span>
+                            <span class="toggle"></span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="tags">
+                <div class="tag-group red">
+                    <span class="tag tag-small">SMALL</span>
+                    <span class="tag tag-long">This is a long tag</span>
+                    <span class="tag tag-arrow-left">Back</span>
+                    <span class="tag tag-arrow-right">Forward</span>
+                </div>
+                <div class="tag-group">
+                    <span class="tag tag-small">SMALL</span>
+                    <span class="tag tag-long">This is a long tag</span>
+                    <span class="tag tag-double">DOUBLE LINE TAG</span>
+                    <span class="tag tag-arrow-left">Back</span>
+                    <span class="tag tag-arrow-right">Forward</span>
+                </div>
+            </div>
+            <div class="navigation">
+                <div class="nav-group go-to">
+                    <div class="pagging-wrap">
+                        <ul class="list">
+                            <li class="active">1</li>
+                            <li>2</li>
+                            <li>3</li>
+                            <li>4</li>
+                            <li>5</li>
+                        </ul>
+                        <a href="#" class="go-to-prev">prev</a><a href="#" class="go-to-next">next</a>
+                    </div>
+                    <div class="redirect-to">
+                        <span class="nav-msg">Go to</span>
+                        <input class="page-number" type="text" value="15"/>
+                    </div>
+                </div>
+                <div class="nav-group">
+                    <div class="simple-page-switcher">
+                        <button class="ps-prev nav-msg">PREVIOUS PAGE</button>
+                        <button class="ps-next nav-msg">NEXT PAGE</button>
+                    </div>
+                </div>
+                <div class="nav-group simple-pagging-nav">
+                    <div class="pagging-wrap">
+                        <ul class="list">
+                            <li class="active">1</li>
+                            <li>2</li>
+                            <li>3</li>
+                            <li>4</li>
+                            <li>5</li>
+                        </ul>
+                        <a href="#" class="go-to-prev">prev</a><a href="#" class="go-to-next">next</a>
+                    </div>
+                </div>
+                <div class="nav-group">
+                    <div class="dropdown-btn-nav clearfix">
+                        <ul class="btn-list">
+                            <li class="dd-btn black-theme">
+                                <span>Item Ordered by Pricing</span>
+                                <ul class="dropdown">
+                                    <li class="second-level-item">By Date</li>
+                                    <li class="second-level-item">A-Z</li>
+                                </ul>
+                            </li>
+                            <li class="btn-box-1"></li>
+                            <li class="btn-box-2"></li>
+                            <li class="btn-box-3"></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="nav-group go-to  transparent">
+                    <div class="pagging-wrap">
+                        <ul class="list">
+                            <li class="active">1</li>
+                            <li>2</li>
+                            <li>3</li>
+                            <li>4</li>
+                            <li>5</li>
+                        </ul>
+                        <a href="#" class="go-to-prev">prev</a><a href="#" class="go-to-next">next</a>
+                    </div>
+                    <div class="redirect-to">
+                        <span class="nav-msg">Go to</span>
+                        <input class="page-number" type="text" value="15"/>
+                    </div>
+                </div>
+                <div class="nav-group  transparent">
+                    <div class="simple-page-switcher">
+                        <button class="ps-prev nav-msg">PREVIOUS PAGE</button>
+                        <button class="ps-next nav-msg">NEXT PAGE</button>
+                    </div>
+                </div>
+            </div>
+            <div class="tooltips">
+                <div class="tooltip">
+                    <h5 class="title">Tooltip Alert</h5>
+                    <p class="content">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                        Aliquam amet dolorum necessitatibus quas quia repellat rerum
+                        sed veniam?
+                    </p>
+                </div>
+                <div class="tooltip bg-image">
+                    <h5 class="title">Image Tooltip</h5>
+                    <p class="content">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                        Aliquam amet dolorum necessitatibus quas quia repellat rerum
+                        sed veniam?
+                    </p>
+                    <div class="arrow-box">
+                        <div class="left-bar"></div>
+                        <div class="arrow"></div>
+                        <div class="right-bar"></div>
+                    </div>
+                </div>
+                <div class="tooltip mini closed">
+                    <h5 class="title">Mini Tooltip</h5>
+                    <p class="content">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                        Aliquam amet dolorum necessitatibus quas quia repellat rerum
+                        sed veniam?
+                    </p>
+                </div>
+                <div class="tooltip mini">
+                        <h5 class="title">Mini Tooltip</h5>
+                        <p class="content">
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                            Aliquam amet dolorum necessitatibus quas quia repellat rerum
+                            sed veniam?
+                        </p>
+                </div>
+            </div>
+            <div class="graphs">
+                <div class="graph">
+                    <div class="circle">
+                        <div class="progress">
+                            <div class="progress-part left">
+                                <div class="filler"></div>
+                            </div>
+                            <div class="progress-part right">
+                                <div class="filler"></div>
+                            </div>
+                        </div>
+                        <div class="info-box">
+                            <span>70%</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="graph graph-thin">
+                    <div class="circle">
+                        <div class="progress">
+                            <div class="progress-part left">
+                                <div class="filler"></div>
+                            </div>
+                            <div class="progress-part right">
+                                <div class="filler"></div>
+                            </div>
+                        </div>
+                        <div class="info-box">
+                            <span>70%</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="graph graph-transparent">
+                    <div class="circle">
+                        <div class="progress">
+                            <div class="progress-part left">
+                                <div class="filler"></div>
+                            </div>
+                            <div class="progress-part right">
+                                <div class="filler"></div>
+                            </div>
+                        </div>
+                        <div class="info-box">
+                            <span>45%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="rate">
+                <div class="rate-stars">
+                    <i class="fa fa-star active"></i>
+                    <i class="fa fa-star active"></i>
+                    <i class="fa fa-star active"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                </div>
+                <div class="rate-hearts">
+                    <i class="fa fa-heart active"></i>
+                    <i class="fa fa-heart active"></i>
+                    <i class="fa fa-heart active"></i>
+                    <i class="fa fa-heart"></i>
+                    <i class="fa fa-heart"></i>
+                </div>
+            </div>
+        </div>
     </div>
 </body>
 </html>

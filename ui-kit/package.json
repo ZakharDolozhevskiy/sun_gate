@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
+    "autoprefixer-core": "^5.2.1",
     "gulp": "^3.8.11"
   },
   "devDependencies": {
@@ -11,7 +12,7 @@
     "gulp-concat": "^2.5.2",
     "gulp-concat-css": "^2.2.0",
     "gulp-less": "^3.0.3",
-    "less-plugin-autoprefix": "^1.4.1"
+    "gulp-postcss": "^5.1.9"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
