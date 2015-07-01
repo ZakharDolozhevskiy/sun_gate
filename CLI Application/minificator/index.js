@@ -7,12 +7,19 @@
       filendir = require('filendir');
 
   module.exports = function (srcFld, destFld) {
-    printIntroMsg(srcFld, destFld);
-
     glob(srcFld + "**/*.js", function (err, files) {
-      for (var i in files) {
-        minificator(files[i]);
+
+      if (!files) {
+        console.log('Source folder doesn\'t exist any javascript files');
+      } else {
+        printIntroMsg(srcFld, destFld);
+
+        for (var i in files) {
+
+          if (files.hasOwnProperty(i)) minificator(files[i]);
+        }
       }
+
     });
 
     function minificator(fileName) {

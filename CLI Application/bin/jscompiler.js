@@ -1,28 +1,17 @@
 #! /usr/bin/env node
 (function () {
   "use strict";
-  var config, questions;
-  var args = require('minimist')(process.argv.slice(2));
-  var fs = require('fs');
-  var path = require('path');
-  var questionaire = require('../questionaire');
-  var minificator = require('../minificator');
-
-  if(args.help) {
-    fs.readFile(path.join(__dirname, '..', 'help.txt'), function (err, data) {
-
-      if(err) { throw err; }
-
-      console.log(data.toString());
-      process.exit(0);
-    });
-  }
+  var config, questions,
+      args = require('optimist').argv,
+      fs = require('fs'),
+      path = require('path'),
+      questionaire = require('../questionaire'),
+      minificator = require('../minificator');
 
   config = {
     src: args.src,
     dest: args.dest
   };
-
   questions = [
     {
     key: 'src',
@@ -34,8 +23,18 @@
     }
   ];
 
-  questionaire(config, questions, function () {
-    minificator(config.src, config.dest);
-  });
+    if(args.help) {
+      fs.readFile(path.join(__dirname, '..', 'help.txt'), function (err, data) {
+
+        if (err) { throw err; }
+
+        console.log(data.toString());
+      });
+    }
+
+    questionaire(config, questions, function () {
+      minificator(config.src, config.dest);
+    });
+
 })();
 
