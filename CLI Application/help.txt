@@ -1,1 +1,7 @@
-todo
+===========================================||
+                                           ||
+--src - The path to source files           ||
+                                           ||
+--dest - The path to destination folder    ||
+                                           ||
+===========================================||

@@ -11,7 +11,6 @@
 
     ask(i);
 
-    /////////////////////////////////////////////////
     function ask(i) {
       if (!questions[i]) { return stopAsking(); }
 

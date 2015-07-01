@@ -1,0 +1,89 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'C:\\Program Files\\nodejs\\\\node.exe',
+1 verbose cli   'C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'i',
+1 verbose cli   'filenfir',
+1 verbose cli   '--save' ]
+2 info using npm@1.4.28
+3 info using node@v0.10.33
+4 verbose node symlink C:\Program Files\nodejs\\node.exe
+5 warn package.json jscompiler@1.0.0 No repository field.
+6 warn package.json jscompiler@1.0.0 No README data
+7 verbose readDependencies using package.json deps
+8 verbose cache add [ 'filenfir', null ]
+9 verbose cache add name=undefined spec="filenfir" args=["filenfir",null]
+10 verbose parsed url { protocol: null,
+10 verbose parsed url   slashes: null,
+10 verbose parsed url   auth: null,
+10 verbose parsed url   host: null,
+10 verbose parsed url   port: null,
+10 verbose parsed url   hostname: null,
+10 verbose parsed url   hash: null,
+10 verbose parsed url   search: null,
+10 verbose parsed url   query: null,
+10 verbose parsed url   pathname: 'filenfir',
+10 verbose parsed url   path: 'filenfir',
+10 verbose parsed url   href: 'filenfir' }
+11 silly lockFile 7d233e56-filenfir filenfir
+12 verbose lock filenfir C:\Users\Zakhar\AppData\Roaming\npm-cache\7d233e56-filenfir.lock
+13 silly lockFile 7d233e56-filenfir filenfir
+14 silly lockFile 7d233e56-filenfir filenfir
+15 verbose addNamed [ 'filenfir', '' ]
+16 verbose addNamed [ null, '*' ]
+17 silly lockFile bb5616aa-filenfir filenfir@
+18 verbose lock filenfir@ C:\Users\Zakhar\AppData\Roaming\npm-cache\bb5616aa-filenfir.lock
+19 silly addNameRange { name: 'filenfir', range: '*', hasData: false }
+20 verbose request where is /filenfir
+21 verbose request registry https://registry.npmjs.org/
+22 verbose request id 53510d0d5ebec57b
+23 verbose url raw /filenfir
+24 verbose url resolving [ 'https://registry.npmjs.org/', './filenfir' ]
+25 verbose url resolved https://registry.npmjs.org/filenfir
+26 verbose request where is https://registry.npmjs.org/filenfir
+27 info trying registry request attempt 1 at 21:37:37
+28 http GET https://registry.npmjs.org/filenfir
+29 http 404 https://registry.npmjs.org/filenfir
+30 verbose headers { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+30 verbose headers   'content-type': 'application/json',
+30 verbose headers   'cache-control': 'max-age=0',
+30 verbose headers   'content-length': '51',
+30 verbose headers   'accept-ranges': 'bytes',
+30 verbose headers   date: 'Tue, 30 Jun 2015 18:37:39 GMT',
+30 verbose headers   via: '1.1 varnish',
+30 verbose headers   age: '0',
+30 verbose headers   connection: 'keep-alive',
+30 verbose headers   'x-served-by': 'cache-ams4143-AMS',
+30 verbose headers   'x-cache': 'MISS',
+30 verbose headers   'x-cache-hits': '0',
+30 verbose headers   'x-timer': 'S1435689458.784400,VS0,VE733' }
+31 silly registry.get cb [ 404,
+31 silly registry.get   { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+31 silly registry.get     'content-type': 'application/json',
+31 silly registry.get     'cache-control': 'max-age=0',
+31 silly registry.get     'content-length': '51',
+31 silly registry.get     'accept-ranges': 'bytes',
+31 silly registry.get     date: 'Tue, 30 Jun 2015 18:37:39 GMT',
+31 silly registry.get     via: '1.1 varnish',
+31 silly registry.get     age: '0',
+31 silly registry.get     connection: 'keep-alive',
+31 silly registry.get     'x-served-by': 'cache-ams4143-AMS',
+31 silly registry.get     'x-cache': 'MISS',
+31 silly registry.get     'x-cache-hits': '0',
+31 silly registry.get     'x-timer': 'S1435689458.784400,VS0,VE733' } ]
+32 silly lockFile bb5616aa-filenfir filenfir@
+33 silly lockFile bb5616aa-filenfir filenfir@
+34 error 404 404 Not Found: filenfir
+34 error 404
+34 error 404 'filenfir' is not in the npm registry.
+34 error 404 You should bug the author to publish it
+34 error 404 It was specified as a dependency of 'jscompiler'
+34 error 404
+34 error 404 Note that you can also install from a
+34 error 404 tarball, folder, or http url, or git url.
+35 error System Windows_NT 6.2.9200
+36 error command "C:\\Program Files\\nodejs\\\\node.exe" "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "i" "filenfir" "--save"
+37 error cwd F:\Repositories\git_repository_personal\sun_gate\CLI Application
+38 error node -v v0.10.33
+39 error npm -v 1.4.28
+40 error code E404
+41 verbose exit [ 1, true ]

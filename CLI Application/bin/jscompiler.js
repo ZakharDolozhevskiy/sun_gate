@@ -2,7 +2,7 @@
 (function () {
   "use strict";
   var config, questions;
-  var args = require('optimist').argv;
+  var args = require('minimist')(process.argv.slice(2));
   var fs = require('fs');
   var path = require('path');
   var questionaire = require('../questionaire');
