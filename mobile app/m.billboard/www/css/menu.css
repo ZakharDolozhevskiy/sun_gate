@@ -1,0 +1,26 @@
+.menu-content {
+    height: 100%;
+    background-color: #252429;
+}
+.menu-list {
+    padding-top: 6.4em;
+}
+.menu-list > li {
+    position: relative;
+    height: 5em;
+    line-height: 5em;
+    color: #fff;
+    font-size: 1.25em;
+    text-align: center;
+    cursor: pointer;
+}
+.menu-list > li:after {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    content: '';
+    width: 100%;
+    height: .3em;
+    border-top: .1em solid #474653;
+    background-color: #2e2e36;
+}

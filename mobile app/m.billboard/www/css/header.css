@@ -1,12 +1,10 @@
-body {
-    font-size: 62.5%;
-}
 .bar-header {
     height: 6.4em;
     padding: 0;
     background-color: #1c1b20;
     border-top: 2px solid #252429;
     border-bottom: 2px solid #0d0c0f;
+    box-shadow: 0 5px 5px 0 rgba(37,36,41,1);
 }
 .header-title {
     flex-grow: 1;
@@ -14,7 +12,7 @@ body {
     margin: 0;
     color: #fff;
     text-align: center;
-    font-size: 33px;
+    font-size: 2em;
     font-weight: 400;
     text-transform: uppercase;
 }
