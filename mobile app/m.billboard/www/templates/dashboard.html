@@ -2,11 +2,7 @@
     <ion-content class="container">
         <div class="user-bar" data-username=vm.userName></div>
         <div class="dashboard-content">
-            <div class="note-item"></div>
-            <div class="note-item"></div>
-            <div class="note-item"></div>
-            <div class="note-item"></div>
-            <div class="note-item"></div>
+            <div class="note-item" ng-repeat="note in vm.notes" data-item="note"></div>
         </div>
     </ion-content>
 </ion-view>

@@ -1,4 +1,4 @@
-<span class="cat-icon"></span>
-<p class="note-title">Lorem ipsum dolor</p>
-<strong class="price">99.99$</strong>
-<div class="more-details ion-android-search"></div>
+<span class="cat-icon cat-{{item.category}}"></span>
+<p class="note-title">{{item.title}}</p>
+<p class="price">{{item.price}}</p>
+<div class="more-details ion-android-search" ng-click="openDetails()"><a ng-href="#/app/item"></a></div>

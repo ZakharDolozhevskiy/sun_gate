@@ -1,0 +1,39 @@
+.list-inset {
+    background-color: transparent;
+    overflow: visible;
+}
+.item-input input,
+.item-input textarea {
+  font-size: 16px;
+  font-weight: 700;
+  color: #8aa8bd;
+}
+.item-input textarea {
+
+}
+.item-input {
+  border:  #25242a;
+  box-shadow: inset 0 1px 5px 0 rgba(24,24,27,1);
+}
+.item-input,
+.button {
+    border-radius: 10px !important;
+}
+.angular-dropdown {
+  width: 100%;
+  height: 4.7em;
+}
+.angular-dropdown .dropdown {
+  top: 5.7em;
+}
+.angular-dropdown .dropdown-item,
+.angular-dropdown .selected {
+  font-size: 16px;
+  color: #8aa8bd;
+}
+.cancel-btn {
+  color: #fdc159;
+}
+.cancel-btn.activated {
+  border-color: #fdc159;
+}

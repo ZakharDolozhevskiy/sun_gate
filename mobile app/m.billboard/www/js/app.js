@@ -1,4 +1,4 @@
-angular.module('app', ['ionic', 'app.controllers', 'app.directives'])
+angular.module('app', ['ionic', 'app.controllers', 'app.directives', 'app.services', 'ngDropdowns'])
 
   .run(function($ionicPlatform) {
     $ionicPlatform.ready(function() {
@@ -22,8 +22,7 @@ angular.module('app', ['ionic', 'app.controllers', 'app.directives'])
       .state('app', {
         url: '/app',
         abstract: true,
-        templateUrl: 'templates/menu.html',
-        controller: 'DashboardCtrl'
+        templateUrl: 'templates/menu.html'
       })
 
       .state('app.dashboard', {
@@ -34,11 +33,51 @@ angular.module('app', ['ionic', 'app.controllers', 'app.directives'])
             controller: 'DashboardCtrl as vm'
           }
         }
+      })
+
+      .state('app.addOne', {
+        url: '/addItem',
+        views: {
+          menuContent: {
+            templateUrl: 'templates/add-item.html',
+            controller: 'CreateItemCtrl as vm'
+          }
+        }
       });
 
     // if none of the above states are matched, use this as the fallback
     $urlRouterProvider.otherwise('/app/dashboard');
-  });
+  })
+
+  .constant('CATEGORY',
+    [
+      {
+        text: 'avto',
+        value: 'avto'
+      },
+      {
+        text: 'computers',
+        value: 'computers'
+      },
+      {
+        text: 'devices',
+        value: 'devices'
+      },
+      {
+        text: 'education',
+        value: 'education'
+      },
+      {
+        text: 'apartment',
+        value: 'apartment'
+      },
+      {
+        text: 'other',
+        value: 'unknown category'
+      }
+    ]
+  );
 
 angular.module('app.controllers', []);
 angular.module('app.directives', []);
+angular.module('app.services', []);

@@ -1,6 +1,6 @@
 {
   "validateQuoteMarks": { "mark": "'", "escape": true },
   "disallowTrailingWhitespace": true,
-  "validateLineBreaks": "CR",
+  "validateLineBreaks": "CRLF",
   "validateIndentation": 2
 }

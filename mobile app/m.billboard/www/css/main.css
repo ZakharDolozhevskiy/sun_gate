@@ -2,6 +2,27 @@ body {
     font-size: 62.5%;
 }
 .container {
-    background-color: #252429;
+    min-height: 101%;
     border-left: 2px solid #131316;
+    padding-top: 6.4em;
+    background-color: #252429;
+}
+.primary-btn {
+    border: 3px solid #141416;
+    border-radius: .5em;
+    background-color: #25242a;
+    color: #30d1e0;
+    text-transform: uppercase;
+    font-weight: bold;
+    box-shadow: 0 2px 5px 0 rgba(24,24,27,1);
+}
+.primary-btn.activated {
+    background-color: #25242a;
+    border-color: #30d1e0;
+}
+.primary-btn:hover {
+    color: #30d1e0;
+}
+.button-submit {
+    height: 4.7em;
 }

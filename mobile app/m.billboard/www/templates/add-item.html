@@ -1,0 +1,35 @@
+<ion-view title="add item">
+    <ion-content class="container">
+        <div class="list list-inset">
+            <label class="item item-input">
+               <input type="text" placeholder="Title" ng-model="vm.newNote.title">
+            </label>
+        </div>
+        <div class="list list-inset select-input">
+          <div class="angular-dropdown"
+               dropdown-select="vm.ddSelectOptions"
+               dropdown-model="vm.ddSelectSelected">
+          </div>
+        </div>
+        <div class="list list-inset">
+            <label class="item item-input">
+              <input type="text" placeholder="Price" ng-model="vm.newNote.price">
+            </label>
+        </div>
+        <div class="list list-inset">
+            <label class="item item-input">
+              <textarea placeholder="Full description" rows="5" ng-model="vm.newNote.description"></textarea>
+            </label>
+        </div>
+        <div class="padding">
+            <button class="button button-block primary-btn"
+              ng-click="vm.submitForm()">Submit
+            </button>
+        </div>
+        <div class="padding">
+            <button class="button button-block primary-btn cancel-btn"
+              ng-click="vm.cancelForm()">Cancel
+            </button>
+        </div>
+    </ion-content>
+</ion-view>
