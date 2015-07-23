@@ -2,6 +2,7 @@
     padding: 0 5.6%;
 }
 .note-item {
+    position: relative;
     padding: 0 2.6%;
     margin-bottom: 2em;
     border: .3em solid #18181b;
@@ -37,8 +38,8 @@
 }
 .note-title {
     flex-grow: 1;
-    max-height: 4em;
-    min-width: 100px;;
+    max-height: 40px;
+    min-width: 100px;
     padding-left: 5%;
     margin: 0;
     color: #586069;
@@ -47,6 +48,7 @@
     text-overflow: ellipsis;
 }
 .price {
+    flex-grow: 1;
     min-width: 75px;
     margin: 0;
     text-align: center;
@@ -93,4 +95,30 @@
     left: 0;
     right: 0;
     z-index: 11;
+}
+.item.search-field {
+    height: 3em;
+    border-radius: 0;
+    padding-left: 3.5em;
+    margin-bottom: 2em;
+    box-shadow: inset 0 0 10px 0 rgba(24,24,27,1);
+    background-color: #1c1b20;
+
+}
+.item.search-field > input {
+    color: #30d1e0;
+    font-style: italic;
+    font-weight: normal;
+}
+.search-field::before {
+    color: #30d1e0;
+    font-size: 33px;
+    position: absolute;
+    top: 8px;
+    left: 15px;
+}
+@media (min-width: 320px) and (max-width: 420px){
+    .note-title {
+        max-width: 105px;
+    }
 }

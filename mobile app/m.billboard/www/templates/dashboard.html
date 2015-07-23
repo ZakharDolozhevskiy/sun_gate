@@ -2,7 +2,11 @@
   <ion-content class="container">
       <div class="user-bar" data-username=vm.userName></div>
       <div class="dashboard-content">
-          <div class="note-item" ng-repeat="note in vm.notes" data-item="note"></div>
+          <label class="item item-input search-field ion-search">
+              <input type="text" placeholder="" ng-model="sQuery">
+          </label>
+          <div class="note-item" ng-repeat="note in vm.notes | filter:sQuery" data-item="note"></div>
+          <p ng-hide="vm.notes.length">Nothing to show</p>
       </div>
   </ion-content>
 </ion-view>
