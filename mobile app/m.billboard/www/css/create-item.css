@@ -8,9 +8,6 @@
   font-weight: 700;
   color: #8aa8bd;
 }
-.item-input textarea {
-
-}
 .item-input {
   border:  #25242a;
   box-shadow: inset 0 1px 5px 0 rgba(24,24,27,1);
@@ -36,4 +33,20 @@
 }
 .cancel-btn.activated {
   border-color: #fdc159;
+}
+.item-input input::-webkit-input-placeholder,
+.item-input textarea::-webkit-input-placeholder {
+    color: #8aa8bd;
+}
+.item-input input:-moz-placeholder,
+.item-input textarea:-moz-placeholder {
+    color: #8aa8bd;
+}
+.item-input input::-moz-placeholder,
+.item-input textarea::-moz-placeholder {
+    color: #8aa8bd;
+}
+.item-input input:-ms-input-placeholder,
+.item-input textarea:-ms-input-placeholder {
+    color: #8aa8bd;
 }

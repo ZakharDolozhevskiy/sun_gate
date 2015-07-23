@@ -1,4 +1,12 @@
-<span class="cat-icon cat-{{item.category}}"></span>
-<p class="note-title">{{item.title}}</p>
-<p class="price">{{item.price}}</p>
-<div class="more-details ion-android-search" ng-click="openDetails()"><a ng-href="#/app/item"></a></div>
+<div class="note-header">
+    <span class="cat-icon cat-{{item.category}}"></span>
+    <p class="note-title">{{item.title}}</p>
+    <p class="price">{{item.price}}</p>
+    <div class="more-details ion-android-search" ng-click="openDetails()"><a ng-href="#/app/item"></a></div>
+</div>
+<div class="note-description" ng-show="isFullDescription">
+    {{item.description}}
+    <div class="note-contacts">
+        {{item.contact}}
+    </div>
+</div>

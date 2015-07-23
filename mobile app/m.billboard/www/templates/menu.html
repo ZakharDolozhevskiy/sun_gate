@@ -1,11 +1,10 @@
-<ion-side-menus enable-menu-with-back-views="false">
-  <ion-side-menu-content>
+<ion-side-menus enable-menu-with-back-views="true">
+  <ion-side-menu-content drag-content="false">
     <div class="bar bar-header">
       <div class="side-bar-btn" menu-toggle="left"></div>
-      <h1 class="header-title">Title</h1>
+      <h1 class="header-title">{{activePage}}</h1>
       <div class="side-bar-btn btn-refresh"></div>
     </div>
-
     <ion-nav-view name="menuContent"></ion-nav-view>
   </ion-side-menu-content>
 
@@ -15,10 +14,10 @@
     </div>
     <div class="menu-content">
       <ul class="menu-list">
-        <li menu-close>Login</li>
-        <li menu-close>Dashboard</li>
-        <li menu-close>Search</li>
-        <li menu-close>Contact Us</li>
+        <li ui-sref="app.addOne" menu-close>Create</li>
+        <li ui-sref="app.dashboard" menu-close>Dashboard</li>
+        <li ui-sref="app.search" menu-close>Search</li>
+        <li ui-sref="app.contact" menu-close>Contact Us</li>
       </ul>
     </div>
   </ion-side-menu>

@@ -1,12 +1,11 @@
-(function () {
-  'use strict';
+angular.module('app.controllers')
 
-  angular.module('app.controllers')
+.controller('DashboardCtrl', function ($scope, $state, $rootScope, Notes) {
+  var vm = this;
+  // Update active page title. This hook is uses because ionic cache controllers.
+  $scope.$on('$ionicView.beforeEnter', function () { $rootScope.activePage = 'Dashboard'; });
 
-    .controller('DashboardCtrl', function (Notes) {
-      var vm = this;
+  vm.notes = Notes.getAll();
+  vm.userName = 'Test User';
+});
 
-      vm.notes = Notes.getAll();
-      vm.userName = 'Test User';
-    });
-})();

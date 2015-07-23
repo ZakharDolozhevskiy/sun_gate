@@ -8,10 +8,9 @@ angular.module('app.directives')
     },
     templateUrl: '../../templates/note-item.html',
     link: function (scope) {
-      scope.openDetails = function () {
-        // TODO: Show note details
-        console.log('details opened',scope);
-      };
+      scope.isFullDescription = false;
+
+      scope.openDetails = function () { scope.isFullDescription = !scope.isFullDescription; };
     }
   };
 });

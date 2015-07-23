@@ -23,6 +23,6 @@ body {
 .primary-btn:hover {
     color: #30d1e0;
 }
-.button-submit {
-    height: 4.7em;
+.cancel-btn:hover {
+  color: rgba(254,193,88,1);
 }
