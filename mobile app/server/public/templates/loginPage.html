@@ -1,0 +1,56 @@
+<ion-view>
+    <ion-content class="container">
+        <div class="content has-header loginForm"  ng-hide="vm.showRigistration">
+            <div class="list padding">
+                <label class="item item-input">
+                    <span class="input-label">Username</span>
+                    <input type="text" ng-model="vm.login">
+                </label>
+                <label class="item item-input">
+                    <span class="input-label">Password</span>
+                    <input type="password" ng-model="vm.psw">
+                </label>
+            </div>
+            <div class="padding">
+                <button class="button button-block button-positive" ng-click="vm.tryToLogIn()">Log In</button>
+                <button class="button button-block button-assertive" ng-click="vm.cancelForm()">Cancel</button>
+                <button class="button button-clear button-positive"
+                        ng-click="vm.showRigistration = !vm.showRigistration">
+                    Create account
+                </button>
+            </div>
+        </div>
+        <div class="content has-header registerForm" ng-show="vm.showRigistration">
+            <div class="list padding">
+                <label class="item item-input">
+                    <span class="input-label">Username</span>
+                    <input type="text" ng-model="vm.login">
+                </label>
+                <label class="item item-input">
+                    <span class="input-label">Password</span>
+                    <input type="password" ng-model="vm.psw">
+                </label>
+                <label class="item item-input">
+                    <span class="input-label">First name</span>
+                    <input type="text" ng-model="::vm.fName">
+                </label>
+                <label class="item item-input">
+                    <span class="input-label">Last name</span>
+                    <input type="text" ng-model="::vm.lName">
+                </label>
+                <label class="item item-input">
+                    <span class="input-label">Phone number</span>
+                    <input type="text" ng-model="vm.phone">
+                </label>
+            </div>
+            <div class="padding">
+                <button class="button button-block button-positive" ng-click="vm.sendRegistrForm()">Registration</button>
+                <button class="button button-block button-assertive" ng-click="vm.cancelForm()">Cancel</button>
+                <button class="button button-clear button-positive"
+                        ng-click="vm.showRigistration = !vm.showRigistration">
+                    Return to login page
+                </button>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

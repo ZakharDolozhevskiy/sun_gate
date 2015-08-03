@@ -1,0 +1,11 @@
+<ion-view>
+  <ion-content class="container">
+      <div class="user-bar" data-username=user></div>
+      <div class="dashboard-content">
+          <label class="item item-input search-field ion-search">
+              <input type="text" placeholder="" ng-model="sQuery">
+          </label>
+          <div class="note-item" ng-repeat="note in vm.notes | filter:sQuery" data-item="note"></div>
+      </div>
+  </ion-content>
+</ion-view>

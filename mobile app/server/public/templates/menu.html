@@ -1,0 +1,25 @@
+<ion-side-menus enable-menu-with-back-views="true">
+  <ion-side-menu-content drag-content="false">
+    <div class="bar bar-header">
+      <div class="side-bar-btn" menu-toggle="left"></div>
+      <h1 class="header-title">{{activePage}}</h1>
+      <div class="side-bar-btn btn-refresh"></div>
+    </div>
+    <ion-nav-view name="menuContent"></ion-nav-view>
+  </ion-side-menu-content>
+
+  <ion-side-menu side="left">
+    <div class="bar bar-header">
+      <h1 class="header-title">Menu</h1>
+    </div>
+    <div class="menu-content">
+      <ul class="menu-list">
+        <li ui-sref="app.accountDetails" ng-if="user" menu-close>Your Account</li>
+        <li ui-sref="app.addOne" ng-if="user" menu-close>Create</li>
+        <li ui-sref="app.login" ng-hide="user" menu-close>Login / Register</li>
+        <li ui-sref="app.dashboard" menu-close>Dashboard</li>
+        <li ui-sref="app.contactUs" menu-close>Contact Us</li>
+      </ul>
+    </div>
+  </ion-side-menu>
+</ion-side-menus>

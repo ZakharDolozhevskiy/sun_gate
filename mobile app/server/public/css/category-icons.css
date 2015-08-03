@@ -1,0 +1,42 @@
+.cat-icon::before {
+    display: inline-block;
+    font-family: "Ionicons";
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    text-rendering: auto;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -8px;
+    margin-top: -10px;
+    color: #586069;
+    font-size: 2em;
+    z-index: 10;
+}
+.cat-avto::before {
+    content: "\f36f";
+}
+.cat-computers::before {
+    margin-left: -10px;
+    content: "\f1fc";
+}
+.cat-devices::before {
+    content: "\f1f9";
+    margin-left: -6px;
+}
+.cat-education::before {
+    content: "\f357";
+    margin-left: -9px;
+}
+.cat-apartment::before {
+    content: "\f144";
+}
+.cat-unknown::before {
+    content: "\f143";
+    margin-left: -5px;
+}
