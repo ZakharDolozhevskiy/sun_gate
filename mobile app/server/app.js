@@ -22,6 +22,9 @@ app.use(session({ secret: 'keyboard cat' }));
 app.use(passport.initialize());
 app.use(passport.session());
 
+// CORS implementation
+require('./routes/cors')(app);
+
 require('./routes/index')(app);
 require('./routes/notes')(app);
 require('./routes/authentication')(app);

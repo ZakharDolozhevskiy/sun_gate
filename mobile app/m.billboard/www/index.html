@@ -1,37 +1,41 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
-    <title></title>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+  <link rel="shortcut icon" href="img/app-mdpi-icon.png"/>
+  <title>Billboard application</title>
 
-    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
-    <link href="lib/ionic/css/angular-dropdown.css" rel="stylesheet">
-    <link href="css/main.css" rel="stylesheet">
-    <link href="css/header.css" rel="stylesheet">
-    <link href="css/menu.css" rel="stylesheet">
-    <link href="css/user-bar.css" rel="stylesheet">
-    <link href="css/dashboard.css" rel="stylesheet">
-    <link href="css/category-icons.css" rel="stylesheet">
-    <link href="css/create-item.css" rel="stylesheet">
+  <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+  <link href="lib/ionic/css/angular-dropdown.css" rel="stylesheet">
+  <link href="css/main.css" rel="stylesheet">
+  <link href="css/header.css" rel="stylesheet">
+  <link href="css/menu.css" rel="stylesheet">
+  <link href="css/user-bar.css" rel="stylesheet">
+  <link href="css/dashboard.css" rel="stylesheet">
+  <link href="css/category-icons.css" rel="stylesheet">
+  <link href="css/create-item.css" rel="stylesheet">
+  <link href="css/login-register-forms.css" rel="stylesheet">
 
-    <!-- ionic/angularjs js -->
-    <script src="lib/ionic/js/ionic.bundle.js"></script>
-    <script src="lib/ionic/js/angular/angular-dropdown.js"></script>
+  <!-- ionic/angularjs js -->
+  <script src="lib/ionic/js/ionic.bundle.js"></script>
+  <script src="lib/ionic/js/angular/angular-dropdown.js"></script>
 
-    <!-- cordova script (this will be a 404 during development) -->
-    <script src="cordova.js"></script>
+  <!-- cordova script (this will be a 404 during development) -->
+  <script src="cordova.js"></script>
 
-    <!-- your app's js -->
-    <script src="js/app.js"></script>
-    <script src="js/controllers/DashboardCtrl.js"></script>
-    <script src="js/controllers/CreateItemCtrl.js"></script>
-    <script src="js/directives/UserBar.directive.js"></script>
-    <script src="js/directives/Note.directive.js"></script>
-    <script src="js/services/Notes.js"></script>
-  </head>
+  <!-- your app's js -->
+  <script src="js/app.js"></script>
+  <script src="js/controllers/DashboardCtrl.js"></script>
+  <script src="js/controllers/CreateItemCtrl.js"></script>
+  <script src="js/controllers/AccountDetailsCtrl.js"></script>
+  <script src="js/controllers/LoginCtrl.js"></script>
+  <script src="js/directives/UserBar.directive.js"></script>
+  <script src="js/directives/Note.directive.js"></script>
+  <script src="js/services/Notes.js"></script>
+</head>
 
-  <body ng-app="app">
-    <ion-nav-view></ion-nav-view>
-  </body>
+<body ng-app="app">
+<ion-nav-view></ion-nav-view>
+</body>
 </html>

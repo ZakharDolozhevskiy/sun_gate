@@ -16,12 +16,22 @@ angular.module('app', ['ionic', 'app.controllers', 'app.directives', 'app.servic
     });
   })
 
-  .config(function($stateProvider, $urlRouterProvider) {
+  .config(function($stateProvider, $urlRouterProvider, $httpProvider) {
     $stateProvider
 
       .state('app', {
         url: '/app',
         abstract: true,
+        resolve: {
+          user: function ($rootScope, $http, $state, URL) {
+            // check if user already logged in
+            $http.post(URL + '/isLogin')
+              .success(function (user) {
+                if (user) { $rootScope.user = user; }
+                else { $state.go('app.dashboard'); }
+              });
+          }
+        },
         templateUrl: 'templates/menu.html'
       })
 
@@ -43,14 +53,50 @@ angular.module('app', ['ionic', 'app.controllers', 'app.directives', 'app.servic
             controller: 'CreateItemCtrl as vm'
           }
         }
-      });
+      })
+
+      .state('app.contactUs', {
+        url: '/contactUs',
+        views: {
+          menuContent: {
+            templateUrl: 'templates/contactUs.html',
+            controller: function ($scope, $rootScope) {
+              $scope.$on('$ionicView.beforeEnter', function () {
+                $rootScope.activePage = 'Contact Us';
+              });
+            }
+
+          }
+        }
+      })
+
+      .state('app.accountDetails', {
+        url: '/accountDetails',
+        views: {
+          menuContent: {
+            templateUrl: 'templates/accountDetails.html',
+            controller: 'AccountDetailsCtrl as vm'
+          }
+        }
+      })
+
+      .state('app.login', {
+        url: '/login',
+        views: {
+          menuContent: {
+            templateUrl: 'templates/loginPage.html',
+            controller: 'LoginCtrl as vm'
+          }
+        }
+    });
 
     // if none of the above states are matched, use this as the fallback
     $urlRouterProvider.otherwise('/app/dashboard');
+
+    $httpProvider.defaults.withCredentials = true;
   })
 
-  .constant('CATEGORY',
-    [
+  .constant('CATEGORY', [
       {
         text: 'avto',
         value: 'avto'
@@ -75,8 +121,8 @@ angular.module('app', ['ionic', 'app.controllers', 'app.directives', 'app.servic
         text: 'other',
         value: 'unknown category'
       }
-    ]
-  );
+  ])
+  .constant('URL', 'http://guarded-savannah-1593.herokuapp.com');
 
 angular.module('app.controllers', []);
 angular.module('app.directives', []);

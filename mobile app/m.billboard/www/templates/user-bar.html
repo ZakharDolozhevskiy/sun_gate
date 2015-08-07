@@ -1,3 +1,4 @@
 <div class="user-icon-box"><img src="img/user-icon-stub.png"/></div>
 <div class="user-info">{{username}}</div>
-<button class="user-bar-btn" ng-click="clickHandler()">Add+</button>
+<button class="user-bar-btn" ng-show="username" ng-click="clickHandlerAdd()">Add+</button>
+<button class="user-bar-btn" ng-hide="username" ng-click="clickHandlerLogin()">Login</button>

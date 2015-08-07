@@ -28,3 +28,6 @@
     border-top: .1em solid #474653;
     background-color: #2e2e36;
 }
+.menu-list > li:first-child {
+    z-index: 15;
+}

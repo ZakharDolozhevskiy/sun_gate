@@ -24,5 +24,6 @@
     cursor: pointer;
 }
 .btn-refresh {
+    visibility: hidden;
     background: url('../img/refresh-icon.png') no-repeat center center;
 }

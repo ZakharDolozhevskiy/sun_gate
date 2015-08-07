@@ -14,9 +14,11 @@
     </div>
     <div class="menu-content">
       <ul class="menu-list">
-        <li ui-sref="app.addOne" menu-close>Create</li>
+        <li ui-sref="app.accountDetails" ng-if="user" menu-close>Your Account</li>
+        <li ui-sref="app.addOne" ng-if="user" menu-close>Create</li>
+        <li ui-sref="app.login" ng-hide="user" menu-close>Login / Register</li>
         <li ui-sref="app.dashboard" menu-close>Dashboard</li>
-        <li ui-sref="app.contact" menu-close>Contact Us</li>
+        <li ui-sref="app.contactUs" menu-close>Contact Us</li>
       </ul>
     </div>
   </ion-side-menu>

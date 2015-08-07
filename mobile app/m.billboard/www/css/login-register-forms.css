@@ -1,0 +1,21 @@
+.loginForm .item,
+.registerForm .item {
+    margin-bottom: 1em;
+}
+.loginForm .item:last-child,
+.registerForm .item:last-child {
+    margin-bottom: 0;
+}
+.loginForm .input-label,
+.registerForm .input-label {
+    width: 100px;
+}
+.loginForm .input-label + input,
+.registerForm .input-label + input {
+    color: #000;
+}
+.button.button-positive.button-clear {
+    margin: 0 auto;
+    display: block;
+    color: rgba(254,193,88,1);
+}

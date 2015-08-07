@@ -16,6 +16,18 @@ body {
     font-weight: bold;
     box-shadow: 0 2px 5px 0 rgba(24,24,27,1);
 }
+.logout-btn {
+    color: #FF3030;
+}
+.cancel-btn {
+    color: #fdc159;
+}
+.primary-btn.logout-btn.activated {
+    border-color: #FF3030;
+}
+.primary-btn.cancel-btn.activated {
+    border-color: #fdc159;
+}
 .primary-btn.activated {
     background-color: #25242a;
     border-color: #30d1e0;
@@ -25,4 +37,7 @@ body {
 }
 .cancel-btn:hover {
   color: rgba(254,193,88,1);
+}
+.logout-btn:hover {
+    color: #FF3030;
 }

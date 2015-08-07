@@ -1,0 +1,12 @@
+<ion-view>
+    <ion-content class="container">
+        <div class="user-bar" data-username=user></div>
+        <div class="dashboard-content">
+            <div class="note-item" ng-repeat="note in vm.notes" data-item="note"></div>
+            <div class="padding">
+                <button class="button button-block primary-btn" ng-click="vm.goToDashboard()">View all notes</button>
+                <button class="button button-block primary-btn logout-btn" ng-click="vm.logout()">Logout</button>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

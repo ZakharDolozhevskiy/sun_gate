@@ -1,9 +1,10 @@
 angular.module('app.controllers')
 
-.controller('CreateItemCtrl', function ($ionicHistory, $scope, $state, $rootScope, CATEGORY, Notes) {
+.controller('CreateItemCtrl', function($ionicHistory, $scope, $state, $rootScope, CATEGORY, Notes) {
   var vm = this;
+
   // Update active page title. This hook is uses because ionic cache controllers.
-  $scope.$on('$ionicView.beforeEnter', function () { $rootScope.activePage = 'Add new item'; });
+  $scope.$on('$ionicView.beforeEnter', function() { $rootScope.activePage = 'Add new item'; });
 
   // Default values of angular select
   vm.ddSelectSelected = {text: 'Select category:', value: 'other'};
@@ -13,17 +14,18 @@ angular.module('app.controllers')
   vm.submitForm = submitForm;
   vm.cancelForm = cancelForm;
 
-  function submitForm () {
+  function submitForm() {
     vm.newNote.category = vm.ddSelectSelected.value;
+    vm.newNote.user = $rootScope.user;
 
-    Notes.saveNote(vm.newNote);
-    // Clear form's input
-    vm.newNote = {};
+    Notes.saveNote(vm.newNote)
+      .success(function() {
+        // Clear form's input
+        vm.newNote = {};
+        $state.go('app.dashboard');
+      });
+  }
 
-    $state.go('app.dashboard');
-  }
-  function cancelForm() {
-    $state.go('app.dashboard');
-  }
+  function cancelForm() { $state.go('app.dashboard'); }
 });
 

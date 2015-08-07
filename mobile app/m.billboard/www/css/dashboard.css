@@ -10,7 +10,6 @@
 .note-header {
     display: flex;
     align-items: center;
-    position: relative;
     height: 8.5em;
 }
 .note-description {
