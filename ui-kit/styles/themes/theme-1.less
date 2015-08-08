@@ -1,4 +1,4 @@
-@import "mixins/veriables";
+@import "../mixins/veriables";
 
 @brown: #5F5250;
 @black: #262626;
@@ -14,7 +14,7 @@
 @rate-bg-color: #323232;
 
 // ###############################################################
-// ...
+// Global rules / Default
 // ###############################################################
 .dropdown {
   border-radius: 15px;
@@ -25,11 +25,15 @@
   }
   .second-level-item {
     border-bottom-color: @layout-brown;
-    color: @brown;
     cursor: pointer;
     font-weight: bold;
 
-    &:hover {
+    a {
+      color: @brown;
+      text-decoration: none;
+    }
+
+    &:hover a {
       color: @red;
     }
   }
@@ -47,6 +51,11 @@
     background-color: @red;
     cursor: pointer;
   }
+}
+.article-link {
+  color: @red;
+  font-size: 14px;
+  text-decoration: none;
 }
 // ###############################################################
 // Main theme rules
@@ -88,9 +97,11 @@
       }
       .second-level-item{
         border-bottom-color: #544948;
-        color: #FFF;
-
-        &:hover{
+        a {
+          color: #FFF;
+          text-decoration: none;
+        }
+        &:hover a{
           color: @red;
         }
       }
@@ -170,28 +181,40 @@
   }
 }
 
-.login-form-holder{
+.kit-card {
   border-radius: 10px;
   background-color: #FFF;
-  text-align: initial;
-
-  .lf-head{
+  .head{
     background: url("http://lorempixel.com/output/nature-q-g-640-480-9.jpg") no-repeat;
     background-size: 100% 150%;
     border-radius: 10px 10px 0 0;
-
+    .title{
+      color: #FFF;
+      font-size: 18px;
+    }
     &:after{
       background-color: @bg-red;
       border-radius: 10px 10px 0 0;
     }
+  }
+  .icon{
+    border-color:#FFF;
+    border-radius: 50%;
+    background-color:  #FFF;
+  }
+}
 
+.login-form-holder.kit-card{
+  .head{
     span{
       color: #FFF;
       font-size: 18px;
       text-align: center;
     }
   }
-  .lf-icon{
+  .icon{
+    width: 93px;
+    height: 91px;
     border-color: #FFF;
     border-radius: 50%;
     background-color:  #FFF;
@@ -247,29 +270,7 @@
   }
 }
 
-.business-card, .post-card{
-  border-radius: 10px;
-  background-color: #FFF;
-
-  .bc-head, .post-head{
-    background: url("http://lorempixel.com/output/nature-q-g-640-480-9.jpg") no-repeat;
-    background-size: 100% 150%;
-    border-radius: 10px 10px 0 0;
-
-    &:after{
-      background-color: @bg-red;
-      border-radius: 10px 10px 0 0;
-    }
-    .bc-title, .post-title{
-      color: #FFF;
-      font-size: 18px;
-    }
-  }
-  .bc-icon{
-    border-color:#FFF;
-    border-radius: 50%;
-    background-color:  #FFF;
-  }
+.business-card.kit-card, .post-card.kit-card{
   .bc-btn, .read-more{
     border-radius: 10px;
     transition: background-color 0.5s;
@@ -335,9 +336,9 @@
   }
 }
 
-.post-card{
-  .post-head{
-    .post-title{
+.post-card.kit-card{
+  .head{
+    .title{
       font-weight: bold;
     }
   }
@@ -397,9 +398,6 @@
     }
     p{
       font-size: 14px;
-      a{
-        color: @red;
-      }
     }
   }
 }
@@ -686,71 +684,67 @@
   }
 }
 
-.btn-group, .drop-down-group {
-
-  button {
-    text-align: center;
-    text-transform: uppercase;
-    color: #FFF;
-    font-weight: bold;
-    background-color: @red;
-    cursor: pointer;
-    transition: background-color 0.5s;
-  }
-  .small {
+.button {
+  text-align: center;
+  text-transform: uppercase;
+  color: #FFF;
+  font-weight: bold;
+  background-color: @red;
+  cursor: pointer;
+  transition: background-color 0.5s;
+  outline: none;
+  &.small {
     width: 85px;
     height: 29px;
     line-height: 29px;
     border-radius: 10px;
   }
-  .big {
+  &.big {
     width: 258px;
     height: 70px;
     line-height: 70px;
     border-radius: 10px;
     font-size: 16px;
   }
-  .huge {
+  &.huge {
     width: 300px;
     height: 70px;
     line-height: 70px;
     border-radius: 10px;
     font-size: 16px;
   }
+}
 
-  &.social {
-    .small {
+.button-social {
+  .small {
 
-      &:after {
-        background: url('../../images/buttons-icons.png') no-repeat -69px center;
-      }
-    }
-    .big {
-
-      &:after {
-        background: url('../../images/buttons-icons.png') no-repeat 0 center;
-      }
-    }
-    .huge {
-
-      &:after {
-        background: url('../../images/buttons-icons.png') no-repeat -34px center;
-      }
+    &:after {
+      background: url('../../images/buttons-icons.png') no-repeat -69px center;
     }
   }
-  &.arrow-left {
-    button {
-      &:after {
-        background: url('../../images/buttons-arrow.png') no-repeat -15px center;
-      }
+  .big {
+
+    &:after {
+      background: url('../../images/buttons-icons.png') no-repeat 0 center;
     }
   }
-  &.arrow-right {
-    button {
-      &:after {
-        background: url('../../images/buttons-arrow.png') no-repeat -1px center;
-      }
+  .huge {
+
+    &:after {
+      background: url('../../images/buttons-icons.png') no-repeat -34px center;
     }
+  }
+}
+
+.button-arrow-left {
+  &:after {
+    background: url('../../images/buttons-arrow.png') no-repeat -15px center;
+  }
+}
+
+.button-arrow-right {
+  &:after {
+    background: url('../../images/buttons-arrow.png') no-repeat -1px center;
   }
 }
 
@@ -1298,6 +1292,7 @@
     }
   }
 }
+
 .rate {
   .fa-star,
   .fa-heart {
@@ -1315,7 +1310,6 @@
     }
   }
 }
-
 
 // ###############################################################
 // Media query section

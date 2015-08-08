@@ -6,7 +6,7 @@ body {
   padding: 0 50px;
   margin: 0;
   font-family: 'Roboto', sans-serif;
-  background-image: url(http://i.imgur.com/oavv3DC.jpg);
+  background: #000000 url(http://i.imgur.com/oavv3DC.jpg);
 }
 #wrap {
   min-height: 100%;
@@ -171,6 +171,7 @@ body {
   box-sizing: border-box;
   width: 100%;
   height: 70px;
+  outline: none;
 }
 .input-md {
   height: 40px;
@@ -200,7 +201,7 @@ body {
   box-sizing: border-box;
   height: 70px;
   max-width: 1170px;
-  margin: 0 auto 150px;
+  margin: 0 auto 15px;
 }
 .nav-bar .nav-bar_btn-holder {
   position: relative;
@@ -210,12 +211,14 @@ body {
   overflow: hidden;
   border-right: 1px solid;
 }
-.nav-bar .nav-bar_btn-holder .nav-bar_tomb {
+.nav-bar .nav-bar_btn-holder::after {
+  content: '';
   position: absolute;
   left: 21.92%;
   bottom: 0;
   width: 87px;
   height: 52px;
+  background: #ffffff url('../../images/nb-tomb-icon.png');
 }
 .nav-bar .nav-bar_items-box {
   float: left;
@@ -236,6 +239,7 @@ body {
   position: absolute;
   top: 87px;
   width: 25%;
+  z-index: 10;
 }
 .nav-bar .nav-bar_items-box .nb_item-list:after {
   position: absolute;
@@ -259,6 +263,10 @@ body {
 }
 .nav-bar .nav-bar_items-box .nb_item-list .second-level-item:last-child {
   border-bottom: none;
+}
+.nav-bar .nav-bar_items-box .nb_item-title {
+  display: block;
+  text-decoration: none;
 }
 .nav-bar .nav-bar_search-box {
   float: right;
@@ -297,6 +305,7 @@ body {
 .nav-bar .nav-bar_search-box .dropdown.nb_search-submenu {
   top: 87px;
   right: 0;
+  z-index: 10;
 }
 .nav-bar .nav-bar_search-box.form-close .search-icon {
   position: absolute;
@@ -393,34 +402,46 @@ body {
 .gallery-holder .paging li.active a:before {
   content: "\f111";
 }
-.login-form-holder {
-  float: left;
+.kit-card {
   position: relative;
   max-width: 370px;
   min-width: 100px;
   text-align: initial;
 }
-.login-form-holder .lf-head {
+.kit-card .head {
   height: 117px;
 }
-.login-form-holder .lf-head:after {
+.kit-card .head .title {
+  display: block;
+  position: absolute;
+  top: 84px;
+  left: 170px;
+  z-index: 10;
+  text-align: center;
+}
+.kit-card .head:after {
   content: '';
   position: absolute;
   left: 0;
   width: 100%;
   height: 117px;
 }
-.login-form-holder .lf-head span {
+.kit-card .icon {
+  display: block;
+  border: 10px solid;
+}
+.login-form-holder {
+  float: left;
+}
+.login-form-holder .head span {
   display: block;
   position: absolute;
   top: 26px;
   width: 100%;
   z-index: 10;
 }
-.login-form-holder .lf-icon {
-  display: block;
+.login-form-holder .icon {
   position: relative;
-  border: 10px solid;
   margin: -55px auto 11px;
 }
 .login-form-holder .login-form {
@@ -495,50 +516,10 @@ body {
   height: 39px;
   z-index: 100;
 }
-.business-card,
-.post-card {
-  position: relative;
-  max-width: 370px;
-  min-width: 100px;
-  text-align: initial;
-}
-.business-card .bc-head,
-.post-card .bc-head,
-.business-card .post-head,
-.post-card .post-head {
-  height: 117px;
-}
-.business-card .bc-head:after,
-.post-card .bc-head:after,
-.business-card .post-head:after,
-.post-card .post-head:after {
-  content: '';
-  position: absolute;
-  left: 0;
-  width: 100%;
-  height: 117px;
-}
-.business-card .bc-head .bc-title,
-.post-card .bc-head .bc-title,
-.business-card .post-head .bc-title,
-.post-card .post-head .bc-title,
-.business-card .bc-head .post-title,
-.post-card .bc-head .post-title,
-.business-card .post-head .post-title,
-.post-card .post-head .post-title {
-  display: block;
-  position: absolute;
-  top: 84px;
-  left: 170px;
-  z-index: 10;
-  text-align: center;
-}
-.business-card .bc-icon,
-.post-card .bc-icon {
-  display: block;
+.business-card .icon,
+.post-card .icon {
   position: absolute;
   margin: -58px 0 12px 20px;
-  border: 10px solid;
 }
 .business-card .bc-btn,
 .post-card .bc-btn,
@@ -552,22 +533,22 @@ body {
   right: 11px;
   border: 0;
 }
-.business-card .bc-content,
-.post-card .bc-content {
+.business-card {
+  margin-bottom: 30px;
+}
+.business-card .bc-content {
   text-align: center;
   padding-left: 81px;
   padding-top: 20px;
   padding-bottom: 29px;
 }
-.business-card .bc-social-links,
-.post-card .bc-social-links {
+.business-card .bc-social-links {
   width: 100%;
   text-align: right;
   overflow: hidden;
   padding-bottom: 15px;
 }
-.business-card .bc-social-links li,
-.post-card .bc-social-links li {
+.business-card .bc-social-links li {
   height: 32px;
   line-height: 32px;
   position: relative;
@@ -576,12 +557,10 @@ body {
   padding: 3px 0 0 60px;
   margin-right: 36px;
 }
-.business-card .bc-social-links li:last-child,
-.post-card .bc-social-links li:last-child {
+.business-card .bc-social-links li:last-child {
   margin-right: 12px;
 }
-.business-card .bc-social-links li a:after,
-.post-card .bc-social-links li a:after {
+.business-card .bc-social-links li a:after {
   position: absolute;
   width: 32px;
   height: 32px;
@@ -589,23 +568,17 @@ body {
   left: 60px;
   top: 2px;
 }
-.business-card .bc-social-links .twitter a:after,
-.post-card .bc-social-links .twitter a:after {
+.business-card .bc-social-links .twitter a:after {
   left: 19px;
   top: 0;
 }
-.business-card .bc-social-links .facebook a:after,
-.post-card .bc-social-links .facebook a:after {
+.business-card .bc-social-links .facebook a:after {
   left: 23px;
 }
-.business-card .bc-social-links .email a:after,
-.post-card .bc-social-links .email a:after {
+.business-card .bc-social-links .email a:after {
   left: 24px;
 }
-.business-card {
-  margin-bottom: 30px;
-}
-.post-card .post-head .post-title {
+.post-card .head .title {
   top: 80px;
   left: 16px;
 }
@@ -820,7 +793,7 @@ body {
 }
 .number-field {
   position: relative;
-  width: 160px;
+  width: 150px;
 }
 .number-field input {
   height: 79px;
@@ -953,105 +926,87 @@ body {
 .p-bar-holder.tg-range .tg-middle {
   left: 45%;
 }
-.btn-group button,
-.drop-down-group button {
+.button {
   position: relative;
   display: block;
   margin-bottom: 15px;
   border: 0;
 }
-.btn-group button:after,
-.drop-down-group button:after {
+.button:after {
   content: '';
   position: absolute;
 }
-.btn-group .small,
-.drop-down-group .small {
+.button.small {
   width: 85px;
   height: 29px;
   line-height: 29px;
   border-radius: 10px;
 }
-.btn-group .big,
-.drop-down-group .big {
+.button.big {
   width: 258px;
   height: 70px;
   line-height: 70px;
   border-radius: 10px;
 }
-.btn-group .huge,
-.drop-down-group .huge {
+.button.huge {
   width: 300px;
   height: 70px;
   line-height: 70px;
   border-radius: 10px;
 }
-.btn-group.social .small,
-.drop-down-group.social .small {
+.button-social .small {
   padding-left: 25px;
 }
-.btn-group.social .small:after,
-.drop-down-group.social .small:after {
+.button-social .small:after {
   top: 4px;
   left: 6px;
   width: 19px;
   height: 19px;
 }
-.btn-group.social .big,
-.drop-down-group.social .big {
+.button-social .big {
   padding-left: 25px;
 }
-.btn-group.social .big:after,
-.drop-down-group.social .big:after {
+.button-social .big:after {
   left: 16px;
   top: 19px;
   width: 32px;
   height: 32px;
 }
-.btn-group.social .huge,
-.drop-down-group.social .huge {
+.button-social .huge {
   padding-left: 64px;
 }
-.btn-group.social .huge:after,
-.drop-down-group.social .huge:after {
+.button-social .huge:after {
   left: 16px;
   top: 19px;
   width: 32px;
   height: 32px;
 }
-.btn-group.arrow-left button:after,
-.drop-down-group.arrow-left button:after,
-.btn-group.arrow-right button:after,
-.drop-down-group.arrow-right button:after {
+.button-arrow-left:after,
+.button-arrow-right:after {
   width: 10px;
   height: 20px;
 }
-.btn-group.arrow-left .small,
-.drop-down-group.arrow-left .small,
-.btn-group.arrow-right .small,
-.drop-down-group.arrow-right .small {
+.button-arrow-left.small,
+.button-arrow-right.small {
   padding-right: 16px;
 }
-.btn-group.arrow-left .small:after,
-.drop-down-group.arrow-left .small:after,
-.btn-group.arrow-right .small:after,
-.drop-down-group.arrow-right .small:after {
+.button-arrow-left.small:after,
+.button-arrow-right.small:after {
   top: 4px;
   left: 67px;
 }
-.btn-group.arrow-left .big:after,
-.drop-down-group.arrow-left .big:after,
-.btn-group.arrow-right .big:after,
-.drop-down-group.arrow-right .big:after {
+.button-arrow-left.big:after,
+.button-arrow-right.big:after {
   top: 24px;
   right: 25px;
 }
-.btn-group.arrow-left .huge:after,
-.drop-down-group.arrow-left .huge:after,
-.btn-group.arrow-right .huge:after,
-.drop-down-group.arrow-right .huge:after {
+.button-arrow-left.huge:after,
+.button-arrow-right.huge:after {
   top: 24px;
   right: 22px;
+}
+.dropdown-box {
+  position: relative;
 }
 .drop-down-group {
   margin-bottom: 30px;
@@ -1133,6 +1088,7 @@ body {
   height: 236px;
   top: 21px;
   right: 13px;
+  z-index: 20;
 }
 .toggle-group {
   overflow: hidden;
@@ -1872,11 +1828,14 @@ body {
 }
 .dropdown .second-level-item {
   border-bottom-color: #3b3b3b;
-  color: #5f5250;
   cursor: pointer;
   font-weight: bold;
 }
-.dropdown .second-level-item:hover {
+.dropdown .second-level-item a {
+  color: #5f5250;
+  text-decoration: none;
+}
+.dropdown .second-level-item:hover a {
   color: #ff5454;
 }
 .input-field {
@@ -1891,6 +1850,11 @@ body {
   border-radius: 10px;
   background-color: #ff5454;
   cursor: pointer;
+}
+.article-link {
+  color: #ff5454;
+  font-size: 14px;
+  text-decoration: none;
 }
 .nav-bar {
   border-radius: 10px;
@@ -1929,9 +1893,12 @@ body {
 }
 .nav-bar .nav-bar_item .nb_item-list .second-level-item {
   border-bottom-color: #544948;
-  color: #FFF;
 }
-.nav-bar .nav-bar_item .nb_item-list .second-level-item:hover {
+.nav-bar .nav-bar_item .nb_item-list .second-level-item a {
+  color: #FFF;
+  text-decoration: none;
+}
+.nav-bar .nav-bar_item .nb_item-list .second-level-item:hover a {
   color: #ff5454;
 }
 .nav-bar .nav-bar_search-box .search-icon {
@@ -1989,76 +1956,86 @@ body {
 .gallery-holder .paging li a:before {
   color: #FFF;
 }
-.login-form-holder {
+.kit-card {
   border-radius: 10px;
   background-color: #FFF;
-  text-align: initial;
 }
-.login-form-holder .lf-head {
+.kit-card .head {
   background: url("http://lorempixel.com/output/nature-q-g-640-480-9.jpg") no-repeat;
   background-size: 100% 150%;
   border-radius: 10px 10px 0 0;
 }
-.login-form-holder .lf-head:after {
+.kit-card .head .title {
+  color: #FFF;
+  font-size: 18px;
+}
+.kit-card .head:after {
   background-color: rgba(225, 10, 0, 0.7);
   border-radius: 10px 10px 0 0;
 }
-.login-form-holder .lf-head span {
-  color: #FFF;
-  font-size: 18px;
-  text-align: center;
-}
-.login-form-holder .lf-icon {
+.kit-card .icon {
   border-color: #FFF;
   border-radius: 50%;
   background-color: #FFF;
 }
-.login-form-holder .login-form:after {
+.login-form-holder.kit-card .head span {
+  color: #FFF;
+  font-size: 18px;
+  text-align: center;
+}
+.login-form-holder.kit-card .icon {
+  width: 93px;
+  height: 91px;
+  border-color: #FFF;
+  border-radius: 50%;
+  background-color: #FFF;
+}
+.login-form-holder.kit-card .login-form:after {
   background: url("../../images/lf-icons.png") no-repeat left center;
 }
-.login-form-holder .login-form:before {
+.login-form-holder.kit-card .login-form:before {
   background: url("../../images/lf-icons.png") no-repeat right center;
 }
-.login-form-holder .login-form input[type='text'],
-.login-form-holder .login-form input[type='password'],
-.login-form-holder .login-form button {
+.login-form-holder.kit-card .login-form input[type='text'],
+.login-form-holder.kit-card .login-form input[type='password'],
+.login-form-holder.kit-card .login-form button {
   border-radius: 10px;
   background-color: #cccccc;
   color: #FFF;
   font-size: 14px;
   font-weight: 600;
 }
-.login-form-holder .login-form input[type='text']::-webkit-input-placeholder,
-.login-form-holder .login-form input[type='password']::-webkit-input-placeholder,
-.login-form-holder .login-form button::-webkit-input-placeholder {
+.login-form-holder.kit-card .login-form input[type='text']::-webkit-input-placeholder,
+.login-form-holder.kit-card .login-form input[type='password']::-webkit-input-placeholder,
+.login-form-holder.kit-card .login-form button::-webkit-input-placeholder {
   font-size: 14px;
   font-weight: normal;
   color: #ffffff;
 }
-.login-form-holder .login-form input[type='text']::-moz-placeholder,
-.login-form-holder .login-form input[type='password']::-moz-placeholder,
-.login-form-holder .login-form button::-moz-placeholder {
+.login-form-holder.kit-card .login-form input[type='text']::-moz-placeholder,
+.login-form-holder.kit-card .login-form input[type='password']::-moz-placeholder,
+.login-form-holder.kit-card .login-form button::-moz-placeholder {
   /* Firefox 18- */
   color: #ffffff;
   font-weight: normal;
   font-size: 14px;
 }
-.login-form-holder .login-form input[type='text']::-moz-placeholder,
-.login-form-holder .login-form input[type='password']::-moz-placeholder,
-.login-form-holder .login-form button::-moz-placeholder {
+.login-form-holder.kit-card .login-form input[type='text']::-moz-placeholder,
+.login-form-holder.kit-card .login-form input[type='password']::-moz-placeholder,
+.login-form-holder.kit-card .login-form button::-moz-placeholder {
   /* Firefox 19+ */
   color: #ffffff;
   font-weight: normal;
   font-size: 14px;
 }
-.login-form-holder .login-form input[type='text']:-ms-input-placeholder,
-.login-form-holder .login-form input[type='password']:-ms-input-placeholder,
-.login-form-holder .login-form button:-ms-input-placeholder {
+.login-form-holder.kit-card .login-form input[type='text']:-ms-input-placeholder,
+.login-form-holder.kit-card .login-form input[type='password']:-ms-input-placeholder,
+.login-form-holder.kit-card .login-form button:-ms-input-placeholder {
   color: #ffffff;
   font-weight: normal;
   font-size: 14px;
 }
-.login-form-holder .login-form button {
+.login-form-holder.kit-card .login-form button {
   text-align: center;
   text-transform: uppercase;
   background-color: #ff5454;
@@ -2067,152 +2044,115 @@ body {
           transition: background-color 0.5s;
   font-size: 16px;
 }
-.login-form-holder .login-form button:hover {
+.login-form-holder.kit-card .login-form button:hover {
   background-color: #ff2121;
 }
-.login-form-holder .login-form label:after {
+.login-form-holder.kit-card .login-form label:after {
   background-color: #FFF;
   border-radius: 10px;
   box-shadow: 0 0 10px 5px #f5f5f5;
   cursor: pointer;
 }
-.login-form-holder .login-form label span {
+.login-form-holder.kit-card .login-form label span {
   font-size: 16px;
   color: #cccccc;
 }
-.login-form-holder .login-form label span:first-letter {
+.login-form-holder.kit-card .login-form label span:first-letter {
   text-transform: capitalize;
 }
-.login-form-holder .login-form input[type='checkbox']:checked + label > span:before {
+.login-form-holder.kit-card .login-form input[type='checkbox']:checked + label > span:before {
   background: url('../../images/checked.png') no-repeat;
   background-size: cover;
 }
-.business-card,
-.post-card {
-  border-radius: 10px;
-  background-color: #FFF;
-}
-.business-card .bc-head,
-.post-card .bc-head,
-.business-card .post-head,
-.post-card .post-head {
-  background: url("http://lorempixel.com/output/nature-q-g-640-480-9.jpg") no-repeat;
-  background-size: 100% 150%;
-  border-radius: 10px 10px 0 0;
-}
-.business-card .bc-head:after,
-.post-card .bc-head:after,
-.business-card .post-head:after,
-.post-card .post-head:after {
-  background-color: rgba(225, 10, 0, 0.7);
-  border-radius: 10px 10px 0 0;
-}
-.business-card .bc-head .bc-title,
-.post-card .bc-head .bc-title,
-.business-card .post-head .bc-title,
-.post-card .post-head .bc-title,
-.business-card .bc-head .post-title,
-.post-card .bc-head .post-title,
-.business-card .post-head .post-title,
-.post-card .post-head .post-title {
-  color: #FFF;
-  font-size: 18px;
-}
-.business-card .bc-icon,
-.post-card .bc-icon {
-  border-color: #FFF;
-  border-radius: 50%;
-  background-color: #FFF;
-}
-.business-card .bc-btn,
-.post-card .bc-btn,
-.business-card .read-more,
-.post-card .read-more {
+.business-card.kit-card .bc-btn,
+.post-card.kit-card .bc-btn,
+.business-card.kit-card .read-more,
+.post-card.kit-card .read-more {
   border-radius: 10px;
   -webkit-transition: background-color 0.5s;
           transition: background-color 0.5s;
   background-color: #ff5454;
   font-size: 12px;
 }
-.business-card .bc-btn:hover,
-.post-card .bc-btn:hover,
-.business-card .read-more:hover,
-.post-card .read-more:hover {
+.business-card.kit-card .bc-btn:hover,
+.post-card.kit-card .bc-btn:hover,
+.business-card.kit-card .read-more:hover,
+.post-card.kit-card .read-more:hover {
   background-color: #ff2121;
 }
-.business-card .bc-btn a,
-.post-card .bc-btn a,
-.business-card .read-more a,
-.post-card .read-more a {
+.business-card.kit-card .bc-btn a,
+.post-card.kit-card .bc-btn a,
+.business-card.kit-card .read-more a,
+.post-card.kit-card .read-more a {
   color: #FFF;
   text-decoration: none;
 }
-.business-card .bc-content,
-.post-card .bc-content {
+.business-card.kit-card .bc-content,
+.post-card.kit-card .bc-content {
   text-align: center;
 }
-.business-card .bc-content h3,
-.post-card .bc-content h3,
-.business-card .bc-content .post-content h3,
-.post-card .bc-content .post-content h3 {
+.business-card.kit-card .bc-content h3,
+.post-card.kit-card .bc-content h3,
+.business-card.kit-card .bc-content .post-content h3,
+.post-card.kit-card .bc-content .post-content h3 {
   font-size: 16px;
   color: #7f7270;
 }
-.business-card .bc-social-links li,
-.post-card .bc-social-links li {
+.business-card.kit-card .bc-social-links li,
+.post-card.kit-card .bc-social-links li {
   font-size: 14px;
   font-weight: bold;
 }
-.business-card .bc-social-links li:last-child a,
-.post-card .bc-social-links li:last-child a {
+.business-card.kit-card .bc-social-links li:last-child a,
+.post-card.kit-card .bc-social-links li:last-child a {
   color: #7f7270;
 }
-.business-card .bc-social-links li a,
-.post-card .bc-social-links li a {
+.business-card.kit-card .bc-social-links li a,
+.post-card.kit-card .bc-social-links li a {
   text-decoration: none;
   color: #cccccc;
 }
-.business-card .bc-social-links li a:after,
-.post-card .bc-social-links li a:after {
+.business-card.kit-card .bc-social-links li a:after,
+.post-card.kit-card .bc-social-links li a:after {
   background: url("../../images/s-links.png") no-repeat 1px 1px;
 }
-.business-card .bc-social-links .twitter a:after,
-.post-card .bc-social-links .twitter a:after {
+.business-card.kit-card .bc-social-links .twitter a:after,
+.post-card.kit-card .bc-social-links .twitter a:after {
   background: url("../../images/s-links.png") no-repeat 1px 1px;
 }
-.business-card .bc-social-links .facebook a:after,
-.post-card .bc-social-links .facebook a:after {
+.business-card.kit-card .bc-social-links .facebook a:after,
+.post-card.kit-card .bc-social-links .facebook a:after {
   background: url("../../images/s-links.png") no-repeat center center;
 }
-.business-card .bc-social-links .email a:after,
-.post-card .bc-social-links .email a:after {
+.business-card.kit-card .bc-social-links .email a:after,
+.post-card.kit-card .bc-social-links .email a:after {
   background: url("../../images/s-links.png") no-repeat -69px center;
 }
-.post-card .post-head .post-title {
+.post-card.kit-card .head .title {
   font-weight: bold;
 }
-.post-card .post-content {
+.post-card.kit-card .post-content {
   color: #7f7270;
 }
-.post-card .post-content .date {
+.post-card.kit-card .post-content .date {
   font-size: 13px;
   font-weight: bold;
   color: #cccccc;
 }
-.post-card .post-content p {
+.post-card.kit-card .post-content p {
   font-size: 13px;
   line-height: 1.2;
 }
-.post-card .post-links .comments span:after {
+.post-card.kit-card .post-links .comments span:after {
   background: url('../../images/comments.png') no-repeat center center;
 }
-.post-card .post-links .comments a {
+.post-card.kit-card .post-links .comments a {
   font-size: 12px;
   font-weight: bold;
   color: #cccccc;
   text-decoration: none;
 }
-.post-card .post-links .read-more a {
+.post-card.kit-card .post-links .read-more a {
   font-size: 13px;
   font-weight: bold;
 }
@@ -2231,9 +2171,6 @@ body {
 }
 .tabs-holder .tab p {
   font-size: 14px;
-}
-.tabs-holder .tab p a {
-  color: #ff5454;
 }
 .search-box {
   border-color: #626262;
@@ -2519,8 +2456,7 @@ body {
 .p-bar-holder.tg-range .tg-middle {
   left: 45%;
 }
-.btn-group button,
-.drop-down-group button {
+.button {
   text-align: center;
   text-transform: uppercase;
   color: #FFF;
@@ -2529,48 +2465,41 @@ body {
   cursor: pointer;
   -webkit-transition: background-color 0.5s;
           transition: background-color 0.5s;
+  outline: none;
 }
-.btn-group .small,
-.drop-down-group .small {
+.button.small {
   width: 85px;
   height: 29px;
   line-height: 29px;
   border-radius: 10px;
 }
-.btn-group .big,
-.drop-down-group .big {
+.button.big {
   width: 258px;
   height: 70px;
   line-height: 70px;
   border-radius: 10px;
   font-size: 16px;
 }
-.btn-group .huge,
-.drop-down-group .huge {
+.button.huge {
   width: 300px;
   height: 70px;
   line-height: 70px;
   border-radius: 10px;
   font-size: 16px;
 }
-.btn-group.social .small:after,
-.drop-down-group.social .small:after {
+.button-social .small:after {
   background: url('../../images/buttons-icons.png') no-repeat -69px center;
 }
-.btn-group.social .big:after,
-.drop-down-group.social .big:after {
+.button-social .big:after {
   background: url('../../images/buttons-icons.png') no-repeat 0 center;
 }
-.btn-group.social .huge:after,
-.drop-down-group.social .huge:after {
+.button-social .huge:after {
   background: url('../../images/buttons-icons.png') no-repeat -34px center;
 }
-.btn-group.arrow-left button:after,
-.drop-down-group.arrow-left button:after {
+.button-arrow-left:after {
   background: url('../../images/buttons-arrow.png') no-repeat -15px center;
 }
-.btn-group.arrow-right button:after,
-.drop-down-group.arrow-right button:after {
+.button-arrow-right:after {
   background: url('../../images/buttons-arrow.png') no-repeat -1px center;
 }
 .drop-down-group .dropdown {

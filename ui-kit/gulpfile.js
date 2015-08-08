@@ -1,14 +1,14 @@
 var path, conf,
-    gulp = require('gulp'),
-    less = require('gulp-less'),
-    concat = require('gulp-concat'),
-    notify = require('gulp-notify'),
-    cached = require('gulp-cached'),
-    remember = require('gulp-remember'),
-    browserSync =  require('browser-sync'),
-    sourcemaps = require('gulp-sourcemaps'),
-    spritesmith = require('gulp.spritesmith'),
-    autoprefixer = require('gulp-autoprefixer');
+  gulp = require('gulp'),
+  less = require('gulp-less'),
+  concat = require('gulp-concat'),
+  notify = require('gulp-notify'),
+  cached = require('gulp-cached'),
+  remember = require('gulp-remember'),
+  browserSync =  require('browser-sync'),
+  sourcemaps = require('gulp-sourcemaps'),
+  spritesmith = require('gulp.spritesmith'),
+  autoprefixer = require('gulp-autoprefixer');
 
 path = {
   less: ['layout styles/*.less', 'styles/**/*.less'],
@@ -43,19 +43,19 @@ gulp.task('server', function () {
 
 gulp.task('compile_less', function() {
   gulp.src(path.less)
-    .pipe(sourcemaps.init())
     .pipe(cached())
-    .pipe(less({paths: ['styles/']}))
+    .pipe(sourcemaps.init())
+    .pipe(less())
     .on('error', errorHandler)
-    .pipe(autoprefixer(['last 2 version']))
-    .pipe(remember())
     .pipe(concat('main.css'))
+    .pipe(autoprefixer())
     .pipe(sourcemaps.write('./maps'))
+    .pipe(remember())
     .pipe(gulp.dest('./build/styles'));
 });
 
 gulp.task('watch', function() {
-    gulp.watch(path.less, ['compile_less']);
+  gulp.watch(path.less, ['compile_less']);
 });
 
 gulp.task('sprite', function () {

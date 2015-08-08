@@ -30,15 +30,19 @@
     }
   }
 }
+
 .input-field {
   box-sizing: border-box;
   width: 100%;
   height: 70px;
+  outline: none;
 }
+
 .input-md {
   height: 40px;
   line-height: 40px;
 }
+
 .scroll-bar {
   position: absolute;
   width: 6px;
@@ -52,6 +56,7 @@
     height: 29px;
   }
 }
+
 .clearfix:after {
   content: " ";
   visibility: hidden;
@@ -68,7 +73,7 @@
   box-sizing: border-box;
   height: @height;
   max-width:  @maxWidth;
-  margin: 0 auto 150px;
+  margin: 0 auto 15px;
 
   .nav-bar_btn-holder {
     position: relative;
@@ -78,12 +83,14 @@
     overflow: hidden;
     border-right: 1px solid;
 
-    .nav-bar_tomb {
+    &::after {
+      content: '';
       position: absolute;
       left: 21.92%;
       bottom: 0;
       width: 87px;
       height: 52px;
+      background: #fff url('../../images/nb-tomb-icon.png');
     }
   }
 
@@ -108,6 +115,7 @@
       position: absolute;
       top: @height + 17px;
       width: 25%;
+      z-index: 10;
       &:after {
         position: absolute;
         top: -20px;
@@ -131,6 +139,10 @@
           border-bottom: none;
         }
       }
+    }
+    .nb_item-title {
+      display: block;
+      text-decoration: none;
     }
   }
   .nav-bar_search-box {
@@ -173,6 +185,7 @@
     .dropdown.nb_search-submenu {
       top: 87px;
       right: 0;
+      z-index: 10;
     }
 
     &.form-close {
@@ -291,18 +304,21 @@
   }
 }
 
-.login-form-holder{
-  @maxWidth: 370px;
-
-  float: left;
+.kit-card {
   position: relative;
   max-width: 370px;
   min-width: 100px;
   text-align: initial;
-
-  .lf-head{
+  .head {
     height: 117px;
-
+    .title{
+      display: block;
+      position: absolute;
+      top: 84px;
+      left: 170px;
+      z-index: 10;
+      text-align: center;
+    }
     &:after{
       content: '';
       position: absolute;
@@ -310,6 +326,17 @@
       width: 100%;
       height: 117px;
     }
+  }
+  .icon{
+    display: block;
+    border: 10px solid;
+  }
+}
+
+.login-form-holder{
+  float: left;
+
+  .head{
     span{
       display: block;
       position: absolute;
@@ -318,10 +345,8 @@
       z-index: 10;
     }
   }
-  .lf-icon{
-    display: block;
+  .icon{
     position: relative;
-    border: 10px solid;
     margin: -55px auto 11px;
   }
   .login-form{
@@ -352,7 +377,7 @@
       box-sizing: border-box;
       width: 100%;
       height: 80px;
-      padding: 0 25px 0 (80px / @maxWidth * 100%);
+      padding: 0 25px 0 (80px / 370px * 100%);
       border-radius: 10px;
       margin-bottom: 12px;
       border: 0;
@@ -399,37 +424,9 @@
 }
 
 .business-card, .post-card {
-  @maxWidth: 370px;
-
-  position: relative;
-  max-width: @maxWidth;
-  min-width: 100px;
-  text-align: initial;
-
-  .bc-head, .post-head {
-    height: 117px;
-
-    &:after {
-      content: '';
-      position: absolute;
-      left: 0;
-      width: 100%;
-      height: 117px;
-    }
-    .bc-title, .post-title {
-      display: block;
-      position: absolute;
-      top: 84px;
-      left: 170px;
-      z-index: 10;
-      text-align: center;
-    }
-  }
-  .bc-icon {
-    display: block;
+  .icon {
     position: absolute;
     margin: -58px 0 12px 20px;
-    border: 10px solid;
   }
   .bc-btn, .read-more {
     position: absolute;
@@ -440,6 +437,10 @@
     right: 11px;
     border: 0;
   }
+}
+
+.business-card {
+  margin-bottom: 30px;
   .bc-content {
     text-align: center;
     padding-left: 81px;
@@ -500,13 +501,9 @@
   }
 }
 
-.business-card {
-  margin-bottom: 30px;
-}
-
 .post-card {
-  .post-head {
-    .post-title {
+  .head {
+    .title {
       top: 80px;
       left: 16px;
     }
@@ -756,7 +753,7 @@
 
 .number-field {
   position: relative;
-  width: 160px;
+  width: 150px;
 
   input {
     height: 79px;
@@ -908,96 +905,96 @@
   }
 }
 
-.btn-group, .drop-down-group {
-
-  button {
-    position: relative;
-    display: block;
-    margin-bottom: 15px;
-    border: 0;
-    &:after {
-      content: '';
-      position: absolute;
-    }
+.button {
+  position: relative;
+  display: block;
+  margin-bottom: 15px;
+  border: 0;
+  &:after {
+    content: '';
+    position: absolute;
   }
-  .small {
+  &.small {
     width: 85px;
     height: 29px;
     line-height: 29px;
     border-radius: 10px;
   }
-  .big {
+  &.big {
     width: 258px;
     height: 70px;
     line-height: 70px;
     border-radius: 10px;
   }
-  .huge {
+  &.huge {
     width: 300px;
     height: 70px;
     line-height: 70px;
     border-radius: 10px;
   }
+}
 
-  &.social {
-    .small {
-      padding-left: 25px;
+.button-social {
+  .small {
+    padding-left: 25px;
 
-      &:after {
-        top: 4px;
-        left: 6px;
-        width: 19px;
-        height: 19px;
-      }
-    }
-    .big {
-      padding-left: 25px;
-
-      &:after {
-        left: 16px;
-        top: 19px;
-        width: 32px;
-        height: 32px;
-      }
-    }
-    .huge {
-      padding-left: 64px;
-
-      &:after {
-        left: 16px;
-        top: 19px;
-        width: 32px;
-        height: 32px;
-      }
+    &:after {
+      top: 4px;
+      left: 6px;
+      width: 19px;
+      height: 19px;
     }
   }
-  &.arrow-left, &.arrow-right {
-    button {
-      &:after {
-        width: 10px;
-        height: 20px;
-      }
-    }
-    .small {
-      padding-right: 16px;
-      &:after {
-        top: 4px;
-        left: 67px;
-      }
-    }
-    .big {
-      &:after {
-        top: 24px;
-        right: 25px;
-      }
-    }
-    .huge {
-      &:after {
-        top: 24px;
-        right: 22px;
-      }
+  .big {
+    padding-left: 25px;
+
+    &:after {
+      left: 16px;
+      top: 19px;
+      width: 32px;
+      height: 32px;
     }
   }
+  .huge {
+    padding-left: 64px;
+
+    &:after {
+      left: 16px;
+      top: 19px;
+      width: 32px;
+      height: 32px;
+    }
+  }
+}
+
+.button-arrow-left, .button-arrow-right  {
+  &:after {
+    width: 10px;
+    height: 20px;
+  }
+  &.small {
+    padding-right: 16px;
+    &:after {
+      top: 4px;
+      left: 67px;
+    }
+  }
+  &.big {
+    &:after {
+      top: 24px;
+      right: 25px;
+    }
+  }
+  &.huge {
+    &:after {
+      top: 24px;
+      right: 22px;
+    }
+  }
+}
+
+.dropdown-box {
+  position: relative;
 }
 
 .drop-down-group {
@@ -1007,7 +1004,6 @@
     position: relative;
     display: block;
   }
-
   &.small.arrow-right  {
     .dropdown {
       width: 182px;
@@ -1094,6 +1090,7 @@
       height: 236px;
       top: 21px;
       right: 13px;
+      z-index: 20;
     }
   }
 }
