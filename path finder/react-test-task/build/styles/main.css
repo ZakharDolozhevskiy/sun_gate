@@ -1,0 +1,36 @@
+body {
+    background-color: #EEEBE5;
+}
+
+#wrapper {
+    width: 800px;
+    min-height: 420px;
+    margin: 20px auto 0;
+    text-align: center;
+    line-height: 420px;
+}
+
+.layers-holder {
+    position: relative;
+}
+
+.layer {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+
+.hidden-layer {
+    display: none;
+}
+
+.marker {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    z-index: 100;
+}
