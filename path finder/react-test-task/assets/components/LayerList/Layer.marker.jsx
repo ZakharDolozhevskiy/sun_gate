@@ -1,11 +1,13 @@
 /**
  * Describe the layer's marker component
+ *
  * @name LayerMarker
  * @class
  */
 export default class LayerMarker extends React.Component {
   /**
    * React validate that object with coordinates is required.
+   *
    * @name LayerMarker
    * @type {Object}
    * @private

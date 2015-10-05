@@ -1,45 +1,48 @@
 import Layer from './Layer.jsx';
 import LayerMarker from './Layer.marker.jsx';
-import stub from '../../stub/stub.js';
+import LayersStore from '../../stores/LayersStore.js';
+import LayersActions from '../../actions/LayersActions.js';
 
 /**
  * Describe the list with layers.
+ *
  * @name LayerList
  * @class
  * @description
  * Render content from attribute or load external content by URL from attribute.
  *
  */
-class LayerList extends React.Component {
+export default class LayerList extends React.Component {
   /**
+   * Source to render that given from attribute.
+   *
    * @type {Array}
    * @default
    * @description
-   * Data to render that given from attribute.
    */
   state = {
-    content: this.props.content
+    source: null
   }
 
-  constructor(props) {
-    super(props);
+  componentDidMount() {
     /**
-     * Load and render external content if the URL address is given.
+     * Load external source by received URL
      */
-    if (this.props.contentURL) { this._loadExternalData(); }
+    LayersActions.loadSource(this.props.URL);
+
+    // Subscribe to the Store change event
+    LayersStore.listen(this._onChange);
+  }
+
+  componentWillUnmount() {
+    // Unsubscribe when component remove from DOM
+    //LayersStore.unlisten(this._onChange);
   }
 
   /**
-   * Mock method. Emulation of asynchronous content loading.
-   * @private
-   */
-  _loadExternalData() {
-    setTimeout(() => this.setState({content: stub}), 2000);
-  }
-
-  /**
-   * Render react component: LayerMarker
-   * @param opt {Object} - Options to render.
+   * Render react component: LayerMarker.
+   *
+   * @param {Object} opt - Options to render.
    * @returns {ReactElement} LayerMarker component
    * @private
    */
@@ -48,9 +51,10 @@ class LayerList extends React.Component {
   }
 
   /**
-   * Render react component: Layer
-   * @param opt {Object} - Options to render.
-   * @param index {Number} - Layer order number.
+   * Render react component: Layer.
+   *
+   * @param {Object} opt - Options to render.
+   * @param {Number} index - Layer order number.
    * @returns {ReactElement} Layer component
    * @private
    */
@@ -60,25 +64,36 @@ class LayerList extends React.Component {
 
   /**
    * Method initiate React component rendering with appropriate content
-   * @param data {Array} - Array with data to render.
-   * @param callback {Function} - Method that should  render component.
+   *
+   * @param {Array} data - Array with data to render.
+   * @param {Function} callback - Method that should  render component.
    * @private
    */
   _getComponents(data, callback) {
     if (data) {
-      return data.map((opt, index) => callback(opt, index) )
+      return data.map((opt, index) => callback(opt, index));
     }
   };
 
+  /**
+   * Call when store has updated. And set updated source to component state.
+   *
+   * @param {Object} data - source for component
+   * @private
+   */
+  _onChange = (data) => {
+    this.setState({source: data.layers});
+  }
+
   render() {
-    let content = this.state.content;
+    let source = this.state.source;
     let layers;
     let markers;
 
-    if (!content) { return <p>Processing...</p> }
+    if (!source) { return <p>Processing...</p>; }
 
-    layers = this._getComponents(content.layers, this._getLayer);
-    markers = this._getComponents(content.markers, this._getMarker);
+    layers = this._getComponents(source.layers, this._getLayer);
+    markers = this._getComponents(source.markers, this._getMarker);
 
     return (
       <div className='layers-holder'>
@@ -88,8 +103,3 @@ class LayerList extends React.Component {
     );
   }
 }
-
-React.render(
-  <LayerList contentURL={'link to external content'}/>,
-  document.getElementById('wrapper')
-);

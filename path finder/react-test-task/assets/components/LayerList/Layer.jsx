@@ -1,5 +1,6 @@
 /**
  * Describe the layer component.
+ *
  * @name Layer
  * @class
  */
@@ -13,6 +14,7 @@ export default class Layer extends React.Component {
   }
   /**
    * Default values of layer displaying mode configuration.
+   *
    * @default
    * @private
    */

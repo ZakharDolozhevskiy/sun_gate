@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "dependencies": {},
+  "dependencies": {
+    "alt": "^0.17.3"
+  },
   "devDependencies": {
     "babelify": "^6.3.0",
     "browserify": "^11.2.0",

@@ -4,7 +4,7 @@ var babelify = require('babelify');
 var source = require('vinyl-source-stream');
 
 var path = {
-  scripts: ['assets/components/LayerList/Layers.component.jsx'],
+  scripts: ['assets/app.js'],
   js: ['assets/**/**'],
   buildJS: 'build/scripts'
 };
@@ -19,7 +19,7 @@ gulp.task('compileJS', function() {
     .transform(babelify.configure({stage: 0}))
     .bundle()
     .on('error', errorHandler)
-    .pipe(source('all.js'))
+    .pipe(source('app-compile.js'))
     .pipe(gulp.dest(path.buildJS));
 });
 
