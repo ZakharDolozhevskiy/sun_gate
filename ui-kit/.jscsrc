@@ -3,6 +3,5 @@
   "disallowTrailingWhitespace": true,
   "validateLineBreaks": "LF",
   "safeContextKeyword": ["that","_this","vm"],
-  "disallowTrailingComma": true,
   "validateIndentation": 2
 }

@@ -47,7 +47,7 @@
             <div class="gallery">
                 <a class="prev fa fa-angle-left" href="#"></a>
                 <a class="next fa fa-angle-right" href="#"></a>
-                <ul>
+                <ul class="slide-holder">
                     <li class="gallery-item">
                         <div class="gallery-content">
                             <div class="slide-title">
@@ -58,21 +58,23 @@
                     </li>
                     <li class="gallery-item">
                         <div class="gallery-content">
-                            <strong>The ElevatorPitch iPhone application helps you to make the best of your elevator pitches.</strong>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus ad aut consequuntur, deserunt dolor dolores ex facere itaque molestiae quidem quisquam quod quos sequi sit vero? Debitis quaerat quis veritatis.</p>
+                            <div class="slide-title">
+                                <span>FREE</span><span>AWESOME</span><span>FLAT UI KIT</span>
+                            </div>
+                            <p class="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus ad aut consequuntur, deserunt dolor dolores ex facere itaque molestiae quidem quisquam quod quos sequi sit vero? Debitis quaerat quis veritatis.</p>
                         </div>
                     </li>
                     <li class="gallery-item">
                         <div class="gallery-content">
-                            <strong>The ElevatorPitch iPhone application helps you to make the best of your elevator pitches.</strong>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus ad aut consequuntur, deserunt dolor dolores ex facere itaque molestiae quidem quisquam quod quos sequi sit vero? Debitis quaerat quis veritatis.</p>
+                            <div class="slide-title">
+                                <span>FREE</span><span>AWESOME</span><span>FLAT UI KIT</span>
+                            </div>
+                            <p class="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus ad aut consequuntur, deserunt dolor dolores ex facere itaque molestiae quidem quisquam quod quos sequi sit vero? Debitis quaerat quis veritatis.</p>
                         </div>
                     </li>
                 </ul>
             </div>
-            <ul class="paging">
-                <li class="active"><a href="#" class="fa fa-circle-thin"></a></li>
-                <li><a href="#" class="fa fa-circle-thin"></a></li>
+            <ul class="pagging">
             </ul>
         </div>
         <div class="container">
@@ -119,7 +121,7 @@
                 </div>
                 <div class="tabs-holder">
                     <ul class="tabset">
-                        <li class="active"><a href="#">Tab 1</a></li>
+                        <li><a href="#">Tab 1</a></li>
                         <li><a href="#">Tab 2</a></li>
                         <li><a href="#">Tab 3</a></li>
                     </ul>
@@ -129,12 +131,12 @@
                     </div>
                     <div class="tab tab-2">
                         <h3 class="tab-title">The tab title goes here</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A culpa doloremque, eos eum eveniet excepturi ipsa maxime nemo numquam reprehenderit similique soluta voluptas voluptatem voluptates? Error praesentium similique tenetur!</p>
+                        <p><a class="article-link" href="#">assumenda</a> ipsa maxime nemo numquam reprehenderit similique soluta voluptas voluptatem voluptates? Error praesentium similique tenetur!</p>
 
                     </div>
                     <div class="tab tab-3">
                         <h3 class="tab-title"> The tab title goes here</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A assumenda culpa doloremque, eos eum eveniet excepturi ipsa maxime nemo numquam reprehenderit similique soluta voluptas voluptatem voluptates? Error praesentium similique tenetur!</p>
+                        <p>Lorem ipsum dolor sit amet, <a class="article-link" href="#">assumenda</a>  A assumenda culpa doloremque, <a class="article-link" href="#">assumenda</a> nemo numquam reprehenderit similique soluta volup<a class="article-link" href="#">assumenda</a>Error praesentium similique tenetur!</p>
                     </div>
                 </div>
             </div>
@@ -218,13 +220,9 @@
                         </div>
                         <div class="dropdown-box">
                             <ul class="dropdown number-list">
-                                <li class="second-level-item">1985</li>
-                                <li class="second-level-item">1986</li>
-                                <li class="second-level-item">1987</li>
                             </ul>
                             <div class="scroll-bar"><span class="toggle"></span></div>
                         </div>
-
                     </div>
                     <div class="number-field small black-theme">
                         <input class="input-field" placeholder="Search" value="Small Form"/>
@@ -234,9 +232,6 @@
                         </div>
                         <div class="dropdown-box">
                             <ul class="dropdown number-list">
-                                <li class="second-level-item">1985</li>
-                                <li class="second-level-item">1986</li>
-                                <li class="second-level-item">1987</li>
                             </ul>
                             <div class="scroll-bar"><span class="toggle"></span></div>
                         </div>
@@ -244,9 +239,9 @@
                 </form>
             </div>
             <div class="progress-bars">
-                <div class="p-bar-holder">
-                    <span class="p-bar-loader"></span>
-                    <span class="toggle"></span>
+                <div class="p-bar-holder slider-1">
+                    <span class="p-bar-loader" style="width: 204px"></span>
+                    <span class="toggle" style="left: 164px"></span>
                 </div>
                 <div class="p-bar-holder">
                     <span class="p-bar-loader"></span>
@@ -264,42 +259,42 @@
                     <span class="p-bar-loader"></span>
                 </div>
                 <!-- Medium progress bars with toggle -->
-                <div class="p-bar-holder medium">
+                <div class="p-bar-holder medium slider-2">
                     <span class="p-bar-loader">
                         <span class="toggle"></span>
                     </span>
                 </div>
-                <div class="p-bar-holder medium">
+                <div class="p-bar-holder medium slider-3">
                     <span class="p-bar-loader">
                         <span class="toggle"></span>
                     </span>
                 </div>
-                <div class="p-bar-holder medium">
+                <div class="p-bar-holder medium slider-4">
                     <span class="p-bar-loader">
                         <span class="toggle"></span>
                     </span>
                 </div>
                 <!-- Medium progress bars with range toggle -->
-                <div class="p-bar-holder medium tg-range">
+                <div class="p-bar-holder medium tg-range pages-1">
                     <span class="p-bar-loader"></span>
                     <span class="toggle default tg-left">1</span>
                     <span class="toggle default tg-middle">2</span>
                     <span class="toggle default tg-right">3</span>
                 </div>
-                <div class="p-bar-holder medium tg-range">
-                    <span class="toggle marked tg-left">1</span>
-                    <span class="toggle marked tg-middle">2</span>
+                <div class="p-bar-holder medium tg-range pages-2">
+                    <span class="toggle default marked tg-left">1</span>
+                    <span class="toggle default marked tg-middle">2</span>
                     <span class="toggle default tg-right">3</span>
                     <span class="p-bar-loader">
                     </span>
                 </div>
-                <div class="p-bar-holder medium tg-range">
+                <div class="p-bar-holder medium tg-range pages-3">
                     <span class="p-bar-loader"></span>
-                    <span class="toggle marked tg-left">1</span>
-                    <span class="toggle marked tg-middle">2</span>
-                    <span class="toggle marked tg-right">3</span>
+                    <span class="toggle default marked tg-left">1</span>
+                    <span class="toggle default marked tg-middle">2</span>
+                    <span class="toggle default marked tg-right">3</span>
                 </div>
-                <div class="p-bar-holder medium tg-range">
+                <div class="p-bar-holder medium tg-range range-tgl">
                     <span class="p-bar-loader"></span>
                     <span class="toggle marked tg-first"></span>
                     <span class="toggle marked tg-second"></span>
@@ -658,5 +653,7 @@
             </div>
         </div>
     </div>
+    <script src="../bower_components/jquery/dist/jquery.js"></script>
+    <script src="scripts/all.js"></script>
 </body>
 </html>

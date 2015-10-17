@@ -56,6 +56,10 @@ body {
   float: left;
   position: relative;
   margin: 30px 50px 50px;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 .container .progress-bars > div {
   margin-bottom: 50px;
@@ -186,6 +190,7 @@ body {
   list-style: none;
 }
 .scroll-bar .toggle {
+  position: relative;
   display: block;
   height: 29px;
 }
@@ -372,34 +377,34 @@ body {
   line-height: 1.25;
   bottom: 42px;
 }
-.gallery-holder .paging {
+.gallery-holder .pagging {
   position: relative;
   display: inline-block;
   left: 46%;
   bottom: 30px;
 }
-.gallery-holder .paging li {
+.gallery-holder .pagging li {
   float: left;
   margin-right: 17px;
 }
-.gallery-holder .paging li:last-child:after {
+.gallery-holder .pagging li:last-child:after {
   position: absolute;
   content: "\f111";
   right: -4px;
   top: 10px;
 }
-.gallery-holder .paging li a:after {
+.gallery-holder .pagging li a:after {
   left: 14px;
   top: 4px;
   content: "\f111";
 }
-.gallery-holder .paging li a:before {
+.gallery-holder .pagging li a:before {
   position: absolute;
   content: "\f1db";
   left: 8px;
   top: 2px;
 }
-.gallery-holder .paging li.active a:before {
+.gallery-holder .pagging li.active a:before {
   content: "\f111";
 }
 .kit-card {
@@ -495,6 +500,11 @@ body {
   height: 45px;
   line-height: 50px;
   padding: 15px 0 30px 62px;
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 .login-form-holder .login-form label:after {
   position: absolute;
@@ -628,6 +638,7 @@ body {
 .tabs-holder {
   position: relative;
   box-sizing: border-box;
+  min-height: 251px;
   max-width: 350px;
   min-width: 280px;
   padding: 10px 11px 18px 25px;
@@ -649,6 +660,7 @@ body {
 }
 .tabs-holder .tab {
   display: none;
+  opacity: 0;
 }
 .tabs-holder .tab .tab-title {
   margin-bottom: 10px;
@@ -661,6 +673,7 @@ body {
 }
 .tabs-holder .tab.active {
   display: block;
+  opacity: 1;
 }
 .search-box {
   height: 295px;
@@ -832,7 +845,9 @@ body {
 }
 .number-field .dropdown {
   display: block;
+  max-height: 153px;
   width: 100%;
+  overflow: hidden;
 }
 .number-field .dropdown:after {
   top: -16px;
@@ -939,7 +954,7 @@ body {
 .button.small {
   width: 85px;
   height: 29px;
-  line-height: 29px;
+  line-height: 26px;
   border-radius: 10px;
 }
 .button.big {
@@ -1934,26 +1949,26 @@ body {
   color: #FFF;
   font-size: 1.1em;
 }
-.gallery-holder .paging li {
+.gallery-holder .pagging li {
   list-style: none;
 }
-.gallery-holder .paging li:last-child:after {
+.gallery-holder .pagging li:last-child:after {
   font-size: 4px;
   font-family: FontAwesome;
   color: #fff;
   content: "\f111";
 }
-.gallery-holder .paging li a {
+.gallery-holder .pagging li a {
   color: #FFF;
   text-decoration: none;
   font-size: 0.625em;
   cursor: pointer;
 }
-.gallery-holder .paging li a:after {
+.gallery-holder .pagging li a:after {
   font-size: 4px;
   cursor: default;
 }
-.gallery-holder .paging li a:before {
+.gallery-holder .pagging li a:before {
   color: #FFF;
 }
 .kit-card {
@@ -2445,6 +2460,7 @@ body {
 }
 .p-bar-holder.tg-range .toggle.marked {
   background-color: #ff5454;
+  color: #fff;
 }
 .p-bar-holder.tg-range .tg-left {
   left: 0;
@@ -2466,12 +2482,6 @@ body {
   -webkit-transition: background-color 0.5s;
           transition: background-color 0.5s;
   outline: none;
-}
-.button.small {
-  width: 85px;
-  height: 29px;
-  line-height: 29px;
-  border-radius: 10px;
 }
 .button.big {
   width: 258px;

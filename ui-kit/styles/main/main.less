@@ -52,6 +52,7 @@
   list-style: none;
 
   .toggle {
+    position: relative;
     display: block;
     height: 29px;
   }
@@ -268,7 +269,7 @@
       }
     }
   }
-  .paging{
+  .pagging{
     position: relative;
     display: inline-block;
     left: 46%;
@@ -396,6 +397,8 @@
       height: 45px;
       line-height: 50px;
       padding: 15px 0 30px 62px;
+      cursor: pointer;
+      user-select: none;
       &:after{
         position: absolute;
         left: 1px;
@@ -563,6 +566,7 @@
 
   position: relative;
   box-sizing: border-box;
+  min-height: 251px;
   max-width: @maxWidth;
   min-width: 280px;
   padding: 10px 11px 18px 25px;
@@ -586,6 +590,7 @@
   }
   .tab{
     display: none;
+    opacity: 0;
 
     .tab-title{
       margin-bottom: 10px;
@@ -600,6 +605,7 @@
   }
   .tab.active{
     display: block;
+    opacity: 1;
   }
 }
 
@@ -798,7 +804,9 @@
   }
   .dropdown {
     display: block;
+    max-height: 153px;
     width: 100%;
+    overflow: hidden;
 
     &:after {
       top: -16px;
@@ -917,7 +925,7 @@
   &.small {
     width: 85px;
     height: 29px;
-    line-height: 29px;
+    line-height: 26px;
     border-radius: 10px;
   }
   &.big {
