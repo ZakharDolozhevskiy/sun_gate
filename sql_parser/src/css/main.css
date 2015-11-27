@@ -1,0 +1,27 @@
+.go_btn {
+    margin-left: 5px !important;
+    border-radius: 4px !important;
+}
+.col-md-1{
+    margin-top: 10px;
+}
+.label{
+    display: block !important;
+}
+.form-control{
+    border-radius: 0 4px 4px 0 !important;
+}
+
+.lable_box{
+    margin-top: 20px;
+    font-size: 20px;
+}
+
+.schema_box{
+    vertical-align: top;
+    display: inline-block;
+}
+.schema_item{
+    margin-top: 5px;
+    background-color: #D3D3D3;
+}

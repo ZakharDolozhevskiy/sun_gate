@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="css/bootstrap.css"/>
+    <link rel="stylesheet" href="css/bootstrap-theme.css"/>
+    <link rel="stylesheet" href="css/main.css"/>
+    <title>Simply SQL</title>
+</head>
+<body>
+        <nav class="navbar navbar-inverse">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">Simply SQL</a>
+                </div>
+            </div>
+        </nav>
+        <div class="container">
+            <div class="jumbotron">
+                <h2>Simply SQL</h2>
+                <p>Start typing simply sql query in the input field below</p>
+                <form class="query_form" action="#">
+                    <div class="input-group">
+                        <span class="input-group-addon" id="basic-addon1">SELECT</span>
+                        <input type="text" class="form-control query_field" aria-describedby="basic-addon1">
+                        <span class="input-group-btn">
+                            <button class="btn btn-primary go_btn" type="submit">Go!</button>
+                        </span>
+                    </div>
+                </form>
+                <div class="lable_box"></div>
+            </div>
+            <table class="table table-bordered"></table>
+        </div>
+        <!-- BEGIN: Underscore Template Definition. -->
+        <script type="text/template" class="template">
+            <thead>
+                <tr>
+                    <% _.each( rc[0].col_name, function( h ){ %>
+                        <th> <%- h %></th>
+                    <% }); %>
+                </tr>
+            </thead>
+            <tbody>
+                <% _.each( rc, function( obj ){ %>
+                    <% if ( !obj.col_name ){ %>
+                        <tr>
+                            <% _.each( rc[0].col_name, function( key ){ %>
+                            <td>
+                                <%- obj[key] %>
+                            </td>
+                            <% }); %>
+                        </tr>
+                    <% } %>
+                <% }); %>
+            </tbody>
+        </script>
+        <script type="text/template" class="t_lable">
+            <%  keys = Object.keys(rc)%>
+            <% _.each( keys , function( key ){ %>
+            <div class="schema_box">
+                <span class="label label-success"><%- key %></span>
+                <% _.each( Object.keys(rc[key][0]) , function( i ){ %>
+                <span class="label schema_item"><%- i %></span>
+                <% }); %>
+            </div>
+            <% }); %>
+        </script>
+        <!-- END: Underscore Template Definition. -->
+</body>
+<script data-main="../builds/main" src="../node_modules/requirejs/require.js"></script>
+</html>
