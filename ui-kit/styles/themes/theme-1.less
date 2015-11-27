@@ -1,0 +1,1383 @@
+@import "../mixins/veriables";
+
+@brown: #5F5250;
+@black: #262626;
+@light-brown: #7F7270;
+@layout-brown: #3B3B3B;
+@shadow-color: #F5F5F5;
+@dd-border-color: #544948;
+@input-bg: #CCC;
+@red: #FF5454;
+@bg-red: rgba(225, 10, 0, 0.7);
+@input-bg-black: #2F2F2F;
+@search-input-box: #626262;
+@rate-bg-color: #323232;
+
+// ###############################################################
+// Global rules / Default
+// ###############################################################
+.dropdown {
+  border-radius: 15px;
+  background-color: #FFF;
+
+  &:after {
+    .triangle(#FFF);
+  }
+  .second-level-item {
+    border-bottom-color: @layout-brown;
+    cursor: pointer;
+    font-weight: bold;
+
+    a {
+      color: @brown;
+      text-decoration: none;
+    }
+
+    &:hover a {
+      color: @red;
+    }
+  }
+}
+.input-field {
+  border-radius: 10px;
+  font-size: 18px;
+}
+.scroll-bar {
+  background-color: @black;
+  border-radius: 10px;
+
+  .toggle {
+    border-radius: 10px;
+    background-color: @red;
+    cursor: pointer;
+  }
+}
+.article-link {
+  color: @red;
+  font-size: 14px;
+  text-decoration: none;
+}
+// ###############################################################
+// Main theme rules
+// ###############################################################
+.nav-bar {
+  border-radius: 10px;
+  background-color: #FFF;
+
+  .nav-bar_btn-holder{
+    text-align: center;
+    border-right-color: @layout-brown;
+  }
+  .nav-bar_item{
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+
+    &:hover{
+      background-color: @red;
+
+      .nb_item-title{
+        color: #FFF;
+      }
+    }
+    .nb_item-title{
+      color: @light-brown;
+
+      &:first-letter{
+        text-transform: capitalize;
+      }
+    }
+    .nb_item-list{
+      border-radius: 15px;
+      background-color: @brown;
+
+      &:after{
+        .triangle(@brown);
+      }
+      .second-level-item{
+        border-bottom-color: #544948;
+        a {
+          color: #FFF;
+          text-decoration: none;
+        }
+        &:hover a{
+          color: @red;
+        }
+      }
+    }
+  }
+  .nav-bar_search-box{
+    .search-icon{
+      background: url("../../images/nav-bar-search-icon.png") no-repeat right center;
+    }
+    .nb_search-field {
+      font: bold 14px 'Roboto', sans-serif;
+      color: #FFF;
+      background-color: @input-bg;
+
+      &::-webkit-input-placeholder {
+        color: #FFF;
+      }
+    }
+    &.form-close {
+      .search-icon {
+        background: url("../../images/nav-bar-search-icon.png") no-repeat left center;
+      }
+    }
+  }
+}
+
+.gallery-holder {
+  .gallery {
+    border-radius: 10px;
+
+    a {
+      text-decoration: none;
+      color: #FFF;
+      font-size: 2em;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .gallery-content {
+      .slide-title {
+        span {
+          font-size: 4.0625em;
+          color: #FFF;
+          background-color: rgba(136, 0, 15, 0.6);
+        }
+      }
+      .description {
+        color: #FFF;
+        font-size: 1.1em;
+      }
+    }
+  }
+  .pagging {
+    li {
+      list-style: none;
+      &:last-child:after {
+        font-size: 4px;
+        font-family: FontAwesome;
+        color: #fff;
+        content: "\f111";
+      }
+
+      a {
+        color: #FFF;
+        text-decoration: none;
+        font-size: 0.625em;
+        cursor: pointer;
+
+        &:after {
+          font-size: 4px;
+          cursor: default;
+        }
+        &:before {
+          color: #FFF;
+        }
+      }
+    }
+  }
+}
+
+.kit-card {
+  border-radius: 10px;
+  background-color: #FFF;
+  .head{
+    background: url("http://lorempixel.com/output/nature-q-g-640-480-9.jpg") no-repeat;
+    background-size: 100% 150%;
+    border-radius: 10px 10px 0 0;
+    .title{
+      color: #FFF;
+      font-size: 18px;
+    }
+    &:after{
+      background-color: @bg-red;
+      border-radius: 10px 10px 0 0;
+    }
+  }
+  .icon{
+    border-color:#FFF;
+    border-radius: 50%;
+    background-color:  #FFF;
+  }
+}
+
+.login-form-holder.kit-card{
+  .head{
+    span{
+      color: #FFF;
+      font-size: 18px;
+      text-align: center;
+    }
+  }
+  .icon{
+    width: 93px;
+    height: 91px;
+    border-color: #FFF;
+    border-radius: 50%;
+    background-color:  #FFF;
+  }
+  .login-form{
+    &:after{
+      background: url("../../images/lf-icons.png") no-repeat left center;
+    }
+    &:before{
+      background: url("../../images/lf-icons.png") no-repeat right center;
+    }
+
+    input[type='text'], input[type='password'], button{
+      border-radius: 10px;
+      background-color: @input-bg;
+      color: #FFF;
+      font-size: 14px;
+      font-weight: 600;
+      .placeholder(#FFF, 14px);
+    }
+    button{
+      text-align: center;
+      text-transform: uppercase;
+      background-color: @red;
+      cursor: pointer;
+      transition: background-color .5s;
+      font-size: 16px;
+      &:hover{
+        background-color: darken(@red, 10%);
+      }
+    }
+    label{
+      &:after{
+        background-color: #FFF;
+        border-radius: 10px;
+        box-shadow: 0 0 10px 5px @shadow-color;
+        cursor: pointer;
+      }
+      span{
+        font-size: 16px;
+        color: @input-bg;
+        &:first-letter{
+          text-transform: capitalize;
+        }
+      }
+    }
+    input[type='checkbox']:checked + label > span{
+      &:before{
+        background: url('../../images/checked.png') no-repeat;
+        background-size: cover;
+      }
+    }
+  }
+}
+
+.business-card.kit-card, .post-card.kit-card{
+  .bc-btn, .read-more{
+    border-radius: 10px;
+    transition: background-color 0.5s;
+    background-color: @red;
+    font-size: 12px;
+
+    &:hover{
+      background-color: darken(@red, 10%);
+    }
+    a{
+      color: #FFF;
+      text-decoration: none;
+    }
+  }
+  .bc-content{
+    text-align: center;
+
+    h3, .post-content h3{
+      font-size: 16px;
+      color: @light-brown;
+    }
+  }
+  .bc-social-links{
+    li{
+      font-size: 14px;
+      font-weight: bold;
+
+      &:last-child{
+        a{
+          color: @light-brown;
+        }
+      }
+      a{
+        text-decoration: none;
+        color: @input-bg;
+
+        &:after{
+          background: url("../../images/s-links.png") no-repeat 1px 1px;
+        }
+      }
+    }
+    .twitter{
+      a{
+        &:after{
+          background: url("../../images/s-links.png") no-repeat 1px 1px;
+        }
+      }
+    }
+    .facebook{
+      a{
+        &:after{
+          background: url("../../images/s-links.png") no-repeat center center;
+        }
+      }
+    }
+    .email{
+      a{
+        &:after{
+          background: url("../../images/s-links.png") no-repeat -69px center;
+        }
+      }
+    }
+  }
+}
+
+.post-card.kit-card{
+  .head{
+    .title{
+      font-weight: bold;
+    }
+  }
+  .post-content{
+    color: @light-brown;
+
+    .date{
+      font-size: 13px;
+      font-weight: bold;
+      color: @input-bg;
+    }
+    p{
+      font-size: 13px;
+      line-height: 1.2;
+    }
+  }
+  .post-links{
+    .comments{
+      span{
+        &:after{
+          background: url('../../images/comments.png') no-repeat center center;
+        }
+      }
+      a{
+        font-size: 12px;
+        font-weight: bold;
+        color: @input-bg;
+        text-decoration: none;
+      }
+    }
+    .read-more{
+      a{
+        font-size: 13px;
+        font-weight: bold;
+      }
+    }
+  }
+}
+
+.tabs-holder{
+  border-radius: 10px;
+  background-color: #FFF;
+
+  .tabset{
+    li{
+      a{
+        color: @light-brown;
+        &:hover{
+          color: @red;
+        }
+      }
+    }
+  }
+  .tab{
+    .tab-title{
+      color: @light-brown;
+    }
+    p{
+      font-size: 14px;
+    }
+  }
+}
+
+.search-box {
+  border-color: @search-input-box;
+  border-radius: 10px;
+
+  .search-title {
+    font-size: 16px;
+    color: #FFF;
+  }
+  .search-btn{
+    border-radius: 10px;
+    background-color: #FFF;
+    cursor: pointer;
+    color: @light-brown;
+
+    &:after{
+      content: "\f002";
+      font-size: 32px;
+      font-family: FontAwesome;
+    }
+  }
+  .search{
+    &:after{
+      content: "\f002";
+      font-size: 30px;
+      font-family: FontAwesome;
+      color: @light-brown;
+    }
+    input{
+      border-radius: 10px;
+      font-size: 18px;
+      color:@light-brown;
+      .placeholder(@light-brown, 16px, bold)
+    }
+    .search-submenu.dropdown {
+      border-radius: 10px;
+    }
+  }
+}
+
+.black-theme {
+  .search-btn{
+    background-color: @input-bg-black;
+
+    &:after{
+      color: #FFF;
+    }
+  }
+  .search {
+    &:after{
+      color: #FFF;
+    }
+
+  }
+  .dropdown{
+    background-color: @input-bg-black;
+
+    &:after{
+      border-bottom-color: @input-bg-black;
+    }
+  }
+  .second-level-item{
+    border-color: @search-input-box;
+    color: #FFF;
+  }
+  input {
+    color: #FFF;
+    background-color: @input-bg-black;
+    border-color: @input-bg-black;
+    .placeholder(#FFF, 14px, bold)
+  }
+}
+
+.search-box.medium {
+  // red medium search fields theme
+  .search-btn.red {
+    background-color: @red;
+    &:after {
+      color: #FFF;
+      font-size: 20px;
+    }
+  }
+  .search.red {
+    .input-md {
+      color: #FFF;
+      background-color: @red;
+    }
+    &:after{
+      font-size: 20px;
+      color: #FFF;
+    }
+  }
+  // default medium search fields theme
+  .search-btn.default{
+    &:after {
+      background: url('../../images/search-icon-m.png');
+    }
+  }
+  .search.default{
+    &:after{
+      background: url('../../images/search-icon-m.png') right center;
+    }
+  }
+}
+
+.input-group {
+  label {
+    display: block;
+    &:after {
+      content:'';
+      position: absolute;
+    }
+  }
+  .icon-i-label {
+    &:after {
+      left: 20px;
+      top: 18px;
+      width: 67px;
+      height: 50px;
+      background: url("../../images/lf-icons-black.png") no-repeat left center;
+    }
+  }
+  .psw-i-label {
+    &:after {
+      left: 17px;
+      top: 15px;
+      width: 70px;
+      height: 52px;
+      background: url("../../images/lf-icons-black.png") no-repeat right center;
+    }
+  }
+  .alert-i-label {
+    &:after {
+      right: 19px;
+      top: 23px;
+      width: 31px;
+      height: 31px;
+      background: url("../../images/i-fields-icons.png") no-repeat left center;
+    }
+  }
+  .done-i-label {
+    &:after {
+      right: 19px;
+      top: 21px;
+      width: 31px;
+      height: 31px;
+      background: url("../../images/i-fields-icons.png") no-repeat -32px center;
+    }
+  }
+  .alert-i-label-small,
+  .done-i-label-small {
+    &:after {
+      right: 10px;
+      top: 10px;
+      width: 19px;
+      height: 20px;
+      background: url("../../images/i-fields-icons.png") no-repeat -64px center;
+    }
+  }
+  .done-i-label-small {
+    &:after {
+      background: url("../../images/i-fields-icons.png") no-repeat -83px center;
+    }
+  }
+  .icon-i-label-small {
+    &:after {
+      left: 16px;
+      top: 12px;
+      width: 30px;
+      height: 27px;
+      background: url("../../images/i-fields-icons.png") no-repeat -102px center;
+    }
+  }
+
+  .input-alert, .input-alert-small {
+    border-color: @red;
+  }
+  .input-done {
+    color: @brown;
+    border-color: @brown;
+    .placeholder(@brown, 14px, bold)
+  }
+  .input-done-small {
+    border-color: @brown;
+  }
+}
+
+.number-field {
+  .dropdown {
+    border-radius: 10px;
+  }
+  .toggle-btn {
+    border-left-color: @layout-brown;
+
+    span {
+      color: transparent;
+      cursor: pointer;
+    }
+    .plus {
+      &:after {
+        background: url("../../images/i-fields-icons.png") no-repeat -133px center;
+      }
+    }
+    .minus {
+      &:after {
+        background: url("../../images/i-fields-icons.png") no-repeat -152px center;
+      }
+    }
+  }
+  .second-level-item {
+    border-color: @layout-brown;
+  }
+}
+
+.number-field.small {
+ .input-field{
+   font-size: 13px;
+  }
+}
+
+.p-bar-holder {
+  border-top-color: @black;
+  background-color: @input-bg-black;
+
+  .p-bar-loader {
+    background-color: @red;
+  }
+  .toggle {
+    border-radius: 7px;
+    background-color: @red;
+    color: #fff;
+    cursor: pointer;
+    text-align: center;
+  }
+}
+
+.p-bar-holder.medium {
+  border-radius: 10px;
+
+  .p-bar-loader {
+    border-radius: 10px;
+  }
+  .p-bar-tooltip {
+    background-color: @brown;
+    text-align: center;
+    color: #fff;
+    border-radius: 10px;
+
+    &:after {
+      content: '';
+      position: absolute;
+      left: 42%;
+      bottom: -13px;
+      .triangle(@brown, top, 7px);
+    }
+  }
+}
+
+.p-bar-holder.tg-range {
+  background-color: #fff;
+
+  .toggle {
+
+    &.default {
+      background-color: #fff;
+      color: @red;
+    }
+    &.marked {
+      background-color: @red;
+      color: #fff;
+    }
+  }
+  .tg-left {
+    left: 0;
+  }
+  .tg-right {
+    left: inherit;
+    right: 0;
+  }
+  .tg-middle {
+    left: 45%;
+  }
+}
+
+.button {
+  text-align: center;
+  text-transform: uppercase;
+  color: #FFF;
+  font-weight: bold;
+  background-color: @red;
+  cursor: pointer;
+  transition: background-color 0.5s;
+  outline: none;
+  &.big {
+    width: 258px;
+    height: 70px;
+    line-height: 70px;
+    border-radius: 10px;
+    font-size: 16px;
+  }
+  &.huge {
+    width: 300px;
+    height: 70px;
+    line-height: 70px;
+    border-radius: 10px;
+    font-size: 16px;
+  }
+}
+
+.button-social {
+  .small {
+
+    &:after {
+      background: url('../../images/buttons-icons.png') no-repeat -69px center;
+    }
+  }
+  .big {
+
+    &:after {
+      background: url('../../images/buttons-icons.png') no-repeat 0 center;
+    }
+  }
+  .huge {
+
+    &:after {
+      background: url('../../images/buttons-icons.png') no-repeat -34px center;
+    }
+  }
+}
+
+.button-arrow-left {
+  &:after {
+    background: url('../../images/buttons-arrow.png') no-repeat -15px center;
+  }
+}
+
+.button-arrow-right {
+  &:after {
+    background: url('../../images/buttons-arrow.png') no-repeat -1px center;
+  }
+}
+
+.drop-down-group {
+
+  .dropdown {
+    border-radius: 10px;
+  }
+
+  &.small.arrow-right  {
+    .dropdown {
+      .second-level-item {
+        font-weight: bold;
+        font-size: 12px;
+        border-bottom-color: @layout-brown;
+      }
+    }
+    button {
+      font-size: 12px;
+      &:after {
+        background: url('../../images/buttons-arrow.png') no-repeat -27px center;
+      }
+    }
+  }
+  &.big.arrow-right  {
+    .dropdown {
+      .second-level-item {
+        font-weight: bold;
+        font-size: 16px;
+        border-bottom-color: @layout-brown;
+      }
+    }
+    button {
+      font-size: 16px;
+      &:after {
+        background: url('../../images/buttons-arrow.png') no-repeat -27px center;
+      }
+    }
+  }
+  &.huge.arrow-right  {
+    .dropdown {
+
+      .second-level-item {
+        font-weight: bold;
+        font-size: 16px;
+        border-bottom-color: @layout-brown;
+      }
+    }
+    button {
+      font-size: 15px;
+      &:after {
+        background: url('../../images/buttons-arrow.png') no-repeat -27px center;
+      }
+    }
+  }
+
+  &.small.arrow-right.scrolled.list-hide {
+    button {
+      &:after {
+        transform: rotate(90deg);
+        background: url('../../images/buttons-arrow.png') no-repeat 5px center;
+      }
+    }
+  }
+  &.big.arrow-right.scrolled.list-hide {
+    button {
+      &:after {
+        transform: rotate(90deg);
+        background: url('../../images/buttons-arrow.png') no-repeat 5px center;
+      }
+    }
+  }
+  &.huge.arrow-right.scrolled.list-hide {
+    button {
+      &:after {
+        transform: rotate(90deg);
+        background: url('../../images/buttons-arrow.png') no-repeat 5px center;
+      }
+    }
+  }
+}
+
+.toggle-group {
+  .toggle {
+    border-radius: 7px;
+    background-color: #FFF;
+    color: #fff;
+    cursor: pointer;
+    text-align: center;
+  }
+  .toggle.bg-red {
+    background-color: @red;
+  }
+  .toggle {
+    &:nth-child(1){
+      background: url("../../images/toggles-icons.png") no-repeat left top;
+    }
+    &:nth-child(2){
+      background: url("../../images/toggles-icons.png") no-repeat -43px top;
+    }
+    &:nth-child(3){
+      background: url("../../images/toggles-icons.png") no-repeat -85px top;
+    }
+    &:nth-child(4){
+      background: url("../../images/toggles-icons.png") no-repeat -127px top;
+    }
+    &:nth-child(5){
+      background: url("../../images/toggles-icons.png") no-repeat -170px top;
+    }
+    &:nth-child(6){
+      background: url("../../images/toggles-icons.png") no-repeat left -43px;
+    }
+    &:nth-child(7){
+      background: url("../../images/toggles-icons.png") no-repeat -43px -43px;
+    }
+    &:nth-child(8){
+      background: url("../../images/toggles-icons.png") no-repeat -85px -43px;
+    }
+    &:nth-child(9){
+      background: url("../../images/toggles-icons.png") no-repeat -127px -43px;
+    }
+    &:nth-child(10){
+      background: url("../../images/toggles-icons.png") no-repeat -170px -43px;
+    }
+  }
+  .toggle.bg-red {
+    &:nth-child(11){
+      &:after {
+        background: url("../../images/toggles-icons.png") no-repeat left bottom;
+      }
+    }
+    &:nth-child(12){
+      &:after {
+        background: url("../../images/toggles-icons.png") no-repeat -23px bottom;
+      }
+    }
+    &:nth-child(13){
+      &:before {
+        border-radius: 50%;
+        font-size: 13px;
+        border-top-color: @black;
+        background-color: @brown;
+      }
+      &:after {
+        background: url("../../images/toggles-icons.png") no-repeat -45px bottom;
+      }
+    }
+    &:nth-child(14){
+      &:after {
+        background: url("../../images/toggles-icons.png") no-repeat -68px bottom;
+      }
+    }
+    &:nth-child(15){
+      &:after {
+        left: 10px;
+        top: 10px;
+        background: url("../../images/toggles-icons.png") no-repeat -92px bottom;
+      }
+    }
+  }
+}
+
+.checkbox-sticky {
+  .tgl-sticky {
+    color: #FFF;
+    font-size: 12px;
+
+    &:after {
+      border-top-color: @black;
+      border-radius: 50%;
+      background-color: @input-bg-black;
+    }
+  }
+  input[type="checkbox"]:checked {
+    & + .tgl-sticky {
+      &:before {
+        border-radius: 50%;
+        background-color: @red;
+      }
+    }
+  }
+}
+
+.checkbox-medium {
+
+  label {
+    background-color :@input-bg-black;
+    border-top-color: @black;
+  }
+
+  .toggle {
+    background: url("../../images/toggles-icons.png") no-repeat -127px top;
+  }
+
+  .status {
+    text-transform: uppercase;
+    font-size: 16px;
+    font-weight: bold;
+    .on {
+      color: #ccc;
+    }
+    .off {
+      color: #535353;
+    }
+  }
+  .tgl-medium-default {
+    &.on {
+      .toggle {
+        background: url("../../images/toggles-icons.png") no-repeat -85px top;
+      }
+    }
+    &.off {
+      .toggle {
+        background: url("../../images/toggles-icons.png") no-repeat -127px top;
+      }
+    }
+  }
+  .tgl-medium-text {
+    &.on {
+      .toggle {
+        background: url("../../images/toggles-icons.png") no-repeat -85px top;
+      }
+    }
+    &.off {
+      .toggle {
+        background: url("../../images/toggles-icons.png") no-repeat -127px top;
+      }
+    }
+  }
+  .tgl-medium-marker {
+    &.on {
+      .toggle {
+        background: url("../../images/toggles-icons.png") no-repeat -211px -43px;
+      }
+      .on {
+        background: url("../../images/toggles-icons.png") no-repeat -137px -84px;
+      }
+    }
+    &.off {
+      .toggle {
+        background: url("../../images/toggles-icons.png") no-repeat -211px top;
+      }
+      .off {
+        background: url("../../images/toggles-icons.png") no-repeat -114px -84px;
+      }
+    }
+  }
+  .tgl-medium-text-marker {
+    &.on {
+      .toggle {
+        background: url("../../images/toggles-icons.png") no-repeat -137px -84px;
+      }
+      .status {
+        text-align: right;
+      }
+    }
+    &.off {
+      .toggle {
+        width: 24px;
+        background: url("../../images/toggles-icons.png") no-repeat -114px -84px;
+      }
+    }
+
+  }
+}
+
+.tag-group {
+  .tag {
+
+    border-radius: 10px;
+    background-color: @input-bg-black;
+    font-size: 13px;
+    color: #FFF;
+    border-top-color: @black;
+    cursor: pointer;
+  }
+  .tag-small, .tag-long, .tag-double {
+    &:after {
+      background-color: @layout-brown;
+      border-bottom-color: @black;
+      border-radius: 50%;
+    }
+  }
+  .tag-arrow-left {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+  .tag-arrow-right {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+  .tag-double {
+    line-height: 1.2;
+  }
+  .tag-arrow-left {
+    &:before {
+      .triangle(@input-bg-black,right,14px);
+    }
+    &:after {
+      .triangle(@black,right,14px);
+    }
+  }
+  .tag-arrow-right {
+    &:before {
+      .triangle(@input-bg-black,left,14px);
+    }
+    &:after {
+      .triangle(@black,left,14px);
+    }
+  }
+
+  &.red {
+    .tag {
+      background-color: @red;
+    }
+    .tag-small, .tag-long {
+      &:after {
+        background-color: @layout-brown;
+      }
+    }
+    .tag-arrow-left, .tag-arrow-right {
+    }
+    .tag-arrow-left {
+      &:before {
+        .triangle(@red, right, 14px);
+      }
+    }
+    .tag-arrow-right {
+      &:before {
+        .triangle(@red, left, 14px);
+      }
+    }
+  }
+}
+
+.nav-group {
+  border-radius: 10px;
+  background-color: @input-bg-black;
+  // Describe navigation with "Go to" section
+  .pagging-wrap {
+    .go-to-prev, .go-to-next {
+      background: url("../../images/navigation-icons.png") no-repeat left center;
+    }
+    .go-to-prev {
+      background-position-x: 0;
+      left: 22px;
+    }
+    .go-to-next {
+      background-position-x: -13px;
+      left: 383px;
+    }
+    .list {
+      li {
+        list-style: none;
+        text-align: center;
+        border-radius: 10px;
+        color: #FFF;
+        cursor: pointer;
+      }
+      li.active {
+        background-color: #FFF;
+        color: @black;
+        cursor: inherit;
+      }
+    }
+  }
+  .nav-msg {
+    color: #FFF;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  .page-number {
+    border-radius: 10px;
+    border-top-color: #000;
+    background-color: @black;
+    color: #FFF;
+    text-align: center;
+  }
+  // Describe navigation with two buttons next && prev
+  .ps-next, .ps-prev {
+    background-color: inherit;
+    font-weight: bold;
+  }
+  // Describe navigation without dropdown and buttons
+  .dropdown-btn-nav {
+    .btn-list {
+      list-style: none;
+    }
+    .dd-btn {
+      color: #FFF;
+
+      &:after {
+        cursor: pointer;
+        background: url("../../images/i-fields-icons.png") no-repeat -152px center;
+      }
+    }
+    .btn-box-1, .btn-box-2 {
+      cursor: pointer;
+      background: url("../../images/navigation-icons.png") no-repeat left center;
+    }
+    .btn-box-1 {
+      background-position-x: -28px;
+    }
+    .btn-box-2 {
+      background-position-x: -47px;
+    }
+    .btn-box-3 {
+      border-radius: 8px;
+      border-color: #595959;
+
+      &:after {
+        cursor: pointer;
+        background: url("../../images/navigation-icons.png") no-repeat right center;
+      }
+    }
+    .dropdown {
+      border-radius: 10px;
+
+      .second-level-item {
+        border-bottom-color: @layout-brown;
+      }
+    }
+  }
+  .simple-page-switcher.transparent,
+  &.transparent {
+    background-color: transparent;
+  }
+}
+
+.tooltip {
+  border-radius: 10px;
+  background-color: #2f2f2f;
+  color: #fff;
+  font-size: 14px;
+
+  &:before {
+    border: 10px solid transparent;
+    border-top: 10px solid #2f2f2f;
+  }
+
+  .title {
+    &:after {
+      background: url("../../images/alert-icon.png") no-repeat right center;
+    }
+  }
+  .content {
+    line-height: 1.45;
+    font-weight: normal;
+    z-index: 15;
+  }
+
+  &.bg-image {
+    background: url("http://lorempixel.com/output/city-q-c-640-480-10.jpg") no-repeat;
+    background-size: cover;
+    &:after {
+      background-color: rgba(225, 10, 0, 0.7);
+      border-radius: 10px;
+    }
+    &:before {
+      border: 10px solid #3b3b3b;
+      border-top: 10px solid rgba(225, 10, 0, 0.7);
+    }
+    .arrow-box {
+      .left-bar {
+        background-color: #3b3b3b;
+        &:after {
+          background-color: #3b3b3b;
+        }
+        &:before {
+          border-radius: 0 0 0 10px;
+          background-color: rgba(225, 10, 0, 1);
+        }
+      }
+      .right-bar {
+        background-color: #3b3b3b;
+        &:after {
+          background-color: #3b3b3b;
+        }
+        &:before {
+          border-radius: 0 0 10px 0;
+          background-color: rgba(225, 10, 0, 1);
+        }
+      }
+    }
+  }
+
+  &.mini {
+    &:before {
+      border: 8px solid transparent;
+      border-left: 8px solid #2f2f2f;
+    }
+    .title {
+      &:after {
+        cursor: pointer;
+        transform: rotate(180deg);
+        background: url("../../images/i-fields-icons.png") no-repeat -152px center;
+      }
+    }
+
+    &.closed {
+      .title {
+        &:after {
+          transform: rotate(0deg);
+        }
+      }
+    }
+  }
+}
+
+.graph {
+
+  .circle {
+    background-color: @input-bg-black;
+    border-radius: 50%;
+  }
+  .progress {
+    background-color: #fff;
+    border-radius: 100%;
+
+    .progress-part {
+      border-radius: 50%;
+
+      .filler {
+        border-radius: 50%;
+        background-color: @red;
+      }
+    }
+  }
+  .info-box {
+    background-color: @input-bg-black;
+    border-radius: 50%;
+    text-align: center;
+
+    span {
+      color: #fff;
+    }
+  }
+  &.graph-transparent {
+    .circle {
+      background-color: transparent;
+      &:after {
+        border-radius: 50%;
+        background-color: @layout-brown;
+      }
+    }
+  }
+}
+
+.rate {
+  .fa-star,
+  .fa-heart {
+    &:before {
+      color: @rate-bg-color;
+      font-size: 22px;
+    }
+  }
+  .fa-star,
+  .fa-heart {
+    &.active {
+      &:before {
+        color: @red;
+      }
+    }
+  }
+}
+
+// ###############################################################
+// Media query section
+// ###############################################################
+
+@media all and (max-width: 1080px) {
+  .slide-title {
+    font-size: 85%;
+  }
+}
+@media all and (max-width: 768px) {
+  .nav-bar{
+    background-color: @red;
+
+    .nav-bar_btn-holder{
+      background-color: #FFF;
+    }
+    .nav-bar_items-box{
+      .nav-bar_item{
+        background-color: #FFF;
+        border-bottom-color: @input-bg;
+
+        &:hover{
+          .nb_item-title{
+            color: @red;
+            background-color:#FFF;
+          }
+        }
+        &:first-child{
+          border-top-color: @input-bg;
+        }
+        &:last-child{
+          border-bottom: 0;
+        }
+        .nb_item-list{
+          border-radius: 0;
+
+          .second-level-item{
+            border-bottom-color: @input-bg;
+          }
+        }
+      }
+    }
+    .nav-bar_search-box{
+      .nb_search-submenu{
+        border-color: @brown;
+
+        &:before{
+          .triangle(#FFF, bottom, 11px);
+        }
+        &:after{
+          .triangle(@brown, bottom, 11px);
+        }
+      }
+    }
+  }
+}
+@media all and (max-width: 350px) {
+  .login-form input{
+    text-align: center;
+  };
+}
+
+//Stub content
+.gallery-item:nth-child(3){
+  background: url('http://lorempixel.com/output/technics-q-c-640-480-8.jpg') no-repeat;
+  background-size: 100% 100%;
+}
+.gallery-item:nth-child(2){
+  background: url('http://lorempixel.com/output/transport-q-c-640-480-8.jpg') no-repeat;
+  background-size: 100% 100%;
+}
+.gallery-item:nth-child(1){
+  background: url('http://lorempixel.com/output/cats-q-c-640-480-4.jpg') no-repeat;
+  background-size: 100% 100%;
+}

@@ -1,0 +1,30 @@
+.border(@width: 1px; @color: #000; @type: solid) {
+  border: @width @type @color;
+}
+.triangle(@color; @side: bottom; @width: 10px){
+  content: '';
+  border: @width solid transparent;
+  border-@{side}: @width solid @color;
+}
+.placeholder(@color, @f-size: 14px, @f-weight: normal){
+  &::-webkit-input-placeholder {
+    font-size: @f-size;
+    font-weight: @f-weight;
+    color:@color;
+  }
+  &::-moz-placeholder { /* Firefox 18- */
+    color: @color;
+    font-weight: @f-weight;
+    font-size: @f-size;
+  }
+  &::-moz-placeholder {  /* Firefox 19+ */
+    color: @color;
+    font-weight: @f-weight;
+    font-size: @f-size;
+  }
+  &:-ms-input-placeholder {
+    color: @color;
+    font-weight: @f-weight;
+    font-size: @f-size;
+  }
+}
