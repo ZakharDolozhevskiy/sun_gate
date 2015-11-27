@@ -1,0 +1,6 @@
+*************************
+Running JS compilation...
+Sources: %src%
+Destination: %dest%
+*************************
+Files were processed!
