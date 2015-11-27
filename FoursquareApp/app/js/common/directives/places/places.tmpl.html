@@ -1,0 +1,14 @@
+<section id="searchResult">
+    <div class="input-group">
+        <input type="text" placeholder="Filter By:" ng-model="filterQuery" ng-show="places.length"/>
+    </div>
+    <div class="selected-place animate-if" ng-if="selectedPlace">
+        <img class='place-icon' ng-src="{{selectedPlace.categories[0].icon.prefix + 'bg_64' + selectedPlace.categories[0].icon.suffix}}" alt="{{place.name}}"/>
+            {{selectedPlace.name}} | {{selectedPlace.location.country}}
+    </div>
+    <ul>
+        <li class="animate-repeat" ng-repeat="place in places | filter: byQuery">
+            <place class="place-item" ng-model="place" ng-click="selectPlace($index)"></place>
+        </li>
+    </ul>
+</section>

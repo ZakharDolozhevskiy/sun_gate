@@ -1,0 +1,27 @@
+{
+  "name": "FoursquareApp",
+  "version": "0.0.1",
+  "homepage": "https://github.com/ZakharDolozhevskiy/sun_gate",
+  "authors": [
+    "Zakhar_Dolozhevskyi <dolozhevskiy@gmail.com>"
+  ],
+  "description": "Search places by foursquare API",
+  "main": "app/index.html",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-animate": "~1.3.15",
+    "angular-resource": "~1.3.15",
+    "angular-mocks": "~1.3.15",
+    "angular": "~1.3.15",
+    "angular-sanitize": "~1.3.15",
+    "jquery": "~2.1.3",
+    "angular-ui-router": "~0.2.13"
+  }
+}
