@@ -1,0 +1,22 @@
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/style.css')
+  body
+    block content
+    script(type='text/javascript').
+      var socket = new WebSocket("ws://localhost:3000");
+
+      socket.onopen = function () {
+        currency.onclick = function () { socket.send(JSON.stringify({subscribe: 'g_currency'})); };
+        age.onclick = function () { socket.send(JSON.stringify({subscribe: 'g_age'})); };
+      };
+
+      socket.onmessage = function(msg) {
+        var data = JSON.parse(msg.data);
+
+        if (data.g_currency) currencyIndicator.innerHTML += data.g_currency + ' ';
+        if (data.g_age) ageIndicator.innerHTML += data.g_age + ' ';
+      };
+
