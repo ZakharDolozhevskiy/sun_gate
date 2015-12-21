@@ -1,5 +1,6 @@
 const Chance = require('chance').Chance;
 const Generator = require('./Generator');
+const AgeValue = require('models/AgeValue');
 const chance = new Chance();
 
 /**
@@ -9,17 +10,19 @@ const chance = new Chance();
 class AgeGenerator extends Generator {
   constructor (delay) {
     super(delay);
-    // Temporary storage for data saving.
-    this.storage = [];
     this.intervalID = null;
+
+    this._initGenerator(delay);
   }
 
   /**
-   * Method saves generated value
+   * Method saves generated value to the database.
    * @param {Number} value - generated value - age
    * @private
    */
-  _saveValue (value) { this.storage.push(value); }
+  _saveValue (value) {
+    AgeValue.create({ age: value, genDate: new Date });
+  }
 
   /**
    * Init data generation
@@ -31,10 +34,16 @@ class AgeGenerator extends Generator {
   }
 
   /**
-   * Return generated value
-   * @returns {String} - values from storage
+   * Return part of generated values.
+   * @param {Number} count - max count of getting values.
+   * @param {Date} timestamp for searched data.
+   * @returns {Array} - collection of values from database
    */
-  getValue () { return this.storage[this.storage.length - 1]; }
+  getDataSlice (count, timestamp) {
+    timestamp = timestamp || new Date(0);
+
+    return AgeValue.find().where('genDate').gt(timestamp).limit(count);
+  }
 
   /**
    * Stop data generation

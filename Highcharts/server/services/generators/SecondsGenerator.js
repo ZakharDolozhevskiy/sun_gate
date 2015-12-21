@@ -1,5 +1,6 @@
 const Chance = require('chance').Chance;
 const Generator = require('./Generator');
+const SecondsValue = require('models/SecondsValue');
 const chance = new Chance();
 
 /**
@@ -8,10 +9,10 @@ const chance = new Chance();
  */
 class SecondsGenerator extends Generator {
   constructor (delay) {
-    super(delay);
-    // Temporary storage for data saving.
-    this.storage = [];
+    super();
     this.intervalID = null;
+
+    this._initGenerator(delay);
   }
 
   /**
@@ -20,7 +21,7 @@ class SecondsGenerator extends Generator {
    * @private
    */
   _saveValue (value) {
-    this.storage.push(value);
+    SecondsValue.create({ sec: value, genDate: new Date });
   }
 
   /**
@@ -33,10 +34,16 @@ class SecondsGenerator extends Generator {
   }
 
   /**
-   * Return generated value
-   * @returns {String} - values from storage
+   * Return part of generated values.
+   * @param {Number} count - max count of getting values.
+   * @param {Date} timestamp for searched data.
+   * @returns {Array} - collection of values from database
    */
-  getValue () { return this.storage[this.storage.length - 1]; }
+  getDataSlice (count, timestamp) {
+    timestamp = timestamp || new Date(0);
+
+    return SecondsValue.find().where('genDate').gt(timestamp).limit(count);
+  }
 
   /**
    * Stop data generation

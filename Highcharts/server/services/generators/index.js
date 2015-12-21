@@ -2,12 +2,14 @@ const SecondsGenerator = require('./SecondsGenerator');
 const CurrencyGenerator = require('./CurrencyGenerator');
 const GenderGenerator = require('./GenderGenerator');
 const AgeGenerator = require('./AgeGenerator');
-const constants = require('../../constants/index');
+
+const config = require('config');
+const delay = config.get('generators:delay');
 
 // Module exports generators instances
 module.exports = {
-  g_seconds: new SecondsGenerator(constants.GENERATORS_DELAY),
-  g_currency: new CurrencyGenerator(constants.GENERATORS_DELAY),
-  g_gender: new GenderGenerator(constants.GENERATORS_DELAY),
-  g_age: new AgeGenerator(constants.GENERATORS_DELAY)
+  seconds: new SecondsGenerator(delay),
+  currencies: new CurrencyGenerator(delay),
+  genders: new GenderGenerator(delay),
+  ages: new AgeGenerator(delay)
 };

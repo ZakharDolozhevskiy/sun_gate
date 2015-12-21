@@ -1,5 +1,6 @@
 const Chance = require('chance').Chance;
 const Generator = require('./Generator');
+const CurrencyValue = require('models/CurrencyValue');
 const chance = new Chance();
 
 /**
@@ -8,10 +9,10 @@ const chance = new Chance();
  */
 class CurrencyGenerator extends Generator {
   constructor (delay) {
-    super(delay);
-    // Temporary storage for data saving.
-    this.storage = [];
+    super();
     this.intervalID = null;
+
+    this._initGenerator(delay);
   }
 
   /**
@@ -19,7 +20,9 @@ class CurrencyGenerator extends Generator {
    * @param {String} value - generated value - random currency.
    * @private
    */
-  _saveValue (value) { this.storage.push(value); }
+  _saveValue (value) {
+    CurrencyValue.create({ currency: value, genDate: new Date });
+  }
 
   /**
    * Init data generation
@@ -33,10 +36,16 @@ class CurrencyGenerator extends Generator {
   }
 
   /**
-   * Return generated value
-   * @returns {String} - values from storage
+   * Return part of generated values.
+   * @param {Number} count - max count of getting values.
+   * @param {Date} timestamp for searched data.
+   * @returns {Array} - collection of values from database
    */
-  getValue () { return this.storage[this.storage.length - 1]; }
+  getDataSlice (count, timestamp) {
+    timestamp = timestamp || new Date(0);
+
+    return CurrencyValue.find().where('currency').exists().where('genDate').gt(timestamp).limit(count);
+  }
 
   /**
    * Stop data generation

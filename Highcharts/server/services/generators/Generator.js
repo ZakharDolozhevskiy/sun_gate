@@ -5,19 +5,19 @@
  */
 class Generator {
   /**
-   * @description Init local storage for generated data and init data generation.
-   * @param {Number} delay - frequency of data generation.
+   * Return part of generated values.
+   * @param {Number} count - max count of getting values.
+   * @param {Date} timestamp for searched data.
+   * @returns {Array} - collection of values from database
    */
-  constructor (delay) {
-    this._initGenerator(delay);
+  getDataSlice (count, timestamp) {
+    throw new Error('Abstract method should be overridden');
   }
 
   /**
-   * Abstract method. Should be overridden on method that init data generation.
-   * @param {Number} delay - delay for action of data generation.
-   * @interface
+   * Stop data generation
    */
-  _initGenerator (delay) { throw new Error('Abstract method should be overridden'); }
+  stopGenerator () {  throw new Error('Abstract method should be overridden'); }
 }
 
 module.exports = Generator;
