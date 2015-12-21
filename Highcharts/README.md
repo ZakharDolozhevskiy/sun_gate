@@ -13,6 +13,7 @@ Requirements
 ------------
 
 Node `^4.0.0`
+MongoDB `^3.2`
 
 Features
 --------
@@ -20,6 +21,7 @@ Features
 * [Jade] (http://jade-lang.com/)
 * [Babel] (https://github.com/babel/babel)
 * [WebSocket] (https://github.com/websockets/ws)
+* [Mongoose] (http://mongoosejs.com/)
 
 Getting Started
 ---------------
@@ -30,8 +32,10 @@ Just clone the repo and install the necessary node modules:
 $ git clone https://github.com/ZakharDolozhevskiy/sun_gate.git
 $ git checkout origin/Highcharts
 $ cd server
-$ npm install                   # Install Node modules listed in ./package.json (may take a while the first time)
-$ npm start                     # Compile and launch
+$ npm install                   # Install Node modules listed in ./package.json (may take a while the first time).
+$ npm start                     # Compile and launch.
+$ npm auto-start                # Run node server with files changes watcher.
+$ npm debug                     # run node server in debugging mode.  
 ```
 
 Usage

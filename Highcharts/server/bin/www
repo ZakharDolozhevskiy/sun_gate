@@ -6,11 +6,12 @@
 const app = require('../app');
 const http = require('http');
 const socket = require('../socket');
+const config = require('config');
 
 /**
  * Get port from environment and store in Express.
  */
-const port = normalizePort(process.env.PORT || '3000');
+const port = config.get('port');
 
 app.set('port', port);
 

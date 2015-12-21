@@ -4,8 +4,8 @@
   "private": true,
   "scripts": {
     "start": "node --use_strict --harmony ./bin/www",
-    "debug": "node debug --use_strict --harmony ./bin/www",
-    "auto-start": "nodemon --exec \"npm start\" --ignore node_modules"
+    "debug": "NODE_PATH=. node debug --use_strict --harmony ./bin/www",
+    "auto-start": "NODE_PATH=. nodemon --exec \"npm start\" --ignore node_modules"
   },
   "dependencies": {
     "body-parser": "~1.13.2",
@@ -14,7 +14,9 @@
     "debug": "~2.2.0",
     "express": "~4.13.1",
     "jade": "~1.11.0",
+    "mongoose": "^4.3.3",
     "morgan": "~1.6.1",
+    "nconf": "^0.8.2",
     "serve-favicon": "~2.3.0",
     "ws": "^0.8.1"
   },

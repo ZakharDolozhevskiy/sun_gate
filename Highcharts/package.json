@@ -10,6 +10,9 @@
   "license": "ISC",
   "dependencies": {},
   "devDependencies": {
-    "bower": "^1.6.9"
+    "bower": "^1.6.9",
+    "eslint": "^1.10.3",
+    "eslint-config-airbnb": "^2.1.1",
+    "eslint-plugin-react": "^3.11.3"
   }
 }
