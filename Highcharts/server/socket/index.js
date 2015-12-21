@@ -1,12 +1,18 @@
 const WebSocketServer = require('ws').Server;
-const indicatorsSocket = require('./indicatorsSocket');
+const ageIndicator = require('./indicators/ageIndicator');
+const genderIndicator = require('./indicators/genderIndicator');
+const secondsIndicator = require('./indicators/secondsIndicator');
+const currencyIndicator = require('./indicators/currencyIndicator');
 
 /**
  * Connect handlers to webSocket instance
  * @param ws {Object} - webSocket connection instance
  */
 function notifySocketHandlers (ws) {
-  indicatorsSocket(ws);
+  ageIndicator(ws);
+  genderIndicator(ws);
+  secondsIndicator(ws);
+  currencyIndicator(ws);
 }
 
 /**
@@ -14,7 +20,7 @@ function notifySocketHandlers (ws) {
  * @param server - instance of HTTP server
  */
 function initWebSocket (server) {
-  const socket = new WebSocketServer({ server: server });
+  const socket = new WebSocketServer({ server });
   // Add webSocket handlers when connection will be installed
   socket.on('connection', notifySocketHandlers);
 }

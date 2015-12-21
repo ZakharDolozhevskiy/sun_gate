@@ -1,9 +1,65 @@
 extends layout
 
 block content
-    button#currency Add currency indicator
-    button#age Add age indicator
+    button#all Add ALL indicator
     p#currencyIndicator
     p#ageIndicator
+    p#secondsIndicator
+    p#ganderIndicator
+    script(type='text/javascript').
+        var socket = new WebSocket("ws://localhost:3000");
+        var handlers = {
+            'currencies' : currenciesHandler,
+            'seconds'    : secondsHandler,
+            'genders'    : gendersHandler,
+            'ages'       : agesHandler
+        };
+
+        function currenciesHandler (values) {
+            if (values.map) {
+                currencyIndicator.innerHTML += values.map(function (val) { return val.currency }).join(' ');
+            } else {
+                currencyIndicator.innerHTML += values.currency;
+            }
+        }
+
+        function secondsHandler (values) {
+            if (values.map) {
+                secondsIndicator.innerHTML += values.map(function (val) { return 's: ' + val.sec }).join(' ');
+            } else {
+                secondsIndicator.innerHTML += values.currency;
+            }
+        }
+
+        function gendersHandler (values) {
+            if (values.map) {
+                ganderIndicator.innerHTML += values.map(function (val) { return val.gender }).join(' ');
+            } else {
+                ganderIndicator.innerHTML += values.gender;
+            }
+        }
+
+        function agesHandler (values) {
+            if (values.map) {
+                ageIndicator.innerHTML += values.map(function (val) { return 'age: ' + val.age }).join(' ');
+            } else {
+                ageIndicator.innerHTML += values.age;
+            }
+        }
+
+        socket.onopen = function () {
+            all.onclick = function () {
+                socket.send(JSON.stringify({key: 'currencies', updateTime: 7}));
+                socket.send(JSON.stringify({key: 'genders', updateTime: 5}));
+                socket.send(JSON.stringify({key: 'seconds', updateTime: 1}));
+                socket.send(JSON.stringify({key: 'ages',    updateTime: 10}));
+            };
+        };
+
+        socket.onmessage = function (msg) {
+            var data = JSON.parse(msg.data);
+
+            if (data && handlers[data.key]) handlers[data.key](data.payload);
+        };
 
 
