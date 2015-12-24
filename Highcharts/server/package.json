@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node --use_strict --harmony ./bin/www",
+    "start": "NODE_PATH=. node --use_strict --harmony ./bin/www",
+    "win_start": "set NODE_PATH=.&&node --use_strict --harmony ./bin/www",
     "debug": "NODE_PATH=. node debug --use_strict --harmony ./bin/www",
     "auto-start": "NODE_PATH=. nodemon --exec \"npm start\" --ignore node_modules"
   },
