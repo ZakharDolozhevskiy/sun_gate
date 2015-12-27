@@ -1,10 +1,15 @@
 {
   "port" : 3000,
   "mongoose" : {
+<<<<<<< Updated upstream
+    "uri": "mongodb://localhost/test_db",
+    "options": {}
+=======
     "uri": "mongodb://localhost/test",
     "options": {}
   },
   "generators" : {
     "delay" : 5
+>>>>>>> Stashed changes
   }
 }

@@ -44,6 +44,12 @@ Usage
 #### `npm run auto-start`
 Runs the node server with file watcher that restart server if files changed.
 
+#### `npm run start`
+Runs the node server without file watcher.
+
+#### `npm run win_start`
+For users with Windows OS. Similar with "npm run start" command.
+
 Structure
 ---------
 

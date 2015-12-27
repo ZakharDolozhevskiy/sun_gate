@@ -1,5 +1,5 @@
 const Chance = require('chance').Chance;
-const Generator = require('./Generator');
+const Generator = require('./_Generator');
 const SecondsValue = require('models/SecondsValue');
 const chance = new Chance();
 
@@ -11,7 +11,6 @@ class SecondsGenerator extends Generator {
   constructor (delay) {
     super();
     this.intervalID = null;
-
     this._initGenerator(delay);
   }
 

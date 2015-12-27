@@ -1,6 +1,6 @@
 /**
  * Basic class that describe generators
- * @type {Generator}
+ * @type {Indicator}
  * @abstract
  */
 class Generator {

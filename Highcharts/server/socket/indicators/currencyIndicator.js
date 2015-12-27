@@ -1,56 +1,11 @@
 const generators = require('services/generators');
+const Indicator = require('./_Indicator');
 const GENERATOR_NAME = 'currencies';
 
-let ws = null;
-let timestamp = null;
-let intervalID = null;
+const options = {
+  generator_name : GENERATOR_NAME,
+  generator : generators[GENERATOR_NAME]
+};
 
-/**
- * Send random age values to the client uses websocket protocol.
- * @param websocket {Object} - Instance of webSocket connection.
- */
-function currencyIndicator (websocket) {
-  ws = websocket;
+module.exports = function (websocket) { new Indicator(websocket, options); };
 
-  ws.on('message', parseMessage);
-  ws.on('close', () => clearInterval(intervalID));
-}
-
-/**
- * Handle client massages by websocket.
- * @param payload
- * @returns {boolean}
- */
-function parseMessage (payload) {
-  const opt = JSON.parse(payload);
-
-  if (opt.key !== GENERATOR_NAME) return false;
-
-  intervalID = setInterval(getGeneratedData.bind(this, opt), opt.updateTime * 1000);
-}
-
-/**
- * Search data from database and send collection of them to subscribers.
- * @param opt {Object} - options for data searching.
- */
-function getGeneratedData (opt) {
-  generators[GENERATOR_NAME]
-    .getDataSlice(opt.limit, timestamp)
-    .exec((err, data) => { if (!err && data.length) sendData(data); });
-}
-
-/**
- * Send latest data from Currency generator to client by websocket.
- * @param payload {Array || Object} data object or collection with them.
- */
-function sendData (payload) {
-  // Save latest data's value object timestamp. It allow server returns to the clients only actual (new) data.
-  timestamp = payload.reverse()[0].genDate;
-
-  // added send data generator ID
-  const data = { key: GENERATOR_NAME, payload };
-
-  ws.send(JSON.stringify(data));
-}
-
-module.exports = currencyIndicator;
