@@ -63,3 +63,5 @@ crashlytics-build.properties
 temp/
 template/
 coverage/
+
+npm-debug.log

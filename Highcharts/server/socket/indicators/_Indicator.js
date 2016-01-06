@@ -34,10 +34,7 @@ class Indicator {
   getData (opt) {
     this.generator
       .getDataSlice(opt.limit, this.timestamp)
-      .exec((err, data) => {
-        debugger;
-        if (!err && data.length) this.sendData(data);
-      });
+      .then((data) => this.sendData(data));
   }
 
   /**

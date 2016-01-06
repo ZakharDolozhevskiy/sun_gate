@@ -1,0 +1,23 @@
+<dom-module id="indicators-btn">
+    <style>
+        button {
+            outline: none;
+            border: 0;
+            border-radius: 10px;
+            transition: opacity 1s;
+            color: #FFF;
+            background-color: #008800;
+        }
+    </style>
+    <template>
+        <button>Add {{type}} indicator</button>
+    </template>
+    <script>
+        Polymer({
+            is: 'indicators-btn',
+            properties: {
+                type: { type: String }
+            }
+        });
+    </script>
+</dom-module>

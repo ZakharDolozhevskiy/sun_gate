@@ -1,4 +1,5 @@
 const Chance = require('chance').Chance;
+const Promise = require('es6-promise').Promise;
 const Generator = require('./_Generator');
 const AgeValue = require('models/AgeValue');
 const chance = new Chance();
@@ -39,9 +40,21 @@ class AgeGenerator extends Generator {
    * @returns {Array} - collection of values from database
    */
   getDataSlice (count, timestamp) {
-    timestamp = timestamp || new Date(0);
+    const reduce = function (key, val) { return val.length; };
+    const map = function () {
+      if (this.age < 20) emit('< 20', 1);
+      else if (this.age >= 20 && this.age <= 40) emit('20-40', 1);
+      else if (this.age >= 40 && this.age <= 60) emit('40-60', 1);
+      else emit('60 >', 1);
+    };
+    const out = { replace: 'res' };
 
-    return AgeValue.find().where('genDate').gt(timestamp).limit(count);
+    return new Promise((resolve, reject) => {
+      AgeValue.mapReduce({ reduce, map, out }, (err, model) => {
+        if (err) reject();
+        model.find().exec((err, data) => { if (!err) resolve(data); });
+      });
+    });
   }
 
   /**

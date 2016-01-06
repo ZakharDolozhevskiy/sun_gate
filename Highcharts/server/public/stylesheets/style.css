@@ -6,3 +6,7 @@ body {
 a {
   color: #00B7FF;
 }
+
+.loader {
+  background: url('../images/loader.gif') no-repeat 50% 50%;
+}
