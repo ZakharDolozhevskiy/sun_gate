@@ -1,10 +1,14 @@
 (function () {
-  var INDICATOR_OPT = { key: 'currencies', updateTime: 7 };
+  var INDICATOR_OPT = {
+    key: 'seconds',
+    updateTime: 5,
+    limit: 5
+  };
 
   Polymer({
-    is: 'currency-indicator',
+    is: 'seconds-indicator',
     listeners: {
-      'c-switch-btn.click': 'switchOn'
+      's-switch-btn.click': 'switchOn'
     },
     switchOn: function () {
       this.classList.add('loader');
@@ -17,9 +21,12 @@
       window.socket.sendMsg(INDICATOR_OPT);
     },
     msgHandler: function (payload) {
+      function addLabels (o, i) { return ['Result ' + (i + 1), o.sec]; }
+
       this.classList.remove('loader');
-      this.$.currencyChart.rows = payload;
-      this.$['c-switch-btn'].style.opacity = 0;
+      this.$['s-switch-btn'].style.opacity = 0;
+
+      this.$.secondsChart.rows = payload.map(addLabels);
     }
   });
 })();

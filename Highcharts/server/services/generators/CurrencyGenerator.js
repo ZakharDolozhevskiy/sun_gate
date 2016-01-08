@@ -1,4 +1,5 @@
 const Chance = require('chance').Chance;
+const Promise = require('es6-promise').Promise;
 const Generator = require('./_Generator');
 const CurrencyValue = require('models/CurrencyValue');
 const chance = new Chance();
@@ -30,7 +31,7 @@ class CurrencyGenerator extends Generator {
    */
   _initGenerator (delay) {
     this.intervalID = setInterval(() => {
-      this._saveValue(chance.dollar());
+      this._saveValue(chance.dollar({ max: 10000 }));
     }, 1000 * delay);
   }
 
@@ -41,11 +42,35 @@ class CurrencyGenerator extends Generator {
    * @returns {Array} - collection of values from database
    */
   getDataSlice (count, timestamp) {
-    timestamp = timestamp || new Date(0);
+    const queries = [
+      new Promise(this.getMaxValue),
+      new Promise(this.getAvgValue),
+      new Promise(this.getMinValue)
+    ];
 
-    return CurrencyValue.find().where('currency').exists().where('genDate').gt(timestamp).limit(count);
+    return Promise.all(queries);
   }
 
+  getMaxValue (resolve, reject) {
+    CurrencyValue
+      .find().sort({ currency: -1 }).select('currency')
+      .exec((err, data) => err ? reject() : resolve(['MAX', +data[0].currency.slice(1)]));
+  }
+
+  getMinValue (resolve, reject) {
+    CurrencyValue
+      .find().sort({ currency: 1 }).select('currency')
+      .exec((err, data) => err ? reject() : resolve(['MIN', +data[0].currency.slice(1)]));
+  }
+
+  getAvgValue (resolve, reject) {
+    function calcAverage (data) {
+      return +(data.reduce((res, el) => res + +el.currency.slice(1), 0) / data.length).toFixed(2);
+    }
+
+    CurrencyValue.find('currency').select('currency')
+      .exec((err, data) => err ? reject() : resolve(['AVG', calcAverage(data)]));
+  }
   /**
    * Stop data generation
    */

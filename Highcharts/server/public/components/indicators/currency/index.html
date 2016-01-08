@@ -7,10 +7,15 @@
     </style>
     <template>
         <google-chart
-                type="pie"
-                id="chart"
-                options='{"title": "AGE RANGE INDICATOR"}'
-                cols='[ {"label": "Range", "type": "string"},{"label": "Age", "type": "number"} ]'>
+            id='currencyChart'
+            type='column'
+            options='{
+                "title": "CURRENCY RANGE INDICATOR",
+                "legend": {"position": "in"},
+                "vAxis": {"minValue" : 0, "maxValue": 10000, "format": "currency"},
+                "animation": {"duration": "1000"}
+            }'
+            cols='[{"label": "Data", "type": "string"},{"label": "Currency ", "type": "number"}]'>
         </google-chart>
         <indicators-btn is="indicators-btn" id="c-switch-btn" type="currency"></indicators-btn>
     </template>

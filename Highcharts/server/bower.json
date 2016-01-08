@@ -1,0 +1,23 @@
+{
+  "name": "highcharts",
+  "description": "",
+  "main": "",
+  "authors": [
+    "Zakhar_Dolozhevskiy <dolozhevskiy@gmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/ZakharDolozhevskiy/sun_gate",
+  "moduleType": [],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/libs/",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "google-chart": "GoogleWebComponents/google-chart#~1.0.4",
+    "polymer": "~1.2.3"
+  }
+}

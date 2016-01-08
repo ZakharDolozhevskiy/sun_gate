@@ -39,9 +39,16 @@ class GenderGenerator extends Generator {
    * @returns {Array} - collection of values from database
    */
   getDataSlice (count, timestamp) {
-    timestamp = timestamp || new Date(0);
+    const queries = [
+      new Promise((resolve, reject) =>  this.getValuesCount(resolve, reject, 'Male')),
+      new Promise((resolve, reject) =>  this.getValuesCount(resolve, reject, 'Female'))
+    ];
 
-    return GenderValue.find().where('genDate').gt(timestamp).limit(count);
+    return Promise.all(queries);
+  }
+
+  getValuesCount (resolve, reject, key) {
+    return GenderValue.find({ 'gender' : key }).count().exec((err, data) => err ? reject() : resolve([key, data]));
   }
 
   /**

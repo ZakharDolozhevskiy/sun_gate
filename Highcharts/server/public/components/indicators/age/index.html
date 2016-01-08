@@ -7,10 +7,12 @@
     </style>
     <template>
         <google-chart
-                type="pie"
-                id="chart"
-                options='{ "title": "AGE RANGE INDICATOR", "is3D": true }'
-                cols='[ {"label": "Range", "type": "string"},{"label": "Age", "type": "number"} ]'>
+            type="pie"
+            id="ageChart"
+            options='{
+                "title": "AGE RANGE INDICATOR",
+                "is3D": true }'
+            cols='[ {"label": "Range", "type": "string"},{"label": "Age", "type": "number"} ]'>
         </google-chart>
         <indicators-btn is="indicators-btn" id="a-switch-btn" type="age"></indicators-btn>
     </template>

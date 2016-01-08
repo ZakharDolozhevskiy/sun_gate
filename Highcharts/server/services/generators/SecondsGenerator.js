@@ -39,9 +39,7 @@ class SecondsGenerator extends Generator {
    * @returns {Array} - collection of values from database
    */
   getDataSlice (count, timestamp) {
-    timestamp = timestamp || new Date(0);
-
-    return SecondsValue.find().where('genDate').gt(timestamp).limit(count);
+    return SecondsValue.find().where('genDate').limit(count).select('sec');
   }
 
   /**
