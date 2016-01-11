@@ -14,6 +14,8 @@ Requirements
 
 Node `^4.0.0`
 MongoDB `^3.2`
+Polymer `^1.2.0`
+Bower
 
 Features
 --------
@@ -31,8 +33,10 @@ Just clone the repo and install the necessary node modules:
 ```shell
 $ git clone https://github.com/ZakharDolozhevskiy/sun_gate.git
 $ git checkout origin/Highcharts
+$ npm install && npm run compile
 $ cd server
 $ npm install                   # Install Node modules listed in ./package.json (may take a while the first time).
+$ bower install                 # Install bower dependencies. 
 $ npm start                     # Compile and launch.
 $ npm auto-start                # Run node server with files changes watcher.
 $ npm debug                     # run node server in debugging mode.  
@@ -40,6 +44,13 @@ $ npm debug                     # run node server in debugging mode.
 
 Usage
 -----
+
+#### CLIENT SIDE 
+
+#### `npm run compile`
+Runs webpack and compile application build.
+
+#### SERVER SIDE 
 
 #### `npm run auto-start`
 Runs the node server with file watcher that restart server if files changed.
