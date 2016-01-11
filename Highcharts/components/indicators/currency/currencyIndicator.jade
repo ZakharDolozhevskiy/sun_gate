@@ -1,0 +1,21 @@
+dom-module#currency-indicator
+  style(type='text/css').
+    :host {
+      display: inline-block;
+      min-width: 400px;
+    }
+  template
+    google-chart(
+      type='column'
+      id= 'currencyChart'
+      options='{ "title": "CURRENCY RANGE INDICATOR", ' +
+      '          "legend": {"position": "in"}, ' +
+      '          "vAxis": {"minValue" : 0, "maxValue": 10000, "format": "currency"},' +
+      '          "animation": {"duration": "1000"}}'
+      cols='[{"label": "Data", "type": "string"},{"label": "Currency ", "type": "number"}]'
+    )
+    indicators-btn(
+      id="c-switch-btn"
+      is="indicators-btn"
+      type="currency"
+    )

@@ -1,0 +1,18 @@
+dom-module#age-indicator
+  style(type='text/css').
+    :host {
+      display: inline-block;
+      min-width: 400px;
+    }
+  template
+    google-chart(
+      type='pie'
+      id='ageChart'
+      options='{ "title": "AGE RANGE INDICATOR", "is3D": true }'
+      cols='[ {"label": "Range", "type": "string"},{"label": "Age", "type": "number"} ]'
+    )
+    indicators-btn(
+      id="a-switch-btn"
+      is="indicators-btn"
+      type="age"
+    )

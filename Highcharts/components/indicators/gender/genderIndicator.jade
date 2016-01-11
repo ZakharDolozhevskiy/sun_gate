@@ -1,0 +1,21 @@
+dom-module#gender-indicator
+  style(type='text/css').
+    :host {
+      display: inline-block;
+      min-width: 400px;
+    }
+  template
+    google-chart(
+      type='stepped-area'
+      id= 'genderChart'
+      options='{ "title": "GENDER INDICATOR", ' +
+      '          "legend": {"position": "in"}, ' +
+      '          "vAxis": {"format": "percent", "minValue" : 0, "maxValue": 1},' +
+      '          "animation": {"duration": "1000"}}'
+      cols='[{"label": "Gender", "type": "string"},{"label": "Gender", "type": "number"}]'
+    )
+    indicators-btn(
+      id="g-switch-btn"
+      is="indicators-btn"
+      type="gender"
+    )

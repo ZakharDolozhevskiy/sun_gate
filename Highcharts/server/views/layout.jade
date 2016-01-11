@@ -2,17 +2,13 @@ doctype html
 html
   head
     title= title
-    script(rel='import', src='libs/webcomponentsjs/webcomponents-lite.js')
-    script(rel='import', src='javascripts/app.js')
-    link(rel='stylesheet', href='stylesheets/style.css')
+    // polymer components
     link(rel='import', href='libs/polymer/polymer.html')
-    // polymer's components
     link(rel='import', href='libs/google-chart/google-chart.html')
-    link(rel='import', href='components/buttons/indicators-btn.html')
-    link(rel='import', href='components/indicators/age')
-    link(rel='import', href='components/indicators/currency')
-    link(rel='import', href='components/indicators/seconds')
-    link(rel='import', href='components/indicators/gender')
+    link(rel='import', href='components/base.html')
+    // javascript files
+    script(rel='import', src='libs/webcomponentsjs/webcomponents-lite.js')
+    script(rel='import', src='main.js', defer)
   body
     block content
       include indicators.jade

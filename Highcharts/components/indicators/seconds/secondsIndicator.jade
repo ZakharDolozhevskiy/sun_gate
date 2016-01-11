@@ -1,0 +1,21 @@
+dom-module#seconds-indicator
+  style(type='text/css').
+    :host {
+      display: inline-block;
+      min-width: 400px;
+    }
+  template
+    google-chart(
+      type='area'
+      id='secondsChart'
+      options='{ "title": "RUNTIME INDICATOR", ' +
+      '          "legend": {"position": "in"}, ' +
+      '          "vAxis": {"minValue" : 0, "maxValue": 60},' +
+      '          "animation": {"duration": "1000"}}'
+      cols='[{"label": "Data", "type": "string"},{"label": "Currency ", "type": "number"}]'
+    )
+    indicators-btn(
+      id="s-switch-btn"
+      is="indicators-btn"
+      type="runtime"
+    )

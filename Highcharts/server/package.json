@@ -1,6 +1,6 @@
 {
-  "name": "highcharts",
-  "version": "0.0.0",
+  "name": "highcharts-server",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "start": "NODE_PATH=. node --use_strict --harmony ./bin/www",
