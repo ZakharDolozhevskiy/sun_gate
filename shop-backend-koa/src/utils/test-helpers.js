@@ -7,3 +7,8 @@ module.exports.getRandomUser = () => {
     passwordConfirm: '12345678'
   };
 };
+
+module.exports.getPrivilegedUser = () => ({
+  username: 'privileged',
+  password: 'privileged'
+});

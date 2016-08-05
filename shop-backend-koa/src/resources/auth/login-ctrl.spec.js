@@ -35,5 +35,4 @@ describe('Auth :: Log In && Log out', () => {
       .get('/profile')
       .expect(403, done);
   });
-
 });

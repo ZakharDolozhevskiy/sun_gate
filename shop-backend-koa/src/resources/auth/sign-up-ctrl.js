@@ -29,7 +29,7 @@ module.exports.signup = function* signUpCtrl() {
 
   if (isUserExist) { this.throw(400, 'User already exist'); }
 
-  yield User.create(body);
+  yield User.create(Object.assign({}, body, { admin: undefined }));
 
   this.status = 201;
 };

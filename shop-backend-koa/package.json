@@ -5,6 +5,7 @@
   "dependencies": {
     "co-body": "^4.2.0",
     "koa": "1.2.0",
+    "koa-body": "^1.4.0",
     "koa-bodyparser": "^2.2.0",
     "koa-cors": "0.0.16",
     "koa-docs": "^0.9.3",
@@ -17,6 +18,7 @@
     "koa-session": "^3.3.1",
     "lodash": "^3.5.0",
     "mongoose": "^4.5.4",
+    "mongoose-paginate": "^5.0.0",
     "passport-local": "^1.0.0"
   },
   "devDependencies": {
@@ -36,8 +38,8 @@
   "scripts": {
     "start": "NODE_ENV=production node --harmony src/server.js",
     "dev": "NODE_ENV=development node --debug --harmony src/server.js",
-    "test": "npm run test-jshint && npm run test-mocha",
-    "test-mocha": "mocha --harmony ./src/**/*.spec.js",
-    "test-mocha-watch": "mocha --watch --harmony ./src/**/*.spec.js"
+    "dev:watch": " NODE_ENV=development supervisor -w src --debug --harmony  src/server.js",
+    "test-mocha": "NODE_ENV=testing mocha --harmony ./src/**/*.spec.js",
+    "test-mocha-watch": "NODE_ENV=testing mocha --watch --harmony ./src/**/*.spec.js"
   }
 }

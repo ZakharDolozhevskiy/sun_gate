@@ -1,5 +1,6 @@
-const path  = require('path');
-const merge = require('lodash/object/merge');
+const path    = require('path');
+const merge   = require('lodash/object/merge');
+const parsers = require('../../utils/parsers');
 
 process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 
@@ -11,7 +12,20 @@ const base = {
   logType: 'dev'
 };
 
+// Middlewares config
+const middlewares = {
+  koaBody: {
+    multipart:  true,
+    formidable: {
+      uploadDir:      `${__dirname}/../../public/images`,
+      onFileBegin:    parsers.normalizeFileName,
+      maxFieldsSize:  200 * 1024, // 200mb
+      keepExtensions: true
+    }
+  }
+};
+
 // Env config
 const env = require(`./${process.env.NODE_ENV}.js`) || {};
 
-module.exports = merge(base, env);
+module.exports = merge(base, env, middlewares);
