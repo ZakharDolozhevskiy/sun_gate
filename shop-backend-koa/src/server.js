@@ -3,8 +3,11 @@ const config = require('./config/environment');
 
 app.keys = [config.key];
 
-require('./config/chai');
+require('babel-register')({ presets: ['es2015', 'react'] });
 
+require('babel-polyfill');
+
+require('./config/chai');
 require('./config/koa')(app);
 require('./config/routes')(app);
 require('./config/mongoose');

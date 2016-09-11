@@ -1,4 +1,5 @@
 const cors     = require('koa-cors');
+const views    = require('./views.js');
 const config   = require('./environment');
 const helmet   = require('koa-helmet');
 const morgan   = require('koa-morgan');
@@ -9,6 +10,7 @@ const passport = require('koa-passport');
 module.exports = app => {
   app.use(morgan.middleware(config.logType));
   app.use(cors());
+  app.use(views());
   app.use(helmet());
   app.use(koaBody(config.koaBody));
   app.use(session(app));

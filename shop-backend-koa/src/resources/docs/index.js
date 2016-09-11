@@ -7,7 +7,7 @@ module.exports = docs.get('/docs', {
   theme: 'simplex',    // Specify a theme from www.bootswatch.com;
                        // default is un-themed bootstrap
 
-  routeHandlers: 'disabled',  // Hide the route implementation code from docs
+  //routeHandlers: 'disabled',  // Hide the route implementation code from docs
 
   groups: [
     //  { groupName: 'Pets', routes: [/*  ... route specs ...  */] },

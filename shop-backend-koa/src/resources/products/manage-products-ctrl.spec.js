@@ -67,7 +67,7 @@ describe('Products:: Add && Remove && Remove all', () => {
       .expect(403, done);
   });
 
-  it('should login user with admin permision', done => {
+  it('should login user with admin permission', done => {
     request
       .post('/auth/login')
       .send({ username: privilegedUser.username, password: privilegedUser.password })
