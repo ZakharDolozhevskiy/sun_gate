@@ -1,6 +1,7 @@
 const React          = require('react');
+const config         = require('../../config/environment');
 const passport       = require('koa-passport');
-const LoginForm      = require('./login-form.jsx');
+const LoginForm      = require(`${config.frontEndDist}/src/components/login-form`);
 const ReactDOMServer = require('react-dom/server');
 
 function getRenderedComponent(errors = null) {
@@ -14,7 +15,7 @@ function getRenderedComponent(errors = null) {
 }
 
 module.exports.renderLoginForm = function* renderLoginForm() {
-  yield this.render('login-page.jade', getRenderedComponent());
+  yield this.render('cockpit-login.jade', getRenderedComponent());
 };
 
 module.exports.checkAdminPermission = function* checkAdminPermission() {
@@ -25,7 +26,7 @@ module.exports.checkAdminPermission = function* checkAdminPermission() {
     } else {
       this.status = 403;
       this.logout();
-      yield this.render('login-page.jade', getRenderedComponent(true));
+      yield this.render('cockpit-login.jade', getRenderedComponent(true));
     }
   }.bind(this)).call(this);
 };

@@ -11,6 +11,11 @@ let BowerWebpackPlugin = require('bower-webpack-plugin');
 
 let config = Object.assign({}, baseConfig, {
   entry: path.join(__dirname, '../src/index'),
+  output: {
+    filename: 'app.js',
+    publicPath: '/public/cockpit/',
+    path: path.join(__dirname, '/../../src/public/cockpit')
+  },
   cache: false,
   devtool: 'sourcemap',
   plugins: [

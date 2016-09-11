@@ -6,10 +6,12 @@ process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 
 // Base config
 const base = {
-  env:     process.env.NODE_ENV,
-  root:    path.normalize(`${__dirname}/../../..`),
-  port:    process.env.PORT || 3000,
-  logType: 'dev'
+  env:          process.env.NODE_ENV,
+  root:         path.normalize(`${__dirname}/../../..`),
+  port:         process.env.PORT || 3000,
+  logType:      'dev',
+  publicPath:   path.normalize(`${__dirname}/../../`),
+  frontEndDist: __dirname + '/../../../front-end/'
 };
 
 // Middlewares config
