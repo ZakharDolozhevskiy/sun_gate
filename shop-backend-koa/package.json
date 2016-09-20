@@ -50,6 +50,8 @@
     "start": "NODE_ENV=production node --harmony src/server.js",
     "dev": "NODE_ENV=development node --debug --harmony src/server.js",
     "dev:watch": " NODE_ENV=development supervisor -w src --debug --harmony  src/server.js",
+    "dev:window": "set NODE_ENV=development node --debug --harmony src/server.js",
+    "dev:window:watch": "set NODE_ENV=development supervisor -w src --debug --harmony  src/server.js",
     "test-mocha": "NODE_ENV=testing mocha --harmony ./src/**/*.spec.js",
     "test-mocha-watch": "NODE_ENV=testing mocha --watch --harmony ./src/**/*.spec.js"
   }
