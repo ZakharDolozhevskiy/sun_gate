@@ -3,6 +3,7 @@ const path  = __dirname + '/../views';
 
 const config = {
   map: {
+    html:      'underscore',
     extension: 'jade'
   }
 };
