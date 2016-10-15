@@ -10,8 +10,8 @@ const testProduct = {
   title: 'test product'
 };
 
-const PRODUCTS_LIMIT = 10; // limit for products count per page (from Product schema)
-const PRODUCTS_COUNT = 12; // added products for testing
+const PRODUCTS_LIMIT = 12; // limit for products count per page (from Product schema)
+const PRODUCTS_COUNT = 14; // added products for testing
 
 function* addTestProducts() {
   for (let i = 0; i < PRODUCTS_COUNT; i++) yield Product.create(testProduct);

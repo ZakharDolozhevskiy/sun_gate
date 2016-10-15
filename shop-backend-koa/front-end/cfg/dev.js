@@ -4,6 +4,7 @@ let path = require('path');
 let webpack = require('webpack');
 let baseConfig = require('./base');
 let defaultSettings = require('./defaults');
+let HtmlWebpackPlugin = require('html-webpack-plugin');
 
 // Add needed plugins here
 let BowerWebpackPlugin = require('bower-webpack-plugin');
@@ -12,7 +13,7 @@ let config = Object.assign({}, baseConfig, {
   entry: [
     'webpack-dev-server/client?http://127.0.0.1:' + defaultSettings.port,
     'webpack/hot/only-dev-server',
-    './src/index'
+    './src/app'
   ],
   cache: true,
   devtool: 'eval-source-map',
@@ -21,6 +22,9 @@ let config = Object.assign({}, baseConfig, {
     new webpack.NoErrorsPlugin(),
     new BowerWebpackPlugin({
       searchResolveModulesDirectories: false
+    }),
+    new HtmlWebpackPlugin({
+      template: './src/index.html'
     })
   ],
   module: defaultSettings.getDefaultModules()

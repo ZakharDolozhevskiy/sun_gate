@@ -10,7 +10,6 @@ const passport = require('koa-passport');
 
 module.exports = app => {
   app.use(morgan.middleware(config.logType));
-  app.use(cors());
   app.use(serve(config.publicPath));
   app.use(views());
   app.use(helmet());
@@ -18,4 +17,5 @@ module.exports = app => {
   app.use(session(app));
   app.use(passport.initialize());
   app.use(passport.session());
+  app.use(cors(config.cors));
 };

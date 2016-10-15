@@ -1,0 +1,15 @@
+.products {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+
+}
+
+.product {
+  width: 350px;
+  margin: 10px;
+}
+
+.edit-product-dialog h3 {
+  text-align: center;
+}

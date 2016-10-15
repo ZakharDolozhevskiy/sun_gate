@@ -9,6 +9,10 @@ const base = {
   env:          process.env.NODE_ENV,
   root:         path.normalize(`${__dirname}/../../..`),
   port:         process.env.PORT || 3000,
+  cors: {
+    methods:     ['GET', 'PUT', 'POST', 'DELETE'],
+    credentials: true
+  },
   logType:      'dev',
   publicPath:   path.normalize(`${__dirname}/../../`),
   frontEndDist: __dirname + '/../../../front-end/'

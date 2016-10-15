@@ -43,3 +43,14 @@ module.exports.removeAllProducts = function* deleteAllProducts() {
     this.status = 404;
   }
 };
+
+module.exports.updateProduct = function* updateProduct() {
+  const product = JSON.parse(this.request.body);
+
+  try {
+    yield Product.updateProduct(this.params.id, product);
+    this.status = 201;
+  } catch (err) {
+    this.status = 404;
+  }
+};

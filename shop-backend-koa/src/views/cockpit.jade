@@ -4,4 +4,7 @@ html
     title Cockpit
   body
     section#app
+      !{html}
+    script.
+      window.__PRELOADED_STATE__ = !{initState}
     script(src='../public/cockpit/app.js')

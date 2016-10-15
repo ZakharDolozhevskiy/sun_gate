@@ -15,6 +15,11 @@ router.post('/',
   manageProductsCtrl.createProduct
 );
 
+router.put('/:id',
+  manageProductsCtrl.checkAdminRights,
+  manageProductsCtrl.updateProduct
+);
+
 router.delete('/',
   manageProductsCtrl.checkAdminRights,
   manageProductsCtrl.removeAllProducts
