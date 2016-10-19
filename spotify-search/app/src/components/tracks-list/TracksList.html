@@ -1,0 +1,17 @@
+<md-toolbar layout="row" class="md-toolbar-tools">
+  <h1>Search of music tracks</h1>
+</md-toolbar>
+<div flex layout="row">
+  <md-content flex id="content">
+    <search-input on-input-change="$ctrl.onInputChange(query)"></search-input>
+    <h4 ng-hide="$ctrl.tracks">No results</h4>
+    <md-list-item class="md-3-line" ng-show="$ctrl.tracks" ng-repeat="track in $ctrl.tracks" ng-click="null">
+      <img ng-src="{{track.icon}}?{{$index}}" class="md-avatar" alt="{{track.altText}}" />
+      <div class="md-list-item-text" layout="column">
+        <h3>{{track.name}}</h3>
+        <h4>{{track.author}}</h4>
+        <p>{{track.album}}</p>
+      </div>
+    </md-list-item>
+  </md-content>
+</div>
