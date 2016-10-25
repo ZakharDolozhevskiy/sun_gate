@@ -2,6 +2,7 @@ const co      = require('co');
 const fs      = require('fs');
 const app     = require('../../server');
 const path    = require('path');
+const expect  = require('chai').expect;
 const Product = require('../../schemas/Product');
 const request = require('supertest').agent(app.listen());
 
@@ -83,6 +84,24 @@ describe('Products:: Add && Remove && Remove all', () => {
     addProduct(true)
       .expect(201)
       .end(() => isImgAdded(done));
+  });
+
+  it('should update product fields', done => {
+    const criteria = { 'title': testProduct.title };
+
+    Product.findOne(criteria, (err, product) => {
+      request
+        .put(`/products/${product._id}`)
+        .send({ color: 'ivory', price: 555 })
+        .expect(201)
+        .end(() => {
+          Product.findOne(criteria, (err, product) => {
+            expect(product.color).to.equal('ivory');
+            expect(product.price).to.equal(555);
+            done();
+          })
+        });
+    });
   });
 
   it('should delete product by product id', done => {

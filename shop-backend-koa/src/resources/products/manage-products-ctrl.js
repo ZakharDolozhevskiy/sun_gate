@@ -45,7 +45,7 @@ module.exports.removeAllProducts = function* deleteAllProducts() {
 };
 
 module.exports.updateProduct = function* updateProduct() {
-  const product = JSON.parse(this.request.body);
+  const product = this.request.body;
 
   try {
     yield Product.updateProduct(this.params.id, product);
