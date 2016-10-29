@@ -88,11 +88,12 @@ describe('Products:: Add && Remove && Remove all', () => {
 
   it('should update product fields', done => {
     const criteria = { 'title': testProduct.title };
+    const payload  = { color: 'ivory', price: 555 };
 
     Product.findOne(criteria, (err, product) => {
       request
         .put(`/products/${product._id}`)
-        .send({ color: 'ivory', price: 555 })
+        .send(payload)
         .expect(201)
         .end(() => {
           Product.findOne(criteria, (err, product) => {

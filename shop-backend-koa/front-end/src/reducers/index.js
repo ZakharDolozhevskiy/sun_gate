@@ -1,5 +1,6 @@
+import auth                from './auth'
+import products            from './products';
 import { combineReducers } from 'redux';
-import products from './products';
 
 function createReducer(initialState, handlers) {
   return function reducer(state = initialState, action) {
@@ -12,5 +13,6 @@ function createReducer(initialState, handlers) {
 }
 
 export default combineReducers({
+  auth:     createReducer({}, auth),
   products: createReducer(products.initState, products.reducers)
 });

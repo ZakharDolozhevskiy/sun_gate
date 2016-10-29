@@ -13,7 +13,7 @@ const productSchema = new Schema({
 productSchema.plugin(mongoosePaginate);
 
 productSchema.statics.getProducts = function getProducts(page) {
-  return this.paginate({}, { page: page || 1, limit: 12 });
+  return this.paginate({}, { page: +page || 1, limit: 12 });
 };
 
 productSchema.statics.getProductById = function getProductById(id) {
@@ -28,8 +28,9 @@ productSchema.statics.removeAllProducts = function removeProduct() {
   return this.find().remove().exec();
 };
 
-productSchema.statics.updateProduct = function updateProduct(id, product) {
-  return this.findByIdAndUpdate(id, product).exec();
+productSchema.statics.updateProduct = function* updateProduct(id, product) {
+  yield this.findByIdAndUpdate(id, product).exec();
+  return this.findById(id).exec();
 };
 
 const modelName = process.env.NODE_ENV === 'testing' ? 'TestProduct' : 'Product';

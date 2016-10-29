@@ -12,14 +12,15 @@ module.exports.checkAdminRights = function* checkAdminRights(next) {
 
 module.exports.createProduct = function* createProduct() {
   const body = this.request.body;
-  const payload = Object.assign(
-    body.fields,
-    { image_link: parsers.getRelativePath(body.files.photo) }
-  );
+
+  const payload = Object.assign(body.fields, {
+    image_link: body.files.photo && parsers.getRelativePath(body.files.photo)
+  });
 
   try {
-    yield Product.create(payload);
+    const product = yield Product.create(payload);
     this.status = 201;
+    this.body = product;
   } catch (err) {
     this.body = err;
     this.status = 400;
@@ -45,11 +46,16 @@ module.exports.removeAllProducts = function* deleteAllProducts() {
 };
 
 module.exports.updateProduct = function* updateProduct() {
-  const product = this.request.body;
+  const body = this.request.body;
+
+  const payload = Object.assign(
+    body.fields, { image_link: body.files.photo && parsers.getRelativePath(body.files.photo) }
+  );
 
   try {
-    yield Product.updateProduct(this.params.id, product);
+    const product = yield Product.updateProduct(this.params.id, payload);
     this.status = 201;
+    this.body = product;
   } catch (err) {
     this.status = 404;
   }

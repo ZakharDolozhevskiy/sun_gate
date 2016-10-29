@@ -1,14 +1,13 @@
-import Dialog from 'material-ui/Dialog';
-import serialize from 'form-serialize';
-import TextField from 'material-ui/TextField';
-import FlatButton from 'material-ui/FlatButton';
-import DatePicker from 'material-ui/DatePicker';
-import RaisedButton from 'material-ui/RaisedButton';
-import { connect } from 'react-redux';
-import { createSelector } from 'reselect';
-import React, { Component, PropTypes } from 'react';
-import CircularProgress from 'material-ui/CircularProgress';
-import Product from '../components/product';
+import Product                                  from '../components/product';
+import Paper                                    from 'material-ui/Paper';
+import Divider                                  from 'material-ui/Divider';
+import TextField                                from 'material-ui/TextField';
+import { connect }                              from 'react-redux';
+import ReactPaginate                            from 'react-paginate';
+import CircularProgress                         from 'material-ui/CircularProgress';
+import ProductEditModal                         from '../components/product-modal';
+import { createSelector }                       from 'reselect';
+import React, { Component, PropTypes }          from 'react';
 import { getProducts, delProduct, saveProduct } from '../actions';
 
 const productsSelector = createSelector(
@@ -16,13 +15,11 @@ const productsSelector = createSelector(
   products => products && products.toJS()
 );
 
-const mapStateToProps = (state) => ({
-  products: productsSelector(state)
-});
+const mapStateToProps = state => productsSelector(state);
 
 const dispatchToProps = (dispatch) => ({
   delProduct:  (id) => dispatch(delProduct(id)),
-  getProducts: () => dispatch(getProducts()),
+  getProducts: (page) => dispatch(getProducts(page)),
   saveProduct: (id, serialized) => dispatch(saveProduct(id, serialized))
 });
 
@@ -46,54 +43,74 @@ class Products extends Component {
     return () => this.props.delProduct(id);
   }
 
-  onSave() {
+  onSave(payload) {
     const id = this.state.editableProduct._id;
-    const serialized = serialize(this.form, { hash: true });
     this.setState({ modalOpen: false, editableProduct: {} });
-    this.props.saveProduct(id, serialized);
+    this.props.saveProduct(id, payload);
   }
 
   render() {
-    if (!this.props.products) { return <CircularProgress />; }
+    if (this.props.loading) {
+      return <CircularProgress style = {{ left: '50vw', top: '50vh' }} />;
+    }
 
-    const { title, color, size, price } = this.state.editableProduct;
+    const { title, color, size, price, image_link } = this.state.editableProduct;
 
     return (
       <section className="products">
-        {this.props.products.map(product =>
+        <div style={{ width: '100%', padding: '20px 56px' }}>
+          <Paper zDepth={2}>
+            <TextField hintText="Search products" style={{ width: '100%', padding: '0 20px' }} underlineShow={false} />
+            <Divider />
+          </Paper>
+        </div>
+        {this.props.items.map(product =>
           <Product
             key={product._id}
             product={product}
-            onEdit = {this.onProductEdit(product)}
-            onDelete = {this.onProductDelete(product._id)}
-          />)
-        }
-        <Dialog
-          title={`Editing "${title}" product`}
-          actions={[<FlatButton label="Save" primary={true} onTouchTap={this.onSave} />]}
-          open={this.state.modalOpen}
-          onRequestClose={this.closeModal}
-        >
-          <form ref={(ref) => { this.form = ref; }}>
-            <TextField name="title" floatingLabelText={<strong>Title</strong>} defaultValue={title}/><br/>
-            <TextField name="size" floatingLabelText={<strong>Size</strong>} defaultValue={size}/><br/>
-            <TextField name="color" floatingLabelText={<strong>Color</strong>} defaultValue={color}/><br/>
-            <TextField name="price" floatingLabelText={<strong>Price</strong>} defaultValue={price}/><br/>
-            <DatePicker hintText="Set update date" />
-          </form>
-        </Dialog>
+            onEdit={this.onProductEdit(product)}
+            onDelete={this.onProductDelete(product._id)}
+          />)}
+        <div className="pagination-wrapper">
+          <ReactPaginate
+            pageNum={this.props.pages}
+            clickCallback={i => this.props.getProducts(i.selected + 1)}
+            nextLabel='next'
+            forceSelected={this.props.page - 1}
+            pageRangeDisplayed={5}
+            activeClassName='active'
+            previousLabel='previous'
+            marginPagesDisplayed={2}
+            breakClassName='break-me'
+            breakLabel={<span>...</span>}
+            containerClassName='pagination'
+            subContainerClassName='pages pagination'
+          />
+        </div>
+        <ProductEditModal
+          size={size}
+          title={title}
+          color={color}
+          price={price}
+          img={image_link}
+          modalTitle={`Editing "${title}" product`}
+          onChange={this.onSave}
+          isOpen={this.state.modalOpen}
+          closeModal={this.closeModal}
+        />
       </section>
     );
   }
 }
 
 Products.propTypes = {
-  products:    PropTypes.array,
+  page:        PropTypes.number,
+  items:       PropTypes.array,
+  pages:       PropTypes.number,
+  loading:     PropTypes.bool,
   delProduct:  PropTypes.func.isRequired,
   saveProduct: PropTypes.func.isRequired,
   getProducts: PropTypes.func.isRequired
 };
-
-Products.defaultProps = {};
 
 export default connect(mapStateToProps, dispatchToProps)(Products);

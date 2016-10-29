@@ -5,6 +5,10 @@ function createConstants(...constants) {
 }
 
 export default createConstants(
+  'LOGOUT',
+  'LOGOUT_SUCCESS',
+  'ADD_PRODUCT_SUCCESS',
+  'ADD_PRODUCT_FAILURE',
   'GET_PRODUCTS_SUCCESS',
   'GET_PRODUCTS_LOADING',
   'GET_PRODUCTS_FAILURE',

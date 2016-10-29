@@ -3,7 +3,8 @@ import fetch from 'isomorphic-fetch';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import injectTapEventPlugin from 'react-tap-event-plugin';
-import { createStore, applyMiddleware } from 'redux';
+import { composeWithDevTools } from 'redux-devtools-extension';
+import { createStore, applyMiddleware, compose } from 'redux';
 import React, { Component, PropTypes } from 'react';
 
 import Root from './containers/root';
@@ -25,8 +26,9 @@ fetch('http://localhost:3000/auth/login', {
   body: JSON.stringify({ username: 'admin', password: 'admin' })
 });
 
-const middlewares = applyMiddleware(thunk);
-const store = createStore(reducers, middlewares);
+const store = createStore(reducers, {}, composeWithDevTools(
+  applyMiddleware(thunk)
+));
 
 ReactDOM.render(
   <Provider store={store}>
