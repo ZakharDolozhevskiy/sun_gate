@@ -13,18 +13,20 @@ import reducers from './reducers';
 injectTapEventPlugin();
 
 require('normalize.css/normalize.css');
-require('./styles/app.scss');
+require('./styles/app');
 
-// DEVELOPMENT HOOK
-fetch('http://localhost:3000/auth/login', {
-  method: 'POST',
-  credentials: 'include',
-  headers: {
-    'Accept': 'application/json',
-    'Content-Type': 'application/json'
-  },
-  body: JSON.stringify({ username: 'admin', password: 'admin' })
-});
+
+// TODO move to __DEV__ variable support
+//fetch('http://localhost:3000/auth/login', {
+//  method: 'POST',
+//  credentials: 'include',
+//  headers: {
+//    'Accept': 'application/json',
+//    'Content-Type': 'application/json'
+//  },
+//  body: JSON.stringify({ username: 'admin', password: 'admin' })
+//});
+
 
 const store = createStore(reducers, {}, composeWithDevTools(
   applyMiddleware(thunk)

@@ -12,9 +12,8 @@ module.exports.checkAdminRights = function* checkAdminRights(next) {
 
 module.exports.createProduct = function* createProduct() {
   const body = this.request.body;
-
   const payload = Object.assign(body.fields, {
-    image_link: body.files.photo && parsers.getRelativePath(body.files.photo)
+    image_link: parsers.getRelativePath(this.request.header.host, body.files.photo)
   });
 
   try {
@@ -47,10 +46,9 @@ module.exports.removeAllProducts = function* deleteAllProducts() {
 
 module.exports.updateProduct = function* updateProduct() {
   const body = this.request.body;
-
-  const payload = Object.assign(
-    body.fields, { image_link: body.files.photo && parsers.getRelativePath(body.files.photo) }
-  );
+  const payload = body.files.photo ? Object.assign(body.fields, {
+    image_link: parsers.getRelativePath(this.request.header.host, body.files.photo)
+  }) : body;
 
   try {
     const product = yield Product.updateProduct(this.params.id, payload);

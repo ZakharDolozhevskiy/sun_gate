@@ -15,7 +15,7 @@ module.exports = {
   debug: true,
   devtool: 'eval',
   output: {
-    path: path.join(__dirname, '/../dist'),
+    path: defaultSettings.srcPath,
     filename: 'app.js',
     publicPath: defaultSettings.publicPath
   },
@@ -28,12 +28,15 @@ module.exports = {
     noInfo: false
   },
   resolve: {
-    extensions: ['', '.js', '.jsx'],
+    extensions: ['', '.js', '.jsx', '.scss'],
     alias: {
       components: `${defaultSettings.srcPath}/components/`,
-      styles: `${defaultSettings.srcPath}/styles/`,
+
       config: `${defaultSettings.srcPath}/config/` + process.env.REACT_WEBPACK_ENV
     }
+  },
+  sassLoader : {
+    includePaths : `${defaultSettings.srcPath}/styles`
   },
   module: {}
 };

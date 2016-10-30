@@ -2,7 +2,6 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-
 }
 
 .product {
@@ -17,4 +16,11 @@
 .pagination-wrapper {
   width: 100%;
   text-align: center;
+}
+
+.add-product-photo {
+  width: 200px;
+  height: 200px;
+  background: url('../../images/not-found-product.jpg');
+  background-size: cover;
 }
