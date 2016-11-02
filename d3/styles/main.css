@@ -1,0 +1,50 @@
+.active {
+    fill: #6e7eff;
+}
+
+.axis text {
+    font: 10px sans-serif;
+}
+
+.axis path,
+.axis line {
+    fill: none;
+    stroke: #000;
+    shape-rendering: crispEdges;
+}
+
+.x.axis path {
+    display: none;
+}
+
+#egg-head-charts .bar {
+    display: inline-block;
+    width: 20px;
+    height: 75px;
+    margin-right: 2px;
+    fill: teal;
+}
+
+#egg-head-charts .bubble {
+    display: inline-block;
+    fill-opacity: 0.5;
+    stroke: black;
+    stroke-weight: 1px;
+}
+
+#egg-head-charts .tooltip {
+    fill: white;
+    stroke: black;
+    stroke-weight: 1px;
+}
+
+#egg-head-charts .tooltip {
+    fill: black;
+    stroke-weight: 0;
+    font: 15px sans-serif;
+}
+path {
+    fill: steelblue;
+    /*stroke: steelblue;*/
+    /*stroke-weight: 3px;*/
+}
