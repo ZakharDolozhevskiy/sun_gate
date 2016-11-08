@@ -2,6 +2,8 @@
     fill: #6e7eff;
 }
 
+.axisRightY,
+.axisLeftY,
 .axis text {
     font: 10px sans-serif;
 }
@@ -47,4 +49,14 @@ path {
     fill: steelblue;
     /*stroke: steelblue;*/
     /*stroke-weight: 3px;*/
+}
+
+.h-line,
+.mid-line {
+    stroke: lightgrey;
+    stroke-width: 1px;
+}
+
+.line {
+    fill: steelblue;
 }
