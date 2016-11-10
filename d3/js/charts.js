@@ -14,9 +14,14 @@
 
   const xAxis = d3.svg.axis()
       .scale(x)
+      .innerTickSize(-height)
       .orient('bottom');
 
-  const yAxis = d3.svg.axis().scale(y).orient('left').ticks(20, '%');
+  const yAxis = d3.svg.axis()
+    .scale(y)
+    .innerTickSize(-width)
+    .orient('left')
+    .ticks(20, '%');
 
   const type = d => Object.assign(d, { frequency: +d.frequency });
 

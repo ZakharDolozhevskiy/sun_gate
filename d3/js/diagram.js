@@ -46,7 +46,11 @@
     {date: new Date(2011, 11, 31), sunrise: [7, 51], sunset: [16, 41]}
   ];
 
-  const months = d3.scaleTime()
+  const months = d3.scaleBand()
+    .domain(["Jan", "Feb", "Mar", "April", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"])
+    .range([0, width - 1]);
+
+  const date = d3.scaleTime()
     .domain([new Date(2011, 0, 1), new Date(2011, 11, 31)])
     .range([0, width]);
 
@@ -56,11 +60,7 @@
 
   const applyAxisX = orient => {
     const axis = orient === 'top' ? d3.axisTop() : d3.axisBottom();
-    axis
-      .scale(months)
-      .ticks(12)
-      .tickFormat(d3.timeFormat("%b"));
-
+    axis.scale(months).tickSizeOuter(0);
     return axis
   };
 
@@ -76,32 +76,31 @@
     return (d - 12);
   };
 
-  const svg = d3.select('svg')
+  const svg = d3.select('svg-diagram')
     .attr('width', width + padding * 2)
     .attr('height', height + padding * 2)
     .append('g')
       .attr('transform', `translate(${padding},${padding})`);
 
   const sunrise = d3.area()
-    .x(d => months(d.date))
+    .x(d => date(d.date))
     .y0(hours(hours.domain()[0]))
     .y1(d => hours(new Date(2011, 0, 1, d.sunrise[0], d.sunrise[1])));
 
   const sunset = d3.area()
-    .x(d => months(d.date))
+    .x(d => date(d.date))
     .y0(d => hours(new Date(2011, 0, 1, d.sunset[0], d.sunset[1])))
     .y1(hours(hours.domain()[1]));
 
   svg
     .append('g')
     .attr('class', 'axis')
-    .attr('transform', `translate(0,-1)`)
     .call(applyAxisX('top'));
 
   svg
     .append('g')
     .attr('class', 'axis')
-    .attr('transform', `translate(0,${height})`)
+    .attr('transform', `translate(0,${height - 1})`)
     .call(applyAxisX('bottom'));
 
   svg

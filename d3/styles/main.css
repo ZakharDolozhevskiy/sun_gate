@@ -60,3 +60,6 @@ path {
 .line {
     fill: steelblue;
 }
+.tick line{
+    opacity: 0.2;
+}

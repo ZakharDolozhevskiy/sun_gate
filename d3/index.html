@@ -4,10 +4,25 @@
     <meta charset="UTF-8">
     <title>D3</title>
     <link rel="stylesheet" href="styles/main.css">
-    <script src="http://d3js.org/d3.v4.min.js" defer></script>
-    <script src="js/diagram.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/lodash/4.16.6/lodash.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"defer></script>
+    <script src="http://d3js.org/d3.v3.min.js" defer></script>
+    <!--<script src="http://d3js.org/d3.v4.min.js" defer></script>-->
+    <!--<script src="js/diagram.js" defer></script>-->
+    <script src="js/charts.js" defer></script>
+    <script src="js/circles.js" defer></script>
+    <script src="js/lines.js" defer></script>
 </head>
 <body>
 <svg id="svg"></svg>
+<svg id="svg-diagram"></svg>
+<svg id="egg-head-charts"></svg>
+<button id="btn">button</button>
+<div>
+    <svg id="svg-lines"></svg>
+    <button onclick="update('math')">Math</button>
+    <button onclick="update('science')">Science</button>
+    <button onclick="update('reading')">Reading</button>
+</div>
 </body>
 </html>
